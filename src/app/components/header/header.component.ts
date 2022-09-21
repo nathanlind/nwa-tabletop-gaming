@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'tg-header',
@@ -9,6 +10,7 @@ export class HeaderComponent implements OnInit {
 
   title: string = "Northwest Arkansas Tabletop Gaming Groups"
   loggedIn: boolean = false;
+  router!: Router;
 
   logInBtnText: string = "LOG IN"
   logInBtnClick(): void {
@@ -21,7 +23,9 @@ export class HeaderComponent implements OnInit {
     }
   };
 
-  constructor() { }
+  constructor(private _router: Router) {
+    this.router = _router;
+  }
 
   ngOnInit(): void {
   }

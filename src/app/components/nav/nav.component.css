@@ -1,0 +1,37 @@
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-top: 0px;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+li {
+  display: inline;
+  font-weight: bold;
+  padding: 0px 2px;
+}
+
+li:not(:last-child)::after {
+  content: " | ";
+}
+
+li > a {
+  color: #000;
+  text-decoration: none;
+}
+
+nav ul li a.active {
+  color: #fa4350;
+}
+
+#navLogin {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  font-weight: bold;
+}

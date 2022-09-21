@@ -1,0 +1,18 @@
+h2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px;
+  text-align: center;
+  color: #fff;
+  margin-top: 1em;
+  font-size: 18pt;
+}
+
+.centerColumnFlex {
+  margin-top: 15vh;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
