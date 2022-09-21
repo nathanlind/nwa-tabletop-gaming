@@ -1,0 +1,24 @@
+{
+   "cities": [
+    {
+      "CityName": "Springdale",
+      "CityId": "City1",
+      "Description": "Springdale, Arkansas"
+    },
+    {
+      "CityName": "Fayetteville",
+      "CityId": "City2",
+      "Description": "Fayetteville, Arkansas"
+      },
+      {
+      "CityName": "Bentonville",
+      "CityId": "City3",
+      "Description": "Bentonville, Arkansas"
+    },
+    {
+      "CityName": "Rogers",
+      "CityId": "City4",
+      "Description": "Rogers, Arkansas"
+    }
+  ]
+}

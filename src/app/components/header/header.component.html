@@ -1,0 +1,23 @@
+<header class="header-footer">
+  <section id="title">
+    <img src="../../../assets/images/d20.svg" alt="Image of 20 sided die" />
+    <h1>{{ title }}</h1>
+  </section>
+  <nav>
+    <section id="navBar">
+      <ul>
+        <li><a href="">HOME</a></li>
+        <li><a href="">GROUPS</a></li>
+        <li><a href="">MEMBERS</a></li>
+      </ul>
+    </section>
+    <section id="navLogin">
+      <button>
+        <a href="">REGISTER</a>
+      </button>
+      <button [class.loginBtn--loggedOut]="!loggedIn" (click)="logInBtnClick()">
+        <a href="">LOGIN</a>
+      </button>
+    </section>
+  </nav>
+</header>
