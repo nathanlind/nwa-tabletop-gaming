@@ -5,4 +5,5 @@
 body {
   background-image: url(./assets/images/background.jpg);
   background-attachment: fixed;
+  height: 100vh;
 }
