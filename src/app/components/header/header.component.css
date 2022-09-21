@@ -1,6 +1,9 @@
 header {
   display: flex;
   flex-direction: column;
+  background-color: #fff;
+  color: #000;
+  width: 100%;
 }
 
 header > * {
@@ -9,6 +12,19 @@ header > * {
 
 header > h1 {
   margin: 0px;
+  padding-left: 10px;
+}
+
+img {
+  height: 50px;
+  width: 50px;
+  display: inline;
+}
+
+#title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 nav {
