@@ -1,0 +1,22 @@
+[
+	{
+		"OrganizationName": "Springdale",
+		"OrganizationId": "Org1",
+		"Description": "Springdale, Arkansas"
+	},
+	{
+		"OrganizationName": "Fayetteville",
+		"OrganizationId": "Org2",
+		"Description": "Fayetteville, Arkansas"
+    },
+    {
+		"OrganizationName": "Bentonville",
+		"OrganizationId": "Org3",
+		"Description": "Bentonville, Arkansas" 
+	},
+	{
+		"OrganizationName": "Rogers",
+		"OrganizationId": "Org4",
+		"Description": "Rogers, Arkansas"
+	}
+]

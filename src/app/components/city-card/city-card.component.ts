@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CityCardComponent implements OnInit {
 
-  image: string = "https://via.placeholder.com/300";
+  image: string = "https://via.placeholder.com/300x200";
   imageAltText: string = "Placeholder image for City Card";
 
   constructor() { }
