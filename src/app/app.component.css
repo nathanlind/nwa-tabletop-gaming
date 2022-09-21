@@ -10,13 +10,7 @@ main > h2 {
 
 #cityCards {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-
-.header-footer {
-  background-color: rgba(0, 0, 0, 70%);
-  color: #fff;
-  width: 100%;
 }
