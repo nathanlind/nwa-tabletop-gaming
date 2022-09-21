@@ -1,0 +1,22 @@
+main > h2 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px;
+  text-align: center;
+  color: #000;
+  margin-top: 1em;
+  font-size: 18pt;
+}
+
+#cityCards {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-footer {
+  background-color: rgba(0, 0, 0, 70%);
+  color: #fff;
+  width: 100%;
+}
