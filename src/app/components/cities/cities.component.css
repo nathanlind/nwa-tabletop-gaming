@@ -16,3 +16,36 @@ h2 {
   align-content: center;
   align-items: center;
 }
+
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+h3 {
+  font-size: 20px;
+  color: #000;
+}
+
+img {
+  border-radius: 5% 5% 0 0;
+}
+
+.cityCard {
+  margin: 30px;
+  border-radius: 5%;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 1);
+  transition: 0.2s;
+  background-color: #fff;
+}
+
+.cityCard:hover {
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 1);
+}
+
+.cityCardContainer {
+  padding: 1.5em 16px;
+}
