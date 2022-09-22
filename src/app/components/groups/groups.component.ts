@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GroupService } from 'src/app/services/group.service';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'tg-groups',
@@ -15,9 +16,10 @@ export class GroupsComponent implements OnInit {
   groups!: any;
   errorMessage!: string;
 
-  constructor(private groupService: GroupService, private router: Router) { }
+  constructor(private groupService: GroupService, private router: Router, private titleService: Title) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle("NWATG | Groups")
     this.groupService.getGroups()
       .subscribe({
         next: (res:any) => {

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(private router: Router, private titleService: Title) {}
+  ngOnInit() {
+    // this.router.navigate(['cities']);
+    this.titleService.setTitle('NWA Tabletop Gaming')
+  }
+
   title = 'nwa-tabletop-gaming';
 }

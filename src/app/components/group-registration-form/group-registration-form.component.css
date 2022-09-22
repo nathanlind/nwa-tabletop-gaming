@@ -1,0 +1,12 @@
+section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  background-color: #fff;
+}
+
+form > * {
+  display: block;
+}
