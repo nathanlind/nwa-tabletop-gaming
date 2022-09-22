@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "Breathe Fire";
+  src: url("./BreatheFire/BreatheFire.woff2") format("woff2"),
+    url("./BreatheFire/BreatheFire.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

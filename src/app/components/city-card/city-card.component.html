@@ -1,5 +1,5 @@
 <section>
-  <div *ngFor="let city of cities" class="cityCard">
+  <div *ngFor="let city of cities" class="cityCard" (click)="showGroups(city)">
     <img [src]="image" [alt]="imageAltText" />
     <div class="cityCardContainer">
       <h3>{{ city.CityName }}</h3>
