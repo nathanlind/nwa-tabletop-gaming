@@ -1,4 +1,9 @@
 <section>
+  <div class="groupHeader">
+    <a routerLink="register-group" routerLinkActive="active">
+      <fa-icon [icon]="faCirclePlus"></fa-icon> Add Group
+    </a>
+  </div>
   <div *ngFor="let group of groups" class="groupCard">
     <div class="groupCardHeader">
       <h2>{{ group.GroupName }}</h2>

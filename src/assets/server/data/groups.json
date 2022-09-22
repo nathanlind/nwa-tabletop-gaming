@@ -1,5 +1,4 @@
-{
-  "groups": [
+[
   {
     "GroupId": 1,
     "GroupName": "Dungeoneers",
@@ -79,4 +78,4 @@
     ]
   }
 ]
-}
+
