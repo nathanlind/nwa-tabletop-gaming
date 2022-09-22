@@ -1,0 +1,39 @@
+section {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+h2 {
+  font-size: 25px;
+  padding-bottom: 0.3em;
+}
+
+ul > li {
+  padding-bottom: 0.3em;
+}
+
+.groupCard {
+  margin: 30px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 1);
+  transition: 0.2s;
+  background-color: #fff;
+  max-width: 50vw;
+  width: 50vw;
+}
+
+.groupCard:hover {
+  box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 1);
+}
+
+.groupCardHeader {
+  padding: 1.5em 16px;
+  background-color: #fa4350;
+  color: #fff;
+}
+
+.groupCardContainer {
+  padding: 1.5em 16px;
+}
