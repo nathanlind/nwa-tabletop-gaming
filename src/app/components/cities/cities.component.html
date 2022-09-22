@@ -1,4 +1,21 @@
 <div class="centerColumnFlex">
   <h2>Find a Tabletop Gaming Group in your City</h2>
-  <tg-city-card></tg-city-card>
+  <section>
+    <div
+      *ngFor="let city of cities"
+      class="cityCard"
+      (click)="showGroups(city)"
+    >
+      <img
+        src="../../../assets/images/cities/{{ city.CityName }}.jpg"
+        alt="A picture of the city of {{ city.CityName }}."
+        width="300px"
+        height="200px"
+      />
+      <div class="cityCardContainer">
+        <h3>{{ city.CityName }}</h3>
+        <!-- <img src="../../../assets/images/d20s/d20frame.svg" alt=""> -->
+      </div>
+    </div>
+  </section>
 </div>

@@ -8,7 +8,7 @@ import { City } from '../models/city.model';
 })
 export class CityService {
 
-  citiesUrl: string = 'http://localhost:3006/cities'
+  citiesUrl: string = 'http://localhost:3004/cities'
 
   constructor(private http: HttpClient) { }
 

@@ -1,1 +1,18 @@
-<p>groups works!</p>
+<section>
+  <div *ngFor="let group of groups" class="groupCard">
+    <div class="groupCardHeader">
+      <h2>{{ group.GroupName }}</h2>
+      <h3>{{ group.CityName }}</h3>
+    </div>
+    <div class="groupCardContainer">
+      <ul>
+        <li>Meets: {{ group.MeetingWeekDay }} at {{ group.MeetingTime }}</li>
+        <li>Primary Game: {{ group.PrimaryGame }}</li>
+        <li>Organizer: {{ group.OrganizerName }}</li>
+        <li>Organizer Phone: {{ group.OrganizerPhone }}</li>
+        <li>Organizer Email: {{ group.OrganizerEmail }}</li>
+        <li>Max Group Size: {{ group.MaxGroupSize }}</li>
+      </ul>
+    </div>
+  </div>
+</section>

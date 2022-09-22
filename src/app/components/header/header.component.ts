@@ -8,20 +8,9 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  title: string = "Northwest Arkansas Tabletop Gaming Groups"
+  title: string = "Northwest Arkansas Tabletop Gaming"
   loggedIn: boolean = false;
   router!: Router;
-
-  logInBtnText: string = "LOG IN"
-  logInBtnClick(): void {
-    if (this.loggedIn) {
-      this.logInBtnText = "LOG OUT"
-      this.loggedIn = true;
-    } else {
-      this.logInBtnText = "LOG IN"
-      this.loggedIn = false;
-    }
-  };
 
   constructor(private _router: Router) {
     this.router = _router;
