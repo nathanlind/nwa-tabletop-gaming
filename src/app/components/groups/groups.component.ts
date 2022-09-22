@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GroupService } from 'src/app/services/group.service';
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'tg-groups',
@@ -8,10 +10,12 @@ import { GroupService } from 'src/app/services/group.service';
 })
 export class GroupsComponent implements OnInit {
 
+  faCirclePlus = faCirclePlus;
+
   groups!: any;
   errorMessage!: string;
 
-  constructor(private groupService: GroupService) { }
+  constructor(private groupService: GroupService, private router: Router) { }
 
   ngOnInit(): void {
     this.groupService.getGroups()

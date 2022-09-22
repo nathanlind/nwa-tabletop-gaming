@@ -1,5 +1,4 @@
-{
-   "cities": [
+[
     {
       "CityName": "Springdale",
       "CityId": "City1",
@@ -21,4 +20,4 @@
       "Description": "Rogers, Arkansas"
     }
   ]
-}
+
