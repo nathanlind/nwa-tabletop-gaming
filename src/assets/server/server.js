@@ -80,11 +80,11 @@ function isValidGroup(group) {
     group.CityName.trim() == ""
   )
     return 2;
-  if (group.SponsorName == undefined || group.SponsorName.trim() == "")
+  if (group.OrganizerName == undefined || group.OrganizerName.trim() == "")
     return 3;
-  if (group.SponsorPhone == undefined || group.SponsorPhone.trim() == "")
+  if (group.OrganizerPhone == undefined || group.OrganizerPhone.trim() == "")
     return 4;
-  if (group.SponsorEmail == undefined || group.SponsorEmail.trim() == "")
+  if (group.OrganizerEmail == undefined || group.OrganizerEmail.trim() == "")
     return 5;
   if (group.MaxGroupSize == undefined || isNaN(group.MaxGroupSize)) return 6;
 
@@ -238,9 +238,12 @@ app.post("/api/groups", urlencodedParser, function (req, res) {
     GroupId: getNextId("group"), // assign id to group
     GroupName: req.body.GroupName,
     CityName: req.body.CityName,
-    SponsorName: req.body.SponsorName,
-    SponsorPhone: req.body.SponsorPhone,
-    SponsorEmail: req.body.SponsorEmail,
+    MeetingTime: req.body.MeetingTime,
+    MeetingWeekDay: req.body.MeetingWeekDay,
+    OrganizerName: req.body.OrganizerName,
+    OrganizerPhone: req.body.OrganizerPhone,
+    OrganizerEmail: req.body.OrganizerEmail,
+    PrimaryGame: req.body.PrimaryGame,
     MaxGroupSize: Number(req.body.MaxGroupSize),
     Members: [],
   };
@@ -278,9 +281,9 @@ app.put("/api/groups", urlencodedParser, function (req, res) {
     GroupId: req.body.GroupId, //req.params.id if you use id in URL instead of req.body.GroupId
     GroupName: req.body.GroupName,
     CityName: req.body.CityName,
-    SponsorName: req.body.SponsorName,
-    SponsorPhone: req.body.SponsorPhone,
-    SponsorEmail: req.body.SponsorEmail,
+    OrganizerName: req.body.OrganizerName,
+    OrganizerPhone: req.body.OrganizerPhone,
+    OrganizerEmail: req.body.OrganizerEmail,
     MaxGroupSize: Number(req.body.MaxGroupSize),
   };
 
@@ -306,9 +309,9 @@ app.put("/api/groups", urlencodedParser, function (req, res) {
   // update the group
   match.GroupName = group.GroupName;
   match.CityName = group.CityName;
-  match.SponsorName = group.SponsorName;
-  match.SponsorPhone = group.SponsorPhone;
-  match.SponsorEmail = group.SponsorEmail;
+  match.OrganizerName = group.OrganizerName;
+  match.OrganizerPhone = group.OrganizerPhone;
+  match.OrganizerEmail = group.OrganizerEmail;
 
   // make sure new values for MaxGroupSize doesn't invalidate grooup
   if (Number(group.MaxGroupSize) < match.Members.length) {

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -38,7 +39,7 @@ import { GroupRegistrationFormComponent } from './components/group-registration-
     HttpClientModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [Title],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
