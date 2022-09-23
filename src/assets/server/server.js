@@ -239,7 +239,7 @@ app.post("/api/groups", urlencodedParser, function (req, res) {
     GroupName: req.body.GroupName,
     CityName: req.body.CityName,
     MeetingTime: req.body.MeetingTime,
-    MeetingWeekDay: req.body.MeetingWeekDay,
+    MeetingDay: req.body.MeetingDay,
     OrganizerName: req.body.OrganizerName,
     OrganizerPhone: req.body.OrganizerPhone,
     OrganizerEmail: req.body.OrganizerEmail,
@@ -284,6 +284,9 @@ app.put("/api/groups", urlencodedParser, function (req, res) {
     OrganizerName: req.body.OrganizerName,
     OrganizerPhone: req.body.OrganizerPhone,
     OrganizerEmail: req.body.OrganizerEmail,
+    PrimaryGame: req.body.PrimaryGame,
+    MeetingDay: req.body.MeetingDay,
+    MeetingTime: req.body.MeetingTime,
     MaxGroupSize: Number(req.body.MaxGroupSize),
   };
 
@@ -312,8 +315,12 @@ app.put("/api/groups", urlencodedParser, function (req, res) {
   match.OrganizerName = group.OrganizerName;
   match.OrganizerPhone = group.OrganizerPhone;
   match.OrganizerEmail = group.OrganizerEmail;
+  match.PrimaryGame = group.PrimaryGame;
+  match.MeetingDay = group.MeetingDay;
+  match.MeetingTime = group.MeetingTime;
+  match.MaxGroupSize = group.MaxGroupSize
 
-  // make sure new values for MaxGroupSize doesn't invalidate grooup
+  // make sure new values for MaxGroupSize doesn't invalidate group
   if (Number(group.MaxGroupSize) < match.Members.length) {
     res
       .status(409)

@@ -15,7 +15,7 @@ import { MembersComponent } from './components/members/members.component';
 import { NavComponent } from './components/nav/nav.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
-import { GroupRegistrationFormComponent } from './components/group-registration-form/group-registration-form.component';
+import { GroupFormComponent } from './components/group-form/group-form.component';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import { GroupRegistrationFormComponent } from './components/group-registration-
     NavComponent,
     RegisterComponent,
     LoginComponent,
-    GroupRegistrationFormComponent
+    GroupFormComponent
   ],
   imports: [
     BrowserModule,

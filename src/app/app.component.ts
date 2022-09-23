@@ -15,5 +15,5 @@ export class AppComponent {
     this.titleService.setTitle('NWA Tabletop Gaming')
   }
 
-  title = 'nwa-tabletop-gaming';
+  title = 'Loading...';
 }
