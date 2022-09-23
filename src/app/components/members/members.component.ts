@@ -25,8 +25,9 @@ export class MembersComponent implements OnInit {
   currentMember!: Member;
   members!: any;
   errorMessage!: string;
+  searchText!: string;
 
-  editMember(member: Member, group: Group): void {
+  editMember(member: Member): void {
     this.memberService.currentMemeber.next(member);
     this.router.navigate(['members/edit-member']);
   }

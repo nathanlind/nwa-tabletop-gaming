@@ -1,39 +1,51 @@
 <section class="page-wrap">
-  <div id="groupCard">
-    <div id="groupCardHeaderSolo">
-      <div>
-        <h2>{{ currentGroup.GroupName }}</h2>
-        <h3>{{ currentGroup.CityName }}</h3>
+  <div class="width-container">
+    <div id="groupCard">
+      <div id="groupCardHeaderSolo">
+        <div>
+          <h2>{{ currentGroup.GroupName }}</h2>
+          <h3>{{ currentGroup.CityName }}</h3>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="memberHeader">
-    <a routerLink="register-member" routerLinkActive="active">
-      <fa-icon [icon]="faCirclePlus"></fa-icon>
-      <p>Add Member</p>
-    </a>
-  </div>
-  <div *ngFor="let member of members" id="memberCard">
-    <div id="memberCardHeader">
+    <div id="memberHeader">
       <div>
-        <h2>{{ member.MemberName }}</h2>
-      </div>
-      <div>
-        <fa-icon
-          [icon]="faPenToSquare"
-          (click)="editMember(this.member, this.currentGroup)"
-        ></fa-icon>
-        <fa-icon
-          [icon]="faTrash"
-          (click)="deleteMember(this.member, this.currentGroup)"
-        ></fa-icon>
+        <input
+          class="search-bar"
+          type="text"
+          name="search"
+          [(ngModel)]="searchText"
+          autocomplete="off"
+          placeholder="Search members"
+        />
+        <a routerLink="register-member" routerLinkActive="active">
+          <fa-icon [icon]="faCirclePlus"></fa-icon>
+          <p>Add Member</p>
+        </a>
       </div>
     </div>
-    <div id="memberCardContainer">
-      <ul>
-        <li>Phone: {{ member.MemberPhone }}</li>
-        <li>Email: {{ member.MemberEmail }}</li>
-      </ul>
+    <div *ngFor="let member of members | filter: searchText" id="memberCard">
+      <div id="memberCardHeader">
+        <div>
+          <h2>{{ member.MemberName }}</h2>
+        </div>
+        <div>
+          <fa-icon
+            [icon]="faPenToSquare"
+            (click)="editMember(this.member)"
+          ></fa-icon>
+          <fa-icon
+            [icon]="faTrash"
+            (click)="deleteMember(this.member, this.currentGroup)"
+          ></fa-icon>
+        </div>
+      </div>
+      <div id="memberCardContainer">
+        <ul>
+          <li>Phone: {{ member.MemberPhone }}</li>
+          <li>Email: {{ member.MemberEmail }}</li>
+        </ul>
+      </div>
     </div>
   </div>
 </section>

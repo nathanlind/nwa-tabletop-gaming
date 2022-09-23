@@ -1,37 +1,49 @@
 <section class="page-wrap">
-  <div id="groupHeader">
-    <a routerLink="register-group" routerLinkActive="active">
-      <fa-icon [icon]="faCirclePlus"></fa-icon>
-      <p>Add Group</p>
-    </a>
-  </div>
-  <div *ngFor="let group of groups" id="groupCard">
-    <div id="groupCardHeader">
+  <div class="width-container">
+    <div id="groupHeader">
       <div>
-        <h2>{{ group.GroupName }}</h2>
-        <h3>{{ group.CityName }}</h3>
-      </div>
-      <div>
-        <fa-icon
-          [icon]="faPenToSquare"
-          (click)="editGroup(this.group)"
-        ></fa-icon>
-        <fa-icon [icon]="faTrash" (click)="deleteGroup(this.group)"></fa-icon>
+        <input
+          class="search-bar"
+          type="text"
+          name="search"
+          [(ngModel)]="searchText"
+          autocomplete="off"
+          placeholder="Search groups"
+        />
+        <a routerLink="register-group" routerLinkActive="active">
+          <fa-icon [icon]="faCirclePlus"></fa-icon>
+          <p>Add Group</p>
+        </a>
       </div>
     </div>
-    <div id="groupCardContainer">
-      <ul>
-        <li>Primary Game: {{ group.PrimaryGame }}</li>
-        <li>Meets: {{ group.MeetingDay }} at {{ group.MeetingTime }}</li>
-        <li>Organizer: {{ group.OrganizerName }}</li>
-        <li>Organizer Phone: {{ group.OrganizerPhone }}</li>
-        <li>Organizer Email: {{ group.OrganizerEmail }}</li>
-        <li>Max Group Size: {{ group.MaxGroupSize }}</li>
-      </ul>
-      <div id="viewMemberWrapper">
-        <div (click)="viewGroupMembers(group)">
-          <fa-icon [icon]="faUser"></fa-icon>
-          <h4>View Members</h4>
+    <div *ngFor="let group of groups | filter: searchText" id="groupCard">
+      <div id="groupCardHeader">
+        <div>
+          <h2>{{ group.GroupName }}</h2>
+          <h3>{{ group.CityName }}</h3>
+        </div>
+        <div>
+          <fa-icon
+            [icon]="faPenToSquare"
+            (click)="editGroup(this.group)"
+          ></fa-icon>
+          <fa-icon [icon]="faTrash" (click)="deleteGroup(this.group)"></fa-icon>
+        </div>
+      </div>
+      <div id="groupCardContainer">
+        <ul>
+          <li>Primary Game: {{ group.PrimaryGame }}</li>
+          <li>Meets: {{ group.MeetingDay }} at {{ group.MeetingTime }}</li>
+          <li>Organizer: {{ group.OrganizerName }}</li>
+          <li>Organizer Phone: {{ group.OrganizerPhone }}</li>
+          <li>Organizer Email: {{ group.OrganizerEmail }}</li>
+          <li>Max Group Size: {{ group.MaxGroupSize }}</li>
+        </ul>
+        <div id="viewMemberWrapper">
+          <div (click)="viewGroupMembers(group)">
+            <fa-icon [icon]="faUser"></fa-icon>
+            <h4>View Members</h4>
+          </div>
         </div>
       </div>
     </div>

@@ -53,3 +53,22 @@ ul > li {
   color: rgb(247, 30, 69);
   cursor: pointer;
 }
+
+#groupHeader {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  margin: 15px 15px 0 15px;
+  color: #fff;
+}
+
+#groupHeader > div {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  margin: 15px 15px 0 15px;
+  color: #fff;
+}
