@@ -60,6 +60,11 @@ export class GroupsComponent implements OnInit {
     this.router.navigate(['members']);
   }
 
+  addGroupMember(group: Group): void {
+    this.groupService.currentGroup.next(group);
+    this.router.navigate(['/members/register-member']);
+  }
+
   constructor(private groupService: GroupService,
     private router: Router,
     private titleService: Title) { }
