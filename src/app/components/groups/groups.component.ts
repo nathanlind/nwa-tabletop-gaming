@@ -26,12 +26,13 @@ export class GroupsComponent implements OnInit {
   errorMessage!: string;
   currentGroup!: Group;
   newGroup!: boolean;
+  searchText!: string;
 
 
   deleteGroup(group: Group): void {
     this.groupService.deleteGroupById(group.GroupId)
       .subscribe({
-        next: (group) => {
+        next: () => {
           this.groupService.getGroups();
         },
         error: (err) => {
