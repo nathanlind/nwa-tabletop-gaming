@@ -6,6 +6,8 @@ import { Title } from '@angular/platform-browser';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-solid-svg-icons'
+
 import { Group } from 'src/app/models/group.model';
 
 @Component({
@@ -18,6 +20,7 @@ export class GroupsComponent implements OnInit {
   faCirclePlus = faCirclePlus;
   faPenToSquare = faPenToSquare;
   faTrash = faTrash;
+  faUser = faUser;
 
   groups!: any;
   errorMessage!: string;
@@ -46,7 +49,12 @@ export class GroupsComponent implements OnInit {
 
   editGroup(group: Group): void {
     this.groupService.currentGroup.next(group);
-    this.router.navigate(['groups/edit-group'])
+    this.router.navigate(['groups/edit-group']);
+  }
+
+  viewGroupMembers(group: Group): void {
+    this.groupService.currentGroup.next(group);
+    this.router.navigate(['members']);
   }
 
   constructor(private groupService: GroupService,

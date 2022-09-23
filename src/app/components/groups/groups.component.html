@@ -28,6 +28,12 @@
         <li>Organizer Email: {{ group.OrganizerEmail }}</li>
         <li>Max Group Size: {{ group.MaxGroupSize }}</li>
       </ul>
+      <div id="viewMemberWrapper">
+        <div (click)="viewGroupMembers(group)">
+          <fa-icon [icon]="faUser"></fa-icon>
+          <h4>View Members</h4>
+        </div>
+      </div>
     </div>
   </div>
 </section>

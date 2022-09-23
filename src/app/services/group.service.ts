@@ -8,15 +8,13 @@ import { Group } from '../models/group.model';
 })
 export class GroupService {
 
-  groupsUrl: string = 'http://localhost:8080/api/groups'
+  groupsUrl: string = 'http://localhost:8080/api/groups';
   jsonContentTypeHeaders = {
     headers: new HttpHeaders().set('Content-Type', 'application/json'),
   }
   group!: Group;
 
   currentGroup: BehaviorSubject<Group> = new BehaviorSubject(this.group);
-
-  constructor(private http: HttpClient) { }
 
   getGroups(): Observable<Group> {
     const results: Observable<Group> = this.http.get<Group>(this.groupsUrl);
@@ -41,4 +39,6 @@ export class GroupService {
     console.log(`deleteGoalById(${groupId}) returned ${results}`);
     return results;
   }
+
+  constructor(private http: HttpClient) { }
 }
