@@ -1,12 +1,7 @@
 <section>
   <h2 *ngIf="newGroup">Register New Group</h2>
   <h2 *ngIf="!newGroup">Edit Group</h2>
-  <form
-    [formGroup]="groupForm"
-    (ngSubmit)="
-      newGroup ? onSubmit(groupForm.value) : onSubmitEdit(groupForm.value)
-    "
-  >
+  <form [formGroup]="groupForm" (ngSubmit)="onSubmit(groupForm.value)">
     <label for="CityName">Select your city:</label>
     <select id="CityName" size="1" formControlName="CityName">
       <option *ngFor="let city of cities" value="{{ this.city }}">
