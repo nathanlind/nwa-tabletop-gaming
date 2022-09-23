@@ -12,6 +12,10 @@ fa-icon {
   cursor: pointer;
 }
 
+#groupCardHeader fa-icon {
+  font-size: 2em;
+}
+
 p {
   display: inline;
   font-size: 1.5em;
@@ -47,11 +51,13 @@ ul > li {
 #viewMemberWrapper > div {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
   align-content: center;
   color: rgb(247, 30, 69);
   cursor: pointer;
+  margin: 2px 0;
 }
 
 #groupHeader {
