@@ -6,7 +6,8 @@ import { Title } from '@angular/platform-browser';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 import { Group } from 'src/app/models/group.model';
 
@@ -21,6 +22,7 @@ export class GroupsComponent implements OnInit {
   faPenToSquare = faPenToSquare;
   faTrash = faTrash;
   faUser = faUser;
+  faEye = faEye;
 
   groups!: any;
   errorMessage!: string;
