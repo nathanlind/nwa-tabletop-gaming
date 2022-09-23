@@ -10,10 +10,16 @@
           autocomplete="off"
           placeholder="Search groups"
         />
-        <a routerLink="register-group" routerLinkActive="active">
-          <fa-icon [icon]="faCirclePlus"></fa-icon>
-          <p>Add Group</p>
-        </a>
+        <div id="groupsControls">
+          <a routerLink="register-group" routerLinkActive="active">
+            <fa-icon [icon]="faCirclePlus"></fa-icon>
+            <p>Add Group</p>
+          </a>
+          <div id="viewAllGroupsControl" (click)="searchText = ''">
+            <fa-icon [icon]="faEye"></fa-icon>
+            <p>View All Groups</p>
+          </div>
+        </div>
       </div>
     </div>
     <div *ngFor="let group of groups | filter: searchText" id="groupCard">

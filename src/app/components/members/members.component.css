@@ -7,14 +7,14 @@ section {
 }
 
 fa-icon {
-  font-size: 2em;
+  font-size: 1.5em;
   padding: 0.2em;
   cursor: pointer;
 }
 
 p {
   display: inline;
-  font-size: 2em;
+  font-size: 1.5em;
   font-weight: 600;
 }
 
@@ -104,4 +104,14 @@ ul > li {
   );
   color: #fff;
   border-radius: 10px 10px 10px 10px;
+}
+
+#membersControls {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#viewAllMembersControl {
+  cursor: pointer;
 }

@@ -8,6 +8,7 @@ import { MemberService } from 'src/app/services/member.service';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { Member } from 'src/app/models/member.model';
 
 @Component({
@@ -20,6 +21,7 @@ export class MembersComponent implements OnInit {
   faCirclePlus = faCirclePlus;
   faPenToSquare = faPenToSquare;
   faTrash = faTrash;
+  faEye = faEye;
 
   currentGroup!: Group;
   currentMember!: Member;
