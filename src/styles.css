@@ -7,3 +7,14 @@ body {
   background-attachment: fixed;
   height: 100vh;
 }
+
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -40px;
+}
+
+.page-wrap:after {
+  content: "";
+  display: block;
+  height: 60px;
+}

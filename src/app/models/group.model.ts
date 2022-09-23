@@ -1,13 +1,13 @@
 export class Group {
-  groupId!: string;
-  groupName!: string;
-  cityName!: string;
-  organizerName!: string;
-  organizerPhone!: string;
-  organizerEmail!: string;
-  primaryGame!: string;
-  meetingWeekDay!: string;
-  meetingTime!: string;
-  maxGroupSize!: string;
-  members!: any;
+  GroupId!: number;
+  GroupName!: string;
+  CityName!: string;
+  OrganizerName!: string;
+  OrganizerPhone!: string;
+  OrganizerEmail!: string;
+  PrimaryGame!: string;
+  MeetingDay!: string;
+  MeetingTime!: string;
+  MaxGroupSize!: string;
+  Members!: any;
 }

@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { GroupService } from 'src/app/services/group.service';
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Group } from 'src/app/models/group.model';
 
 @Component({
   selector: 'tg-groups',
@@ -12,11 +16,42 @@ import { Title } from '@angular/platform-browser';
 export class GroupsComponent implements OnInit {
 
   faCirclePlus = faCirclePlus;
+  faPenToSquare = faPenToSquare;
+  faTrash = faTrash;
 
   groups!: any;
   errorMessage!: string;
+  currentGroup!: Group;
+  newGroup!: boolean;
 
-  constructor(private groupService: GroupService, private router: Router, private titleService: Title) { }
+
+  deleteGroup(group: Group): void {
+    this.groupService.deleteGroupById(group.GroupId)
+      .subscribe({
+        next: (group) => {
+          this.groupService.getGroups();
+        },
+        error: (err) => {
+          console.log(this.errorMessage = err.errorMessage);
+        },
+        complete: () => {
+          console.log(`deleteGroupById(${group.GroupId}) called`);
+          const index = this.groups.findIndex((object: Group) => {
+            return object.GroupId === group.GroupId;
+          })
+          this.groups.splice(index, 1);
+        }
+      })
+  }
+
+  editGroup(group: Group): void {
+    this.groupService.currentGroup.next(group);
+    this.router.navigate(['groups/edit-group'])
+  }
+
+  constructor(private groupService: GroupService,
+    private router: Router,
+    private titleService: Title) { }
 
   ngOnInit(): void {
     this.titleService.setTitle("NWATG | Groups")

@@ -1,0 +1,38 @@
+<section>
+  <h2 *ngIf="newGroup">Register New Group</h2>
+  <h2 *ngIf="!newGroup">Edit Group</h2>
+  <form
+    [formGroup]="groupForm"
+    (ngSubmit)="
+      newGroup ? onSubmit(groupForm.value) : onSubmitEdit(groupForm.value)
+    "
+  >
+    <label for="CityName">Select your city:</label>
+    <select id="CityName" size="1" formControlName="CityName">
+      <option *ngFor="let city of cities" value="{{ this.city }}">
+        {{ this.city }}
+      </option>
+    </select>
+    <label for="GroupName">Group Name:</label>
+    <input type="text" id="GroupName" formControlName="GroupName" />
+    <label for="OrganizerName">Organizer Name:</label>
+    <input type="text" id="OrganizerName" formControlName="OrganizerName" />
+    <label for="OrganizerPhone">Organizer Phone:</label>
+    <input type="tel" id="OrganizerPhone" formControlName="OrganizerPhone" />
+    <label for="OrganizerEmail">Organizer Email:</label>
+    <input type="email" id="OrganizerEmail" formControlName="OrganizerEmail" />
+    <label for="PrimaryGame">Primary Game:</label>
+    <input type="text" id="PrimaryGame" formControlName="PrimaryGame" />
+    <label for="MeetingDay">What day do you meet?</label>
+    <select id="MeetingDay" size="1" formControlName="MeetingDay">
+      <option *ngFor="let day of days" value="{{ this.day }}">
+        {{ this.day }}
+      </option>
+    </select>
+    <label for="MeetingTime">What time do you meet?</label>
+    <input type="time" id="MeetingTime" formControlName="MeetingTime" />
+    <label for="MaxGroupSize">Max group size:</label>
+    <input type="text" id="MaxGroupSize" formControlName="MaxGroupSize" />
+    <input type="submit" id="register-group" value="Submit" />
+  </form>
+</section>
