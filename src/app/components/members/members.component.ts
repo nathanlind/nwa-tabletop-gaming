@@ -8,7 +8,7 @@ import { MemberService } from 'src/app/services/member.service';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Member } from 'src/app/models/member.module';
+import { Member } from 'src/app/models/member.model';
 
 @Component({
   selector: 'tg-members',
@@ -22,14 +22,29 @@ export class MembersComponent implements OnInit {
   faTrash = faTrash;
 
   currentGroup!: Group;
+  currentMember!: Member;
   members!: any;
+  errorMessage!: string;
 
   editMember(member: Member, group: Group): void {
-
+    this.memberService.currentMemeber.next(member);
+    this.router.navigate(['members/edit-member']);
   }
 
   deleteMember(member: Member, group: Group): void {
-
+    this.memberService.deleteMemberFromGroup(member.MemberId, group.GroupId)
+      .subscribe({
+        error: (err) => {
+          console.log(this.errorMessage = err.errorMessage);
+        },
+        complete: () => {
+          console.log(`deleteMemberFromGroup(${member.MemberId, group.GroupId} called)`)
+          const index = this.members.findIndex((object: Member) => {
+            return object.MemberId === member.MemberId;
+          })
+          this.members.splice(index, 1);
+        }
+      })
   }
 
   constructor(private memberService: MemberService,

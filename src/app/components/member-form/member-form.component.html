@@ -1,0 +1,13 @@
+<section>
+  <h2 *ngIf="newMember">Register New Member</h2>
+  <h2 *ngIf="!newMember">Edit Member</h2>
+  <form [formGroup]="memberForm" (ngSubmit)="onSubmit(memberForm.value)">
+    <label for="MemberName">Member Name:</label>
+    <input type="text" id="MemberName" formControlName="MemberName" />
+    <label for="MemberPhone">Member Phone:</label>
+    <input type="tel" id="MemberPhone" formControlName="MemberPhone" />
+    <label for="MemberEmail">Member Email:</label>
+    <input type="email" id="MemberEmail" formControlName="MemberEmail" />
+    <input type="submit" id="register-group" value="Submit" />
+  </form>
+</section>

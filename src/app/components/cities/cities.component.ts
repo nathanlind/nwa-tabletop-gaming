@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CityService } from 'src/app/services/city.service';
 
@@ -21,9 +22,11 @@ export class CitiesComponent implements OnInit {
 
   constructor(private cityService: CityService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private titleService: Title
+    ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle("NWA Tabletop Gaming")
     this.cityService.getCities()
       .subscribe({
         next: (res:any) => {

@@ -37,37 +37,34 @@ export class GroupFormComponent implements OnInit {
     console.log(formValues);
     if (this.groupForm.valid) {
       this.submit = true;
-      this.groupService.addGroup(formValues).subscribe({
-        next: (res:any) => {
-          console.log(res);
-        },
-        error: (err) => {
-          console.log(err);
-        },
-        complete: () => {
-          console.log("onSubmit() called");
-          this.router.navigate(['groups']);
-        }
-      });
-    }
-  }
+      if (this.newGroup) {
+        this.groupService.addGroup(formValues).subscribe({
+          next: (res:any) => {
+            console.log(res);
+          },
+          error: (err) => {
+            console.log(err);
+          },
+          complete: () => {
+            console.log("onSubmit() called");
+            this.router.navigate(['groups']);
+          }
+        });
+      } else if (!this.newGroup) {
+        this.groupService.editGroup(formValues).subscribe({
+          next: (res:any) => {
+            console.log(res);
+          },
+          error: (err) => {
+            console.log(err);
+          },
+          complete: () => {
+            console.log("onSubmit() called");
+            this.router.navigate(['groups']);
+          }
+        });
+      }
 
-  onSubmitEdit(formValues: any): void {
-    console.log(formValues);
-    if (this.groupForm.valid) {
-      this.submit = true;
-      this.groupService.editGroup(formValues).subscribe({
-        next: (res:any) => {
-          console.log(res);
-        },
-        error: (err) => {
-          console.log(err);
-        },
-        complete: () => {
-          console.log("onSubmitEdit() called");
-          this.router.navigate(['groups']);
-        }
-      });
     }
   }
 
