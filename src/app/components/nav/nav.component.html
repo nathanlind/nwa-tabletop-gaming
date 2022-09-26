@@ -7,9 +7,12 @@
     </ul>
   </section>
   <section id="navLogin">
-    <ul>
+    <ul *ngIf="!currentUser">
       <li><a routerLink="register" routerLinkActive="active">REGISTER</a></li>
       <li><a routerLink="login" routerLinkActive="active">LOGIN</a></li>
+    </ul>
+    <ul *ngIf="currentUser">
+      <li id="signout" (click)="signOut()">SIGN OUT</li>
     </ul>
   </section>
 </nav>
