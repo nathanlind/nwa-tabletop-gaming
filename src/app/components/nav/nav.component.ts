@@ -12,6 +12,7 @@ export class NavComponent implements OnInit {
   currentUser!: any;
 
   signOut(): void {
+    this.userService.currentUser.next(new User());
     this.currentUser = null;
   }
 
