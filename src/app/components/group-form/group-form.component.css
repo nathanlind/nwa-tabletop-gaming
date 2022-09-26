@@ -6,6 +6,7 @@ section {
   align-items: left;
   align-content: left;
   background-color: #fff;
+  border-radius: 10px;
 }
 
 h2 {
