@@ -4,6 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CalendarModule } from 'primeng/calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
@@ -41,7 +43,9 @@ import { MemberFormComponent } from './components/member-form/member-form.compon
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    CalendarModule,
+    BrowserAnimationsModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

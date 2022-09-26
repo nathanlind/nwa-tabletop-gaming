@@ -25,7 +25,13 @@
       </option>
     </select>
     <label for="MeetingTime">What time do you meet?</label>
-    <input type="time" id="MeetingTime" formControlName="MeetingTime" />
+    <p-calendar
+      id="MeetingTime"
+      formControlName="MeetingTime"
+      [timeOnly]="true"
+      hourFormat="12"
+    ></p-calendar>
+    <!-- <input type="time" id="MeetingTime" formControlName="MeetingTime" /> -->
     <label for="MaxGroupSize">Max group size:</label>
     <input type="text" id="MaxGroupSize" formControlName="MaxGroupSize" />
     <input type="submit" id="register-group" value="Submit" />
