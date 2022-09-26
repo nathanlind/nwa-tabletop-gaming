@@ -36,7 +36,13 @@ export class UserService {
       )
     console.log(`login() returned ${results}`);
     return results;
+  }
 
+  checkUsernameAvailability(username: string): Observable<string> {
+    const results: Observable<string> =
+      this.http.get<string>(`${this.baseUrl}/username_available/${username}`);
+      console.log(`checkUsernameAvailability(${username}) returned ${results}`);
+      return results;
   }
 
   constructor(private http: HttpClient) { }

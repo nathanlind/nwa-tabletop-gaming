@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,6 +12,9 @@ import { UserService } from 'src/app/services/user.service';
 export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup;
+  username!: string;
+  availabilityChecked!: boolean;
+  usernameAvailable!: boolean;
   submit!: boolean;
 
   onSubmit(formValues: any): void {
@@ -30,7 +34,21 @@ export class RegisterComponent implements OnInit {
         }
       })
     }
+  }
 
+  checkUsernameAvailability(formValues: any) {
+    this.userService.checkUsernameAvailability(formValues.username).subscribe({
+      next: (res:string) => {
+        if (res === 'NO') {
+          this.usernameAvailable = false;
+          this.availabilityChecked = true;
+          this.registerForm.invalid;
+        } else if (res === 'YES') {
+          this.usernameAvailable = true;
+          this.availabilityChecked = true;
+        }
+      }
+    })
   }
 
   constructor(private fb: FormBuilder, private router: Router, private userService: UserService) { }

@@ -530,7 +530,7 @@ app.get("/api/username_available/:username", function (req, res) {
   }
 
   console.log("Is user name available? " + message);
-  res.end(message);
+  res.end(JSON.stringify(message));
 });
 
 // POST request to add a user
