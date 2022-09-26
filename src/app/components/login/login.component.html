@@ -1,10 +1,39 @@
 <section>
   <h2>Login</h2>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
-    <label for="username">Username:</label>
-    <input type="text" id="username" formControlName="username" />
-    <label for="password">Password:</label>
-    <input type="text" id="password" formControlName="password" />
-    <input type="submit" id="login-form" value="Submit" />
+    <div class="grid p-fluid">
+      <div class="col-12 md:col-8">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="username"
+            class="p-inputtext-lg"
+            formControlName="username"
+            pInputText
+          />
+          <label for="username">Username</label>
+        </span>
+      </div>
+    </div>
+    <div class="grid p-fluid">
+      <div class="col-12 md:col-8">
+        <span class="p-float-label">
+          <p-password
+            type="text"
+            id="password"
+            class="p-inputtext-lg"
+            formControlName="password"
+          ></p-password>
+          <label for="password">Password</label>
+        </span>
+      </div>
+    </div>
+    <button
+      pButton
+      pRipple
+      type="submit"
+      label="Submit"
+      class="p-button-raised p-button-secondary"
+    ></button>
   </form>
 </section>

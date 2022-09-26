@@ -2,35 +2,49 @@
   <h2 *ngIf="newMember">Register New Member</h2>
   <h2 *ngIf="!newMember">Edit Member</h2>
   <form [formGroup]="memberForm" (ngSubmit)="onSubmit(memberForm.value)">
-    <span class="p-float-label">
-      <input
-        type="text"
-        id="MemberName"
-        formControlName="MemberName"
-        pInputText
-      />
-      <label for="MemberName">Member Name</label>
-    </span>
-    <span class="p-float-label">
-      <p-inputMask
-        mask="(999) 999-9999"
-        type="tel"
-        id="MemberPhone"
-        formControlName="MemberPhone"
-        placeholder="999-999-9999"
-      ></p-inputMask>
-      <label for="MemberPhone">Member Phone</label>
-    </span>
-
-    <span class="p-float-label">
-      <input
-        type="email"
-        id="MemberEmail"
-        formControlName="MemberEmail"
-        pInputText
-      />
-      <label for="MemberEmail">Member Email</label>
-    </span>
+    <div class="grid p-fluid">
+      <div class="col-12 md:col-8">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="MemberName"
+            class="p-inputtext-lg"
+            formControlName="MemberName"
+            pInputText
+          />
+          <label for="MemberName">Member Name</label>
+        </span>
+      </div>
+    </div>
+    <div class="grid p-fluid">
+      <div class="col-12 md:col-8">
+        <span class="p-float-label">
+          <p-inputMask
+            mask="(999) 999-9999"
+            type="tel"
+            id="MemberPhone"
+            class="p-inputtext-lg"
+            formControlName="MemberPhone"
+            placeholder="999-999-9999"
+          ></p-inputMask>
+          <label for="MemberPhone">Member Phone</label>
+        </span>
+      </div>
+    </div>
+    <div class="grid p-fluid">
+      <div class="col-12 md:col-8">
+        <span class="p-float-label">
+          <input
+            type="email"
+            id="MemberEmail"
+            class="p-inputtext-lg"
+            formControlName="MemberEmail"
+            pInputText
+          />
+          <label for="MemberEmail">Member Email</label>
+        </span>
+      </div>
+    </div>
     <button
       pButton
       pRipple

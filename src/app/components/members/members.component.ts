@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Group } from 'src/app/models/group.model';
 import { GroupService } from 'src/app/services/group.service';
 import { MemberService } from 'src/app/services/member.service';
+import { OrderPipe } from 'ngx-order-pipe'
 
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
@@ -53,7 +54,8 @@ export class MembersComponent implements OnInit {
   constructor(private memberService: MemberService,
     private groupService: GroupService,
     private router: Router,
-    private titleService: Title) { }
+    private titleService: Title,
+    private orderPipe: OrderPipe) { }
 
   ngOnInit(): void {
     this.titleService.setTitle("NWATG | Members");

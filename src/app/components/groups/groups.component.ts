@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { GroupService } from 'src/app/services/group.service';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { OrderPipe } from 'ngx-order-pipe'
 
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
@@ -67,7 +68,8 @@ export class GroupsComponent implements OnInit {
 
   constructor(private groupService: GroupService,
     private router: Router,
-    private titleService: Title) { }
+    private titleService: Title,
+    private orderPipe: OrderPipe) { }
 
   ngOnInit(): void {
     this.titleService.setTitle("NWATG | Groups")
