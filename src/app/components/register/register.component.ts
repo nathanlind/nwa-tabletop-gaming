@@ -26,6 +26,7 @@ export class RegisterComponent implements OnInit {
         },
         complete: () => {
           console.log("onSubmit() called");
+          this.router.navigate(['login']);
         }
       })
     }
