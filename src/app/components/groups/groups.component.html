@@ -22,7 +22,10 @@
         </div>
       </div>
     </div>
-    <div *ngFor="let group of groups | filter: searchText" id="groupCard">
+    <div
+      *ngFor="let group of groups | orderBy: 'group':true | filter: searchText"
+      id="groupCard"
+    >
       <div id="groupCardHeader">
         <div>
           <h2>{{ group.GroupName }}</h2>

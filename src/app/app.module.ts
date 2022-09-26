@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OrderModule } from 'ngx-order-pipe';
 import { CalendarModule } from 'primeng/calendar';
 import { DropdownModule } from 'primeng/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,6 +12,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputMaskModule } from 'primeng/inputmask';
 import { ButtonModule} from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
+import { PasswordModule } from 'primeng/password';
 
 
 import { AppRoutingModule } from './app.routing.module';
@@ -56,7 +58,9 @@ import { MemberFormComponent } from './components/member-form/member-form.compon
     InputTextModule,
     InputMaskModule,
     ButtonModule,
-    RippleModule
+    RippleModule,
+    PasswordModule,
+    OrderModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]

@@ -8,6 +8,7 @@
         <span class="p-float-label">
           <p-dropdown
             inputId="cityname"
+            class="p-inputtext-lg"
             id="CityName"
             [options]="cities"
             formControlName="CityName"
@@ -17,18 +18,16 @@
         </span>
       </div>
       <div class="col-12 md:col-8">
-        <div class="p-inputgroup">
-          <span class="p-float-label">
-            <input
-              type="text"
-              id="GroupName"
-              class="p-inputtext-sm"
-              formControlName="GroupName"
-              pInputText
-            />
-            <label for="GroupName">Group Name</label>
-          </span>
-        </div>
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="GroupName"
+            class="p-inputtext-lg"
+            formControlName="GroupName"
+            pInputText
+          />
+          <label for="GroupName">Group Name</label>
+        </span>
       </div>
     </div>
     <div class="grid p-fluid">
@@ -37,7 +36,7 @@
           <input
             type="text"
             id="MaxGroupSize"
-            class="p-inputtext-sm"
+            class="p-inputtext-lg"
             formControlName="MaxGroupSize"
             pInputText
           />
@@ -49,7 +48,7 @@
           <input
             type="text"
             id="PrimaryGame"
-            class="p-inputtext-sm"
+            class="p-inputtext-lg"
             formControlName="PrimaryGame"
             pInputText
           />
@@ -65,7 +64,7 @@
             inputId="meetingday"
             [options]="meetingDays"
             formControlName="MeetingDay"
-            class="p-inputtext-md"
+            class="p-inputtext-lg"
             [autoDisplayFirst]="true"
           ></p-dropdown>
           <label for="meetingday">Select a Meeting Day</label>
@@ -75,7 +74,7 @@
         <input
           type="time"
           id="MeetingTime"
-          class="p-inputtext-sm"
+          class="p-inputtext-lg"
           formControlName="MeetingTime"
           pInputText
         />
@@ -88,7 +87,7 @@
           <input
             type="text"
             id="OrganizerName"
-            class="p-inputtext-sm"
+            class="p-inputtext-lg"
             formControlName="OrganizerName"
             pInputText
           />
@@ -101,7 +100,7 @@
             mask="(999) 999-9999"
             type="tel"
             id="OrganizerPhone"
-            class="p-inputtext-sm"
+            class="p-inputtext-lg"
             formControlName="OrganizerPhone"
             placeholder="999-999-9999"
           ></p-inputMask>
@@ -113,7 +112,7 @@
           <input
             type="email"
             id="OrganizerEmail"
-            class="p-inputtext-sm"
+            class="p-inputtext-lg"
             formControlName="OrganizerEmail"
             pInputText
           />

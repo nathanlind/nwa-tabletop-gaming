@@ -30,7 +30,12 @@
         </div>
       </div>
     </div>
-    <div *ngFor="let member of members | filter: searchText" id="memberCard">
+    <div
+      *ngFor="
+        let member of members | orderBy: 'member':true | filter: searchText
+      "
+      id="memberCard"
+    >
       <div id="memberCardHeader">
         <div>
           <h2>{{ member.MemberName }}</h2>

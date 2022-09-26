@@ -1,21 +1,59 @@
 <section>
   <h2>Register</h2>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
-    <label for="name">Name:</label>
-    <input type="text" id="name" formControlName="name" />
-    <label for="username">Username:</label>
-    <input type="text" id="username" formControlName="username" />
-    <input
-      type="button"
-      id="checkAvailability"
-      value="Check Availabilty"
-      (click)="checkUsernameAvailability(this.registerForm.value)"
-    />
+    <div class="grid p-fluid">
+      <div class="col-12 md:col-8">
+        <span class="p-float-label">
+          <input
+            type="text"
+            id="name"
+            class="p-inputtext-lg"
+            formControlName="name"
+            pInputText
+          />
+          <label for="name">Name</label>
+        </span>
+      </div>
+    </div>
+    <div class="grid p-fluid">
+      <div class="col-12 md:col-8">
+        <div class="p-inputgroup">
+          <span class="p-float-label">
+            <input
+              type="text"
+              id="username"
+              formControlName="username"
+              pInputText
+            />
+            <label for="username">Username</label>
+          </span>
+          <button
+            pButton
+            label="Check Availability"
+            id="checkAvailability"
+            value="Check Availabilty"
+            (click)="checkUsernameAvailability(this.registerForm.value)"
+          ></button>
+        </div>
+      </div>
+    </div>
     <p *ngIf="!usernameAvailable && availabilityChecked">
       Username is unavailable.
     </p>
-    <label for="password">Password:</label>
-    <input type="text" id="password" formControlName="password" />
+
+    <div class="grid p-fluid">
+      <div class="col-12 md:col-8">
+        <span class="p-float-label">
+          <p-password
+            type="text"
+            id="password"
+            class="p-inputtext-lg"
+            formControlName="password"
+          ></p-password>
+          <label for="password">Password</label>
+        </span>
+      </div>
+    </div>
     <p *ngIf="!availabilityChecked">
       Please check username availability before submitting.
     </p>
