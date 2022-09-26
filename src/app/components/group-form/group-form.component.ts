@@ -23,7 +23,7 @@ export class GroupFormComponent implements OnInit {
     'Rogers'
   ]
 
-  days = [
+  meetingDays = [
     'Mondays',
     'Tuesdays',
     'Wednesdays',
