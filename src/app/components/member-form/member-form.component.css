@@ -6,6 +6,7 @@ section {
   align-items: left;
   align-content: left;
   background-color: #fff;
+  border-radius: 10px;
 }
 
 h2 {
@@ -18,6 +19,5 @@ form {
 }
 
 form > * {
-  display: block;
-  padding: 0.3em;
+  margin: 2em;
 }
