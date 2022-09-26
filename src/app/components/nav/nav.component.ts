@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user.model';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'tg-nav',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  currentUser!: any;
+
+  signOut(): void {
+    this.currentUser = null;
+  }
+
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.currentUser.subscribe(
+      user => this.currentUser = user
+    )
   }
 
 }

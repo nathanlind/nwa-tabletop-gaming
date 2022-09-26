@@ -35,3 +35,8 @@ nav ul li a.active {
   flex-wrap: wrap;
   font-weight: bold;
 }
+
+#signout {
+  cursor: pointer;
+  color: #fa4350;
+}

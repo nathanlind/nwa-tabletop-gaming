@@ -1,1 +1,12 @@
-<p>register works!</p>
+<section>
+  <h2>Register</h2>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name" />
+    <label for="username">Username:</label>
+    <input type="text" id="username" formControlName="username" />
+    <label for="password">Password:</label>
+    <input type="text" id="password" formControlName="password" />
+    <input type="submit" id="register-form" value="Submit" />
+  </form>
+</section>
