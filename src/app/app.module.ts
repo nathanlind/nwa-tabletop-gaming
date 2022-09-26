@@ -4,8 +4,16 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { CalendarModule } from 'primeng/calendar';
+import { DropdownModule } from 'primeng/dropdown';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InputTextModule } from 'primeng/inputtext';
+import { InputMaskModule } from 'primeng/inputmask';
+import { ButtonModule} from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
 
-import { AppRoutingModule } from './app-routing.module';
+
+import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderComponent } from './components/header/header.component';
@@ -41,7 +49,14 @@ import { MemberFormComponent } from './components/member-form/member-form.compon
     ReactiveFormsModule,
     HttpClientModule,
     FontAwesomeModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    CalendarModule,
+    BrowserAnimationsModule,
+    DropdownModule,
+    InputTextModule,
+    InputMaskModule,
+    ButtonModule,
+    RippleModule
   ],
   providers: [Title],
   bootstrap: [AppComponent]
