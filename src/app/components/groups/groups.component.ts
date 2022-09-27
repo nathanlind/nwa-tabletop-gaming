@@ -13,6 +13,8 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { Group } from 'src/app/models/group.model';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { CityService } from 'src/app/services/city.service';
+import { MemberService } from 'src/app/services/member.service';
+import { Member } from 'src/app/models/member.model';
 
 @Component({
   selector: 'tg-groups',
@@ -74,11 +76,13 @@ export class GroupsComponent implements OnInit {
 
   viewGroupMembers(group: Group): void {
     this.groupService.updateCurrentGroup(group);
+    this.memberService.updateCurrentMember(new Member());
     this.router.navigate(['members']);
   }
 
   addGroupMember(group: Group): void {
     this.groupService.updateCurrentGroup(group);
+    this.memberService.updateCurrentMember(new Member());
     this.router.navigate(['/members/register-member']);
   }
 
@@ -90,6 +94,7 @@ export class GroupsComponent implements OnInit {
 
   constructor(private groupService: GroupService,
     private cityService: CityService,
+    private memberService: MemberService,
     private router: Router,
     private titleService: Title,
     private orderPipe: OrderPipe,
