@@ -50,7 +50,7 @@ export class GroupFormComponent implements OnInit {
             console.log("onSubmit() called");
             this.groupService.getGroupById(this.currentGroup.GroupId).subscribe({
               next: (res:any) => {
-                this.groupService.updateCurrentGroup(formValues);
+                this.groupService.updateCurrentGroup(res);
               },
               error: (err) => {
                 console.log(err);

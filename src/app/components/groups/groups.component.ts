@@ -104,9 +104,6 @@ export class GroupsComponent implements OnInit {
     if (this.currentCity) {
       this.searchText = this.currentCity.CityName;
     }
-    if(this.currentGroup.GroupName) {
-      this.searchText = this.currentGroup.GroupName;
-    }
     this.groupService.getGroups()
       .subscribe({
         next: (res:any) => {
@@ -118,8 +115,16 @@ export class GroupsComponent implements OnInit {
         },
         complete: () => {
           console.log(`called getGroups()`);
+          if(this.currentGroup.GroupId) {
+            const index = this.groups.findIndex((object: Group) => {
+              return object.GroupId === this.currentGroup.GroupId;
+            })
+            this.groups.splice(index, 1);
+            this.groups.push(this.currentGroup);
+        }
         }
       })
+
   }
 
 }
