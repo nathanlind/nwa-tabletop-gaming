@@ -1,9 +1,18 @@
 <section class="page-wrap">
   <div class="width-container">
+    <div *ngIf="currentCity" id="cityCard">
+      <div id="cityCardHeaderSolo">
+        <div>
+          <h2>{{ currentCity.CityName }}</h2>
+        </div>
+      </div>
+    </div>
     <div id="groupHeader">
       <div>
+        <label for="group-search">Search groups</label>
         <input
           class="search-bar"
+          id="group-search"
           type="text"
           name="search"
           [(ngModel)]="searchText"
@@ -15,7 +24,7 @@
             <fa-icon [icon]="faCirclePlus"></fa-icon>
             <p>Add Group</p>
           </a>
-          <div id="viewAllGroupsControl" (click)="searchText = ''">
+          <div id="viewAllGroupsControl" (click)="viewAllGroups()">
             <fa-icon [icon]="faEye"></fa-icon>
             <p>View All Groups</p>
           </div>

@@ -17,8 +17,10 @@ export class CitiesComponent implements OnInit {
 
   showGroups(city: any): void {
     console.log(city.CityName);
+    this.cityService.updateCurrentCity(city);
     this.router.navigate(['groups']);
   }
+
 
   constructor(private cityService: CityService,
     private router: Router,
