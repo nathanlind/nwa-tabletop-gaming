@@ -45,55 +45,63 @@ export class MemberFormComponent implements OnInit {
     if (this.memberForm.valid) {
       this.submit = true;
       if (this.newMember) {
-        this.memberService.addMemberToGroup(formValues, this.currentGroup.GroupId).subscribe({
-          next: (res:any) => {
-            console.log(res);
-            this.memberService.updateCurrentMember(formValues);
-          },
-          error: (err) => {
-            console.log(err);
-          },
-          complete: () => {
-            console.log("onSubmit() called");
-            this.groupService.getGroupById(this.currentGroup.GroupId).subscribe({
-              next: (res:any) => {
-                this.groupService.updateCurrentGroup(res);
-              },
-              error: (err) => {
-                console.log(err);
-              },
-              complete: () => {
-                this.router.navigate(['members']);
-              }
-            })
-          }
-        });
+        this.addMember(formValues);
       } else if (!this.newMember) {
-        this.memberService.editMemberInGroup(formValues, this.currentGroup.GroupId).subscribe({
-          next: (res:any) => {
-            console.log(res);
-            this.memberService.updateCurrentMember(this.currentMember);
-          },
-          error: (err) => {
-            console.log(err);
-          },
-          complete: () => {
-            console.log("onSubmit() called");
-            this.groupService.getGroupById(this.currentGroup.GroupId).subscribe({
-              next: (res:any) => {
-                this.groupService.updateCurrentGroup(res);
-              },
-              error: (err) => {
-                console.log(err);
-              },
-              complete: () => {
-                this.router.navigate(['members']);
-              }
-            })
-          }
-        });
+        this.editMember(formValues);
       }
     }
+  }
+
+  addMember(formValues: any) {
+    this.memberService.addMemberToGroup(formValues, this.currentGroup.GroupId).subscribe({
+      next: (res:any) => {
+        console.log(res);
+        this.memberService.updateCurrentMember(formValues);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log("onSubmit() called");
+        this.groupService.getGroupById(this.currentGroup.GroupId).subscribe({
+          next: (group: Group) => {
+            this.groupService.updateCurrentGroup(group);
+          },
+          error: (err) => {
+            console.log(err);
+          },
+          complete: () => {
+            this.router.navigate(['members']);
+          }
+        })
+      }
+    });
+  }
+
+  editMember(formValues: any) {
+    this.memberService.editMemberInGroup(formValues, this.currentGroup.GroupId).subscribe({
+      next: (res:any) => {
+        console.log(res);
+        this.memberService.updateCurrentMember(formValues);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log("onSubmit() called");
+        this.groupService.getGroupById(this.currentGroup.GroupId).subscribe({
+          next: (res:any) => {
+            this.groupService.updateCurrentGroup(res);
+          },
+          error: (err) => {
+            console.log(err);
+          },
+          complete: () => {
+            this.router.navigate(['members']);
+          }
+        })
+      }
+    });
   }
 
   constructor(private memberService: MemberService,

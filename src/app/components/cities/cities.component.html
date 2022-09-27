@@ -11,10 +11,16 @@
         alt="A picture of the city of {{ city.CityName }}."
         width="300px"
         height="200px"
+        onerror="this.src='../../../assets/images/cities/cityfallback.jpg'"
       />
       <div class="cityCardContainer">
         <h3>{{ city.CityName }}</h3>
-        <!-- <img src="../../../assets/images/d20s/d20frame.svg" alt=""> -->
+        <img
+          src="../../../assets/images/d20s/d20frame.svg"
+          alt="A wireframe image of a D20 die."
+          width="30px"
+          height="30px"
+        />
       </div>
     </div>
   </section>

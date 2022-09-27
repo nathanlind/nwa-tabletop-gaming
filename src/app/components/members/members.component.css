@@ -62,6 +62,10 @@ ul > li {
     rgba(1, 192, 250, 1) 0%,
     rgba(1, 208, 251, 1) 35%,
     rgba(98, 219, 251, 1) 100%
+      /* 90deg,
+    rgba(252, 159, 99, 1) 0%,
+    rgba(252, 99, 86, 1) 35%,
+    rgba(247, 30, 69, 1) 110% */
   );
   color: #fff;
   border-radius: 10px 10px 0 0;
@@ -115,5 +119,9 @@ ul > li {
 }
 
 #viewAllMembersControl {
+  cursor: pointer;
+}
+
+#groupCard {
   cursor: pointer;
 }

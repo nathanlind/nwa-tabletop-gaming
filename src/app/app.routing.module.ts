@@ -12,7 +12,7 @@ const fallbackRoute: Route = { path: '**', component: CitiesComponent }
 
 const routes: Routes = [
   { path: '', component: CitiesComponent },
-  { path: 'cities', component: CitiesComponent },
+  { path: 'home', component: CitiesComponent },
   { path: 'groups', component: GroupsComponent },
   { path: 'members', component: MembersComponent },
   { path: 'register', component: RegisterComponent },

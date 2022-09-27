@@ -55,5 +55,10 @@ img {
 }
 
 .cityCardContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
   padding: 1.5em 16px;
 }

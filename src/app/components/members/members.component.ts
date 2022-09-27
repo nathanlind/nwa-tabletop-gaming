@@ -66,6 +66,10 @@ export class MembersComponent implements OnInit {
     });
 }
 
+atMaxCapacity(memberCount: string, maxMembers: string): boolean {
+  return parseInt(memberCount) < parseInt(maxMembers) ? false : true;
+}
+
   constructor(private memberService: MemberService,
     private groupService: GroupService,
     private router: Router,
@@ -80,16 +84,18 @@ export class MembersComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle("NWATG | Members");
-    this.groupService.currentGroup.subscribe(
-      group => this.currentGroup = group
-    )
-    this.members = this.currentGroup.Members;
-    this.currentMember = this.memberService.getCurrentMember();
-    if (this.currentMember){
-      this.searchText = this.currentMember.MemberName;
-    }
+    this.groupService.currentGroup.subscribe({
+      next: (group: Group) => {
+        this.currentGroup = group;
+        this.members = group.Members;
+        this.currentMember = this.memberService.getCurrentMember();
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
 
-
+      }
+    })
   }
-
 }
