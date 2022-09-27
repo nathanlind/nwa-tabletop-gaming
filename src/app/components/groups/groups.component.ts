@@ -11,8 +11,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 import { Group } from 'src/app/models/group.model';
-import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/api';
-import { City } from 'src/app/models/city.model';
+import { ConfirmationService, ConfirmEventType, MessageService } from 'primeng/api';
 import { CityService } from 'src/app/services/city.service';
 
 @Component({
@@ -54,6 +53,19 @@ export class GroupsComponent implements OnInit {
         }
       })
   }
+
+  confirmDelete(group: Group) {
+    this.confirmationService.confirm({
+        message: 'Do you want to delete this group?',
+        header: 'Delete Confirmation',
+        icon: 'pi pi-info-circle',
+        accept: () => {
+            this.deleteGroup(group);
+        },
+        reject: () => {
+        }
+    });
+}
 
   editGroup(group: Group): void {
     this.groupService.updateCurrentGroup(group);
