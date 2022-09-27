@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
       this.userService.login(formValues).subscribe({
         next: (res:any) => {
           console.log(res);
-          this.userService.currentUser.next(res);
+          this.userService.updateCurrentUser(res);
         },
         error: (err) => {
           console.log(err);

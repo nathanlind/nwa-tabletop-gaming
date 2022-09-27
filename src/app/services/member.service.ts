@@ -15,7 +15,22 @@ export class MemberService {
   }
   member!: Member;
 
-  currentMemeber: BehaviorSubject<Member> = new BehaviorSubject(this.member);
+  currentMember: BehaviorSubject<Member> = new BehaviorSubject(this.member);
+
+  getCurrentMember(): Member {
+    if (localStorage.getItem('currentMember')){
+      const member = JSON.parse(localStorage.getItem('currentMember')!);
+      this.currentMember = new BehaviorSubject(member);
+      return member;
+    } else {
+      return this.member;
+    }
+  }
+
+  updateCurrentMember(member: Member): void {
+    this.currentMember.next(member);
+    this.storeMemberLocal(member);
+  }
 
   addMemberToGroup(member: Member, groupId: number): Observable<Member> {
     const results: Observable<Member> =
@@ -42,6 +57,10 @@ export class MemberService {
       this.http.delete<Member>(`${this.baseUrl}/${groupId}/members/${memberId}`);
       console.log(`deleteMemberFromGroup() returned ${results}`);
       return results;
+  }
+
+  storeMemberLocal(member: Member) {
+    localStorage.setItem('currentMember', JSON.stringify(member));
   }
 
   constructor(private http: HttpClient) { }

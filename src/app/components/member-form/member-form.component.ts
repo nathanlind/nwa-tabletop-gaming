@@ -99,12 +99,8 @@ export class MemberFormComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.memberService.currentMemeber.subscribe(
-      member => this.currentMember = member
-    )
-    this.groupService.currentGroup.subscribe(
-      group => this.currentGroup = group
-    )
+    this.currentMember = this.memberService.getCurrentMember();
+    this.currentGroup = this.groupService.getCurrentGroup();
     console.log(this.router.url);
     if (this.router.url === '/members/register-member') {
       this.newMember = true;

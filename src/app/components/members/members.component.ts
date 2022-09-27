@@ -31,7 +31,7 @@ export class MembersComponent implements OnInit {
   searchText!: string;
 
   editMember(member: Member): void {
-    this.memberService.currentMemeber.next(member);
+    this.memberService.updateCurrentMember(member);
     this.router.navigate(['members/edit-member']);
   }
 
