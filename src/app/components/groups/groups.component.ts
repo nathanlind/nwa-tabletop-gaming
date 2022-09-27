@@ -12,6 +12,8 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 import { Group } from 'src/app/models/group.model';
 import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/api';
+import { City } from 'src/app/models/city.model';
+import { CityService } from 'src/app/services/city.service';
 
 @Component({
   selector: 'tg-groups',
@@ -32,6 +34,7 @@ export class GroupsComponent implements OnInit {
   currentGroup!: Group;
   newGroup!: boolean;
   searchText!: string;
+  currentCity!: any;
 
   deleteGroup(group: Group): void {
     this.groupService.deleteGroupById(group.GroupId)
@@ -67,15 +70,27 @@ export class GroupsComponent implements OnInit {
     this.router.navigate(['/members/register-member']);
   }
 
+  viewAllGroups(): void {
+    this.searchText = '';
+    this.currentCity = undefined;
+    localStorage.removeItem('currentCity');
+  }
+
   constructor(private groupService: GroupService,
+    private cityService: CityService,
     private router: Router,
     private titleService: Title,
     private orderPipe: OrderPipe,
     private confirmationService: ConfirmationService,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+ ) { }
 
   ngOnInit(): void {
     this.titleService.setTitle("NWATG | Groups")
+    this.currentCity = this.cityService.getCurrentCity();
+    if (this.currentCity) {
+      this.searchText = this.currentCity.CityName;
+    }
     this.groupService.getGroups()
       .subscribe({
         next: (res:any) => {

@@ -22,6 +22,10 @@ p {
   font-weight: 600;
 }
 
+label {
+  margin: 5px 10px;
+}
+
 a {
   color: #fff;
   text-decoration: none;
@@ -67,7 +71,7 @@ ul > li {
   justify-content: flex-start;
   align-content: center;
   align-items: center;
-  margin: 15px 15px 0 15px;
+  margin: 0px 15px;
   color: #fff;
 }
 
@@ -87,4 +91,31 @@ ul > li {
 
 #viewAllGroupsControl {
   cursor: pointer;
+}
+
+#cityCard {
+  margin: 15px;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 1);
+  transition: 0.2s;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 10px;
+}
+
+#cityCardHeaderSolo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  padding: 1.5em 16px;
+  background: rgb(138, 60, 184);
+  background: linear-gradient(
+    90deg,
+    rgba(138, 60, 184, 1) 0%,
+    rgba(180, 96, 231, 1) 35%,
+    rgba(236, 183, 255, 1) 100%
+  );
+  color: #fff;
+  border-radius: 10px 10px 10px 10px;
 }
