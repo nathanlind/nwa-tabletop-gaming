@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Group } from 'src/app/models/group.model';
 import { GroupService } from 'src/app/services/group.service';
@@ -104,9 +105,11 @@ export class GroupFormComponent implements OnInit {
 
   constructor(private groupService: GroupService,
     private fb: FormBuilder,
-    private router: Router) { }
+    private router: Router,
+    private titleService: Title) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('NWATG | Groups')
     this.currentGroup = this.groupService.getCurrentGroup();
     console.log(this.router.url);
     if (this.router.url === '/groups/register-group') {

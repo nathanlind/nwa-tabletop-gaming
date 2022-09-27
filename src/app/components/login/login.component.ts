@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -36,9 +37,13 @@ export class LoginComponent implements OnInit {
 
   }
 
-  constructor(private fb: FormBuilder, private router: Router, private userService: UserService) { }
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private userService: UserService,
+    private titleService: Title) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('NWATG | Login')
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
