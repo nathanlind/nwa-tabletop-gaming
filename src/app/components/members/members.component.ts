@@ -55,13 +55,13 @@ export class MembersComponent implements OnInit {
     private groupService: GroupService,
     private router: Router,
     private titleService: Title,
-    private orderPipe: OrderPipe) { }
+    private orderPipe: OrderPipe) {
+
+    }
 
   ngOnInit(): void {
     this.titleService.setTitle("NWATG | Members");
-    this.groupService.currentGroup.subscribe(
-      group => this.currentGroup = group
-    )
+    this.currentGroup = this.groupService.getCurrentGroup();
     this.members = this.currentGroup.Members;
   }
 

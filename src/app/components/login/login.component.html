@@ -11,7 +11,22 @@
             formControlName="username"
             pInputText
           />
-          <label for="username">Username</label>
+          <label
+            *ngIf="
+              loginForm.controls['username'].valid ||
+              !loginForm.controls['username'].touched
+            "
+            for="username"
+            >Username</label
+          >
+          <label
+            *ngIf="
+              !loginForm.controls['username'].valid &&
+              loginForm.controls['username'].touched
+            "
+            for="username"
+            >Enter a valid username</label
+          >
         </span>
       </div>
     </div>
@@ -21,10 +36,26 @@
           <p-password
             type="text"
             id="password"
+            [feedback]="false"
             class="p-inputtext-lg"
             formControlName="password"
           ></p-password>
-          <label for="password">Password</label>
+          <label
+            *ngIf="
+              loginForm.controls['password'].valid ||
+              !loginForm.controls['password'].touched
+            "
+            for="password"
+            >Password</label
+          >
+          <label
+            *ngIf="
+              !loginForm.controls['username'].valid &&
+              loginForm.controls['username'].touched
+            "
+            for="password"
+            >Enter a valid password</label
+          >
         </span>
       </div>
     </div>
@@ -34,6 +65,7 @@
       type="submit"
       label="Submit"
       class="p-button-raised p-button-secondary"
+      [disabled]="!loginForm.valid"
     ></button>
   </form>
 </section>

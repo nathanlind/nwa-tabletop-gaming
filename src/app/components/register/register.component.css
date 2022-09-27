@@ -21,3 +21,11 @@ form {
 form > * {
   margin: 1.2em;
 }
+
+#username-unavailable {
+  color: red;
+}
+
+#username-available {
+  color: green;
+}

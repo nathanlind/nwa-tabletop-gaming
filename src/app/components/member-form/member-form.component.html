@@ -12,7 +12,22 @@
             formControlName="MemberName"
             pInputText
           />
-          <label for="MemberName">Member Name</label>
+          <label
+            *ngIf="
+              memberForm.controls['MemberName'].valid ||
+              !memberForm.controls['MemberName'].touched
+            "
+            for="MemberName"
+            >Member Name</label
+          >
+          <label
+            *ngIf="
+              !memberForm.controls['MemberName'].valid &&
+              memberForm.controls['MemberName'].touched
+            "
+            for="MemberName"
+            >Enter valid Member Name</label
+          >
         </span>
       </div>
     </div>
@@ -27,7 +42,22 @@
             formControlName="MemberPhone"
             placeholder="999-999-9999"
           ></p-inputMask>
-          <label for="MemberPhone">Member Phone</label>
+          <label
+            *ngIf="
+              memberForm.controls['MemberPhone'].valid ||
+              !memberForm.controls['MemberPhone'].touched
+            "
+            for="MemberPhone"
+            >Member Phone</label
+          >
+          <label
+            *ngIf="
+              !memberForm.controls['MemberPhone'].valid &&
+              memberForm.controls['MemberPhone'].touched
+            "
+            for="MemberPhone"
+            >Enter Valid Member Phone</label
+          >
         </span>
       </div>
     </div>
@@ -41,7 +71,22 @@
             formControlName="MemberEmail"
             pInputText
           />
-          <label for="MemberEmail">Member Email</label>
+          <label
+            *ngIf="
+              memberForm.controls['MemberEmail'].valid ||
+              !memberForm.controls['MemberEmail'].touched
+            "
+            for="MemberEmail"
+            >Member Email</label
+          >
+          <label
+            *ngIf="
+              !memberForm.controls['MemberEmail'].valid &&
+              memberForm.controls['MemberEmail'].touched
+            "
+            for="MemberEmail"
+            >Enter valid Member Email</label
+          >
         </span>
       </div>
     </div>
@@ -51,6 +96,7 @@
       type="submit"
       label="Submit"
       class="p-button-raised p-button-secondary"
+      [disabled]="!memberForm.valid"
     ></button>
   </form>
 </section>

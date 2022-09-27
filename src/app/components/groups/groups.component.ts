@@ -11,11 +11,13 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 import { Group } from 'src/app/models/group.model';
+import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/api';
 
 @Component({
   selector: 'tg-groups',
   templateUrl: './groups.component.html',
-  styleUrls: ['./groups.component.css']
+  styleUrls: ['./groups.component.css'],
+  providers: [ConfirmationService,MessageService]
 })
 export class GroupsComponent implements OnInit {
 
@@ -30,7 +32,6 @@ export class GroupsComponent implements OnInit {
   currentGroup!: Group;
   newGroup!: boolean;
   searchText!: string;
-
 
   deleteGroup(group: Group): void {
     this.groupService.deleteGroupById(group.GroupId)
@@ -52,24 +53,26 @@ export class GroupsComponent implements OnInit {
   }
 
   editGroup(group: Group): void {
-    this.groupService.currentGroup.next(group);
+    this.groupService.updateCurrentGroup(group);
     this.router.navigate(['groups/edit-group']);
   }
 
   viewGroupMembers(group: Group): void {
-    this.groupService.currentGroup.next(group);
+    this.groupService.updateCurrentGroup(group);
     this.router.navigate(['members']);
   }
 
   addGroupMember(group: Group): void {
-    this.groupService.currentGroup.next(group);
+    this.groupService.updateCurrentGroup(group);
     this.router.navigate(['/members/register-member']);
   }
 
   constructor(private groupService: GroupService,
     private router: Router,
     private titleService: Title,
-    private orderPipe: OrderPipe) { }
+    private orderPipe: OrderPipe,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.titleService.setTitle("NWATG | Groups")

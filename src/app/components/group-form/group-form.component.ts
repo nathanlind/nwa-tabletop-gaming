@@ -81,7 +81,7 @@ export class GroupFormComponent implements OnInit {
         MeetingDay: ['', Validators.required],
         MeetingTime:['', Validators.required],
         MaxGroupSize:['', Validators.required]
-      }
+      }, {updateOn: 'blur'}
     )
   }
 
@@ -98,7 +98,7 @@ export class GroupFormComponent implements OnInit {
           MeetingDay: [group.MeetingDay, Validators.required],
           MeetingTime:[group.MeetingTime, Validators.required],
           MaxGroupSize:[group.MaxGroupSize, Validators.required]
-      }
+      }, {updateOn: 'blur'}
     )
   }
 

@@ -11,7 +11,22 @@
             formControlName="name"
             pInputText
           />
-          <label for="name">Name</label>
+          <label
+            *ngIf="
+              registerForm.controls['name'].valid ||
+              !registerForm.controls['name'].touched
+            "
+            for="name"
+            >Name</label
+          >
+          <label
+            *ngIf="
+              !registerForm.controls['name'].valid &&
+              registerForm.controls['name'].touched
+            "
+            for="name"
+            >Enter a valid name</label
+          >
         </span>
       </div>
     </div>
@@ -25,10 +40,27 @@
               formControlName="username"
               pInputText
             />
-            <label for="username">Username</label>
+            <label
+              *ngIf="
+                registerForm.controls['username'].valid ||
+                !registerForm.controls['username'].touched
+              "
+              for="username"
+              >Username</label
+            >
+            <label
+              *ngIf="
+                !registerForm.controls['username'].valid &&
+                registerForm.controls['username'].touched
+              "
+              for="username"
+              >Enter a valid username</label
+            >
           </span>
           <button
             pButton
+            type="button"
+            class="p-button-secondary"
             label="Check Availability"
             id="checkAvailability"
             value="Check Availabilty"
@@ -37,8 +69,14 @@
         </div>
       </div>
     </div>
-    <p *ngIf="!usernameAvailable && availabilityChecked">
+    <p
+      id="username-unavailable"
+      *ngIf="!usernameAvailable && availabilityChecked"
+    >
       Username is unavailable.
+    </p>
+    <p id="username-available" *ngIf="usernameAvailable && availabilityChecked">
+      Username is available.
     </p>
 
     <div class="grid p-fluid">
@@ -50,18 +88,34 @@
             class="p-inputtext-lg"
             formControlName="password"
           ></p-password>
-          <label for="password">Password</label>
+          <label
+            *ngIf="
+              registerForm.controls['password'].valid ||
+              !registerForm.controls['password'].touched
+            "
+            for="password"
+            >Password</label
+          >
+          <label
+            *ngIf="
+              !registerForm.controls['password'].valid &&
+              registerForm.controls['password'].touched
+            "
+            for="password"
+            >Enter a valid password</label
+          >
         </span>
       </div>
     </div>
-    <p *ngIf="!availabilityChecked">
-      Please check username availability before submitting.
-    </p>
-    <input
-      *ngIf="usernameAvailable && availabilityChecked"
+    <button
+      pButton
+      pRipple
       type="submit"
-      id="register-form"
-      value="Submit"
-    />
+      label="Submit"
+      class="p-button-raised p-button-secondary"
+      [disabled]="
+        !registerForm.valid || !availabilityChecked || !usernameAvailable
+      "
+    ></button>
   </form>
 </section>
