@@ -107,9 +107,7 @@ export class GroupFormComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.groupService.currentGroup.subscribe(
-      group => this.currentGroup = group
-    )
+    this.currentGroup = this.groupService.getCurrentGroup();
     console.log(this.router.url);
     if (this.router.url === '/groups/register-group') {
       this.newGroup = true;

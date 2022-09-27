@@ -18,7 +18,7 @@ export class GroupService {
 
   getCurrentGroup(): Group {
     if (localStorage.getItem('currentGroup')) {
-      const group = JSON.parse(localStorage.getItem('currentGroup')!)
+      const group = JSON.parse(localStorage.getItem('currentGroup')!);
       this.currentGroup = new BehaviorSubject(group);
       return group;
     } else {

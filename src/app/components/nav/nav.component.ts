@@ -13,17 +13,16 @@ export class NavComponent implements OnInit {
   currentUser!: any;
 
   signOut(): void {
-    this.userService.currentUser.next(new User());
+    this.userService.updateCurrentUser(new User());
     this.currentUser = null;
+    localStorage.removeItem('currentUser');
     this.router.navigate(['login']);
   }
 
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
-    this.userService.currentUser.subscribe(
-      user => this.currentUser = user
-    )
+    this.currentUser = this.userService.getCurrentUser();
   }
 
 }

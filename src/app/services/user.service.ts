@@ -16,6 +16,21 @@ export class UserService {
 
   currentUser: BehaviorSubject<User> = new BehaviorSubject(this.user);
 
+  getCurrentUser(): User {
+    if (localStorage.getItem('currentUser')) {
+      const user = JSON.parse(localStorage.getItem('currentUser')!);
+      this.currentUser = new BehaviorSubject(user);
+      return user;
+    } else {
+      return this.user;
+    }
+  }
+
+  updateCurrentUser(user: User): void {
+    this.currentUser.next(user);
+    this.storeUserLocal(user);
+  }
+
   registerUser(user: User): Observable<User> {
     const results: Observable<User> =
       this.http.post<User>(
@@ -43,6 +58,10 @@ export class UserService {
       this.http.get<string>(`${this.baseUrl}/username_available/${username}`);
       console.log(`checkUsernameAvailability(${username}) returned ${results}`);
       return results;
+  }
+
+  storeUserLocal(user: User) {
+    localStorage.setItem('currentUser', JSON.stringify(user));
   }
 
   constructor(private http: HttpClient) { }
