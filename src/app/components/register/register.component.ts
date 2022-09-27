@@ -13,8 +13,8 @@ export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup;
   username!: string;
-  availabilityChecked!: boolean;
-  usernameAvailable!: boolean;
+  availabilityChecked: boolean = false;
+  usernameAvailable: boolean = false;
   submit!: boolean;
 
   onSubmit(formValues: any): void {

@@ -13,6 +13,7 @@
             [options]="cities"
             formControlName="CityName"
             [autoDisplayFirst]="true"
+            placeholder="Select a City"
           ></p-dropdown>
           <label for="cityname">Select a City</label>
         </span>
@@ -26,7 +27,22 @@
             formControlName="GroupName"
             pInputText
           />
-          <label for="GroupName">Group Name</label>
+          <label
+            *ngIf="
+              groupForm.controls['GroupName'].valid ||
+              !groupForm.controls['GroupName'].touched
+            "
+            for="GroupName"
+            >Group Name</label
+          >
+          <label
+            *ngIf="
+              !groupForm.controls['GroupName'].valid &&
+              groupForm.controls['GroupName'].touched
+            "
+            for="GroupName"
+            >Enter a valid Group Name</label
+          >
         </span>
       </div>
     </div>
@@ -40,7 +56,22 @@
             formControlName="MaxGroupSize"
             pInputText
           />
-          <label for="MaxGroupSize">Max group size</label>
+          <label
+            *ngIf="
+              groupForm.controls['MaxGroupSize'].valid ||
+              !groupForm.controls['MaxGroupSize'].touched
+            "
+            for="MaxGroupSize"
+            >Max group size</label
+          >
+          <label
+            *ngIf="
+              !groupForm.controls['MaxGroupSize'].valid &&
+              groupForm.controls['MaxGroupSize'].touched
+            "
+            for="MaxGroupSize"
+            >Enter a Max Group Size</label
+          >
         </span>
       </div>
       <div class="col-12 md:col-8">
@@ -52,7 +83,22 @@
             formControlName="PrimaryGame"
             pInputText
           />
-          <label for="PrimaryGame">Primary Game</label>
+          <label
+            *ngIf="
+              groupForm.controls['PrimaryGame'].valid ||
+              !groupForm.controls['PrimaryGame'].touched
+            "
+            for="PrimaryGame"
+            >Primary Game</label
+          >
+          <label
+            *ngIf="
+              !groupForm.controls['PrimaryGame'].valid &&
+              groupForm.controls['PrimaryGame'].touched
+            "
+            for="PrimaryGame"
+            >Enter a valid Primary Game</label
+          >
         </span>
       </div>
     </div>
@@ -66,6 +112,7 @@
             formControlName="MeetingDay"
             class="p-inputtext-lg"
             [autoDisplayFirst]="true"
+            placeholder="Select a Meeting Day"
           ></p-dropdown>
           <label for="meetingday">Select a Meeting Day</label>
         </span>
@@ -91,7 +138,22 @@
             formControlName="OrganizerName"
             pInputText
           />
-          <label for="OrganizerName">Organizer Name</label>
+          <label
+            *ngIf="
+              groupForm.controls['OrganizerName'].valid ||
+              !groupForm.controls['OrganizerName'].touched
+            "
+            for="OrganizerName"
+            >Organizer Name</label
+          >
+          <label
+            *ngIf="
+              !groupForm.controls['OrganizerName'].valid &&
+              groupForm.controls['OrganizerName'].touched
+            "
+            for="OrganizerName"
+            >Enter a valid Organizer Name</label
+          >
         </span>
       </div>
       <div class="col-12 md:col-4">
@@ -104,7 +166,22 @@
             formControlName="OrganizerPhone"
             placeholder="999-999-9999"
           ></p-inputMask>
-          <label for="OrganizerPhone">Organizer Phone</label>
+          <label
+            *ngIf="
+              groupForm.controls['OrganizerPhone'].valid ||
+              !groupForm.controls['OrganizerPhone'].touched
+            "
+            for="OrganizerPhone"
+            >Organizer Phone</label
+          >
+          <label
+            *ngIf="
+              !groupForm.controls['OrganizerPhone'].valid &&
+              groupForm.controls['OrganizerPhone'].touched
+            "
+            for="OrganizerPhone"
+            >Enter a valid Organizer Phone</label
+          >
         </span>
       </div>
       <div class="col-12 md:col-4">
@@ -116,7 +193,22 @@
             formControlName="OrganizerEmail"
             pInputText
           />
-          <label for="OrganizerEmail">Organizer Email</label>
+          <label
+            *ngIf="
+              groupForm.controls['OrganizerEmail'].valid ||
+              !groupForm.controls['OrganizerEmail'].touched
+            "
+            for="OrganizerEmail"
+            >Organizer Email</label
+          >
+          <label
+            *ngIf="
+              !groupForm.controls['OrganizerEmail'].valid &&
+              groupForm.controls['OrganizerEmail'].touched
+            "
+            for="OrganizerEmail"
+            >Enter a valid Organizer Email</label
+          >
         </span>
       </div>
     </div>
@@ -126,6 +218,7 @@
       type="submit"
       label="Submit"
       class="p-button-raised p-button-secondary"
+      [disabled]="!groupForm.valid"
     ></button>
   </form>
 </section>

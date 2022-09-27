@@ -16,6 +16,21 @@ export class GroupService {
 
   currentGroup: BehaviorSubject<Group> = new BehaviorSubject(this.group);
 
+  getCurrentGroup(): Group {
+    if (localStorage.getItem('currentGroup')) {
+      const group = JSON.parse(localStorage.getItem('currentGroup')!)
+      this.currentGroup = new BehaviorSubject(group);
+      return group;
+    } else {
+      return this.group;
+    }
+  }
+
+  updateCurrentGroup(group: Group): void {
+    this.currentGroup.next(group);
+    this.storeGroupLocal(group);
+  }
+
   getGroups(): Observable<Group> {
     const results: Observable<Group> = this.http.get<Group>(this.baseUrl);
     console.log(`getGroups() returned ${results}`);
@@ -44,6 +59,10 @@ export class GroupService {
     const results: Observable<Group> = this.http.delete<Group>(`${this.baseUrl}/${groupId}`)
     console.log(`deleteGoalById(${groupId}) returned ${results}`);
     return results;
+  }
+
+  storeGroupLocal(group: Group) {
+    localStorage.setItem('currentGroup', JSON.stringify(group));
   }
 
   constructor(private http: HttpClient) { }

@@ -13,6 +13,8 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { ButtonModule} from 'primeng/button';
 import { RippleModule } from 'primeng/ripple';
 import { PasswordModule } from 'primeng/password';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 
 import { AppRoutingModule } from './app.routing.module';
@@ -60,9 +62,10 @@ import { MemberFormComponent } from './components/member-form/member-form.compon
     ButtonModule,
     RippleModule,
     PasswordModule,
-    OrderModule
+    OrderModule,
+    ConfirmDialogModule
   ],
-  providers: [Title],
+  providers: [Title, ConfirmationService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
