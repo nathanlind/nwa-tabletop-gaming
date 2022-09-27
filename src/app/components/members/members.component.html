@@ -23,7 +23,11 @@
             <fa-icon [icon]="faCirclePlus"></fa-icon>
             <p>Add Group Member</p>
           </a>
-          <div id="viewAllMembersControl" (click)="searchText = ''">
+          <div
+            *ngIf="searchText"
+            id="viewAllMembersControl"
+            (click)="searchText = ''"
+          >
             <fa-icon [icon]="faEye"></fa-icon>
             <p>View All Group Members</p>
           </div>
