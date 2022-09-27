@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Group } from 'src/app/models/group.model';
 import { CityService } from 'src/app/services/city.service';
+import { GroupService } from 'src/app/services/group.service';
 
 @Component({
   selector: 'tg-cities',
@@ -18,13 +20,15 @@ export class CitiesComponent implements OnInit {
   showGroups(city: any): void {
     console.log(city.CityName);
     this.cityService.updateCurrentCity(city);
+    this.groupService.updateCurrentGroup(new Group);
     this.router.navigate(['groups']);
   }
 
 
   constructor(private cityService: CityService,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private groupService: GroupService
     ) { }
 
   ngOnInit(): void {

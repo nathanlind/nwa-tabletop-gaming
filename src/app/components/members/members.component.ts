@@ -83,6 +83,12 @@ export class MembersComponent implements OnInit {
     this.groupService.currentGroup.subscribe(
       group => this.currentGroup = group
     )
+    this.members = this.currentGroup.Members;
+    this.currentMember = this.memberService.getCurrentMember();
+    if (this.currentMember){
+      this.searchText = this.currentMember.MemberName;
+    }
+
 
   }
 

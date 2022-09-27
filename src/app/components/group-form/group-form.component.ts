@@ -48,7 +48,17 @@ export class GroupFormComponent implements OnInit {
           },
           complete: () => {
             console.log("onSubmit() called");
-            this.router.navigate(['groups']);
+            this.groupService.getGroupById(this.currentGroup.GroupId).subscribe({
+              next: (res:any) => {
+                this.groupService.updateCurrentGroup(formValues);
+              },
+              error: (err) => {
+                console.log(err);
+              },
+              complete: () => {
+                this.router.navigate(['groups']);
+              }
+            })
           }
         });
       } else if (!this.newGroup) {
@@ -61,7 +71,17 @@ export class GroupFormComponent implements OnInit {
           },
           complete: () => {
             console.log("onSubmit() called");
-            this.router.navigate(['groups']);
+            this.groupService.getGroupById(this.currentGroup.GroupId).subscribe({
+              next: (res:any) => {
+                this.groupService.updateCurrentGroup(res);
+              },
+              error: (err) => {
+                console.log(err);
+              },
+              complete: () => {
+                this.router.navigate(['groups']);
+              }
+            })
           }
         });
       }

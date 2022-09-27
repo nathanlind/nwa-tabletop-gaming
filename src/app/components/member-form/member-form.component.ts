@@ -48,6 +48,7 @@ export class MemberFormComponent implements OnInit {
         this.memberService.addMemberToGroup(formValues, this.currentGroup.GroupId).subscribe({
           next: (res:any) => {
             console.log(res);
+            this.memberService.updateCurrentMember(formValues);
           },
           error: (err) => {
             console.log(err);
@@ -56,7 +57,7 @@ export class MemberFormComponent implements OnInit {
             console.log("onSubmit() called");
             this.groupService.getGroupById(this.currentGroup.GroupId).subscribe({
               next: (res:any) => {
-                this.groupService.currentGroup.next(res);
+                this.groupService.updateCurrentGroup(res);
               },
               error: (err) => {
                 console.log(err);
@@ -71,6 +72,7 @@ export class MemberFormComponent implements OnInit {
         this.memberService.editMemberInGroup(formValues, this.currentGroup.GroupId).subscribe({
           next: (res:any) => {
             console.log(res);
+            this.memberService.updateCurrentMember(this.currentMember);
           },
           error: (err) => {
             console.log(err);
@@ -79,7 +81,7 @@ export class MemberFormComponent implements OnInit {
             console.log("onSubmit() called");
             this.groupService.getGroupById(this.currentGroup.GroupId).subscribe({
               next: (res:any) => {
-                this.groupService.currentGroup.next(res);
+                this.groupService.updateCurrentGroup(res);
               },
               error: (err) => {
                 console.log(err);
