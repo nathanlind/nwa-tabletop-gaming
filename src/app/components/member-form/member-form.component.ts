@@ -25,7 +25,7 @@ export class MemberFormComponent implements OnInit {
       MemberName: ['', Validators.required],
       MemberPhone: ['', Validators.required],
       MemberEmail: ['', Validators.required]
-    }, {updateOn: 'blur'}
+    }
     )
   }
 
@@ -35,7 +35,7 @@ export class MemberFormComponent implements OnInit {
       MemberName: [member.MemberName, Validators.required],
       MemberPhone: [member.MemberPhone, Validators.required],
       MemberEmail: [member.MemberEmail, Validators.required]
-    }, {updateOn: 'blur'}
+    }
     )
   }
 
