@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
   submit!: boolean;
+  errorStatus!: string;
 
   onSubmit(formValues: any): void {
     console.log(formValues);
@@ -24,6 +25,7 @@ export class LoginComponent implements OnInit {
         },
         error: (err) => {
           console.log(err);
+          this.errorStatus = err.status;
         },
         complete: () => {
           console.log("onSubmit() called");
