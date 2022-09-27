@@ -100,8 +100,12 @@ export class GroupsComponent implements OnInit {
   ngOnInit(): void {
     this.titleService.setTitle("NWATG | Groups")
     this.currentCity = this.cityService.getCurrentCity();
+    this.currentGroup = this.groupService.getCurrentGroup();
     if (this.currentCity) {
       this.searchText = this.currentCity.CityName;
+    }
+    if(this.currentGroup.GroupName) {
+      this.searchText = this.currentGroup.GroupName;
     }
     this.groupService.getGroups()
       .subscribe({

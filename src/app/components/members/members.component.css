@@ -18,6 +18,10 @@ p {
   font-weight: 600;
 }
 
+label {
+  margin: 5px 10px;
+}
+
 a {
   color: #fff;
   text-decoration: none;
