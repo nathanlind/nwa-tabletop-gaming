@@ -92,6 +92,10 @@ export class GroupsComponent implements OnInit {
     localStorage.removeItem('currentCity');
   }
 
+  atMaxCapacity(memberCount: string, maxMembers: string): boolean {
+    return parseInt(memberCount) < parseInt(maxMembers) ? false : true;
+  }
+
   constructor(private groupService: GroupService,
     private cityService: CityService,
     private memberService: MemberService,
@@ -120,13 +124,6 @@ export class GroupsComponent implements OnInit {
         },
         complete: () => {
           console.log(`called getGroups()`);
-          if(this.currentGroup.GroupId) {
-            const index = this.groups.findIndex((object: Group) => {
-              return object.GroupId === this.currentGroup.GroupId;
-            })
-            this.groups.splice(index, 1);
-            this.groups.push(this.currentGroup);
-        }
         }
       })
 

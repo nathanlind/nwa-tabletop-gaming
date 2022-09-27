@@ -39,55 +39,53 @@ export class GroupFormComponent implements OnInit {
     if (this.groupForm.valid) {
       this.submit = true;
       if (this.newGroup) {
-        this.groupService.addGroup(formValues).subscribe({
-          next: (res:any) => {
-            console.log(res);
-          },
-          error: (err) => {
-            console.log(err);
-          },
-          complete: () => {
-            console.log("onSubmit() called");
-            this.groupService.getGroupById(this.currentGroup.GroupId).subscribe({
-              next: (res:any) => {
-                this.groupService.updateCurrentGroup(res);
-              },
-              error: (err) => {
-                console.log(err);
-              },
-              complete: () => {
-                this.router.navigate(['groups']);
-              }
-            })
-          }
-        });
+        this.addGroup(formValues);
       } else if (!this.newGroup) {
-        this.groupService.editGroup(formValues).subscribe({
-          next: (res:any) => {
-            console.log(res);
-          },
-          error: (err) => {
-            console.log(err);
-          },
-          complete: () => {
-            console.log("onSubmit() called");
-            this.groupService.getGroupById(this.currentGroup.GroupId).subscribe({
-              next: (res:any) => {
-                this.groupService.updateCurrentGroup(res);
-              },
-              error: (err) => {
-                console.log(err);
-              },
-              complete: () => {
-                this.router.navigate(['groups']);
-              }
-            })
-          }
-        });
+        this.editGroup(formValues);
       }
-
     }
   }
+
+  addGroup(formValues: any): void {
+    this.groupService.addGroup(formValues).subscribe({
+      next: (res:any) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log("onSubmit() called");
+        this.router.navigate(['groups']);
+      }
+    });
+  }
+
+  editGroup(formValues: any) {
+    this.groupService.editGroup(formValues).subscribe({
+      next: (res:any) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log("onSubmit() called");
+        this.groupService.getGroupById(this.currentGroup.GroupId).subscribe({
+          next: (res:any) => {
+            this.groupService.updateCurrentGroup(res);
+          },
+          error: (err) => {
+            console.log(err);
+          },
+          complete: () => {
+            this.router.navigate(['groups']);
+          }
+        })
+      }
+    });
+  }
+
 
   createRegisterForm() {
     this.groupForm = this.fb.group(

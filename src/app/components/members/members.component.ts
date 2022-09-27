@@ -66,6 +66,10 @@ export class MembersComponent implements OnInit {
     });
 }
 
+atMaxCapacity(memberCount: string, maxMembers: string): boolean {
+  return parseInt(memberCount) < parseInt(maxMembers) ? false : true;
+}
+
   constructor(private memberService: MemberService,
     private groupService: GroupService,
     private router: Router,
@@ -93,12 +97,5 @@ export class MembersComponent implements OnInit {
 
       }
     })
-    if (this.currentMember.MemberId){
-      const index = this.members.findIndex((object: Member) => {
-        return object.MemberId === this.currentMember.MemberId;
-      })
-      this.members.splice(index, 1);
-      this.members.push(this.currentMember);
-    }
   }
 }
