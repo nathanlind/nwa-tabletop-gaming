@@ -11,7 +11,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 import { Group } from 'src/app/models/group.model';
-import { ConfirmationService, ConfirmEventType, MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { CityService } from 'src/app/services/city.service';
 
 @Component({
@@ -95,7 +95,7 @@ export class GroupsComponent implements OnInit {
     private orderPipe: OrderPipe,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
- ) { }
+    ) {}
 
   ngOnInit(): void {
     this.titleService.setTitle("NWATG | Groups")

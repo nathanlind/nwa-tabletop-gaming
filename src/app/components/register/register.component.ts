@@ -1,6 +1,7 @@
 import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -51,9 +52,13 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  constructor(private fb: FormBuilder, private router: Router, private userService: UserService) { }
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private userService: UserService,
+    private titleService: Title) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('NWATG | Register')
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
       username: ['', Validators.required],

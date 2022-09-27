@@ -51,7 +51,7 @@
           ></fa-icon>
           <fa-icon
             [icon]="faTrash"
-            (click)="deleteMember(this.member, this.currentGroup)"
+            (click)="confirmDelete(this.member, this.currentGroup)"
           ></fa-icon>
         </div>
       </div>
@@ -63,4 +63,9 @@
       </div>
     </div>
   </div>
+  <p-confirmDialog
+    [style]="{ width: '50vw' }"
+    [baseZIndex]="10000"
+    rejectButtonStyleClass="p-button-text"
+  ></p-confirmDialog>
 </section>

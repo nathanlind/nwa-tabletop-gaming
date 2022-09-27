@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { Group } from 'src/app/models/group.model';
 import { Member } from 'src/app/models/member.model';
@@ -25,7 +26,7 @@ export class MemberFormComponent implements OnInit {
       MemberName: ['', Validators.required],
       MemberPhone: ['', Validators.required],
       MemberEmail: ['', Validators.required]
-    }, {updateOn: 'blur'}
+    }
     )
   }
 
@@ -35,7 +36,7 @@ export class MemberFormComponent implements OnInit {
       MemberName: [member.MemberName, Validators.required],
       MemberPhone: [member.MemberPhone, Validators.required],
       MemberEmail: [member.MemberEmail, Validators.required]
-    }, {updateOn: 'blur'}
+    }
     )
   }
 
@@ -96,9 +97,11 @@ export class MemberFormComponent implements OnInit {
   constructor(private memberService: MemberService,
     private groupService: GroupService,
     private fb: FormBuilder,
-    private router: Router) { }
+    private router: Router,
+    private titleService: Title) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('NWATG | Members')
     this.currentMember = this.memberService.getCurrentMember();
     this.currentGroup = this.groupService.getCurrentGroup();
     console.log(this.router.url);

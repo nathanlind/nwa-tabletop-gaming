@@ -5,6 +5,7 @@ import { Group } from 'src/app/models/group.model';
 import { GroupService } from 'src/app/services/group.service';
 import { MemberService } from 'src/app/services/member.service';
 import { OrderPipe } from 'ngx-order-pipe'
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
@@ -15,7 +16,8 @@ import { Member } from 'src/app/models/member.model';
 @Component({
   selector: 'tg-members',
   templateUrl: './members.component.html',
-  styleUrls: ['./members.component.css']
+  styleUrls: ['./members.component.css'],
+  providers: [ConfirmationService,MessageService]
 })
 export class MembersComponent implements OnInit {
 
@@ -51,18 +53,37 @@ export class MembersComponent implements OnInit {
       })
   }
 
+  confirmDelete(member: Member, group: Group) {
+    this.confirmationService.confirm({
+        message: 'Do you want to delete this member?',
+        header: 'Delete Confirmation',
+        icon: 'pi pi-info-circle',
+        accept: () => {
+            this.deleteMember(member, group);
+        },
+        reject: () => {
+        }
+    });
+}
+
   constructor(private memberService: MemberService,
     private groupService: GroupService,
     private router: Router,
     private titleService: Title,
-    private orderPipe: OrderPipe) {
-
+    private orderPipe: OrderPipe,
+    private confirmationService: ConfirmationService,
+    private messageService: MessageService,
+    ) {
+      this.currentGroup = this.groupService.getCurrentGroup();
+      this.members = this.currentGroup.Members;
     }
 
   ngOnInit(): void {
     this.titleService.setTitle("NWATG | Members");
-    this.currentGroup = this.groupService.getCurrentGroup();
-    this.members = this.currentGroup.Members;
+    this.groupService.currentGroup.subscribe(
+      group => this.currentGroup = group
+    )
+
   }
 
 }
