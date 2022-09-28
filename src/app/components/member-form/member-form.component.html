@@ -96,13 +96,35 @@
         </span>
       </div>
     </div>
-    <button
-      pButton
-      pRipple
-      type="submit"
-      label="Submit"
-      class="p-button-raised p-button-secondary"
-      [disabled]="!memberForm.valid"
-    ></button>
+    <p
+      *ngIf="this.validationChecked && !memberForm.valid"
+      class="formErrorMessage"
+    >
+      Please correct form errors above.
+    </p>
+    <div class="formButtons">
+      <button
+        pButton
+        pRipple
+        tabindex="-1"
+        type="button"
+        label="Cancel"
+        (click)="cancelForm()"
+        class="p-button-raised p-button-danger p-button-text"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="submit"
+        label="Submit"
+        (click)="!memberForm.valid ? showFormErrors() : submit"
+        class="p-button-raised p-button-secondary"
+      ></button>
+    </div>
   </form>
+  <p-confirmDialog
+    [style]="{ width: '50vw' }"
+    [baseZIndex]="10000"
+    rejectButtonStyleClass="p-button-text"
+  ></p-confirmDialog>
 </section>
