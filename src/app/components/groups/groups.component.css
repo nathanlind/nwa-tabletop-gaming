@@ -111,13 +111,13 @@ ul > li {
   justify-content: flex-start;
   align-items: center;
   align-content: center;
-  color: rgb(247, 30, 69);
+  color: #373f51;
   cursor: pointer;
   margin: 2px 0;
 }
 
 #viewMemberWrapper > h4 {
-  color: rgb(247, 30, 69);
+  color: #373f51;
 }
 
 #viewAllGroupsControl {

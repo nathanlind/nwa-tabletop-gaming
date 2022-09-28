@@ -12,20 +12,22 @@
             pInputText
           />
           <label
+            class="required"
             *ngIf="
               loginForm.controls['username'].valid ||
               !loginForm.controls['username'].touched
             "
             for="username"
-            >Username<span class="required">*</span></label
+            >Username</label
           >
           <label
+            class="required"
             *ngIf="
               !loginForm.controls['username'].valid &&
               loginForm.controls['username'].touched
             "
             for="username"
-            >Enter a valid username<span class="required">*</span></label
+            >Enter a valid username</label
           >
         </span>
       </div>
@@ -41,20 +43,22 @@
             formControlName="password"
           ></p-password>
           <label
+            class="required"
             *ngIf="
               loginForm.controls['password'].valid ||
               !loginForm.controls['password'].touched
             "
             for="password"
-            >Password<span class="required">*</span></label
+            >Password</label
           >
           <label
+            class="required"
             *ngIf="
               !loginForm.controls['password'].valid &&
               loginForm.controls['password'].touched
             "
             for="password"
-            >Enter a valid password<span class="required">*</span></label
+            >Enter a valid password</label
           >
         </span>
       </div>

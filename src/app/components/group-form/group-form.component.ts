@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { Group } from 'src/app/models/group.model';
 import { GroupService } from 'src/app/services/group.service';
@@ -11,7 +11,7 @@ import { GroupService } from 'src/app/services/group.service';
   selector: 'tg-group-form',
   templateUrl: './group-form.component.html',
   styleUrls: ['./group-form.component.css'],
-  providers: [MessageService]
+  providers: [MessageService,ConfirmationService]
 })
 export class GroupFormComponent implements OnInit {
 
@@ -19,6 +19,7 @@ export class GroupFormComponent implements OnInit {
   submit!: boolean;
   currentGroup!: Group;
   newGroup!: boolean;
+  validationChecked!: boolean
 
   cities = [
     'Springdale',
@@ -89,6 +90,24 @@ export class GroupFormComponent implements OnInit {
     });
   }
 
+  showFormErrors() {
+    this.groupForm.markAllAsTouched();
+    this.validationChecked = true;
+  }
+
+  cancelForm() {
+    this.confirmationService.confirm({
+      message: 'Form has not been submitted. Do you wish to cancel?',
+      header: 'Confirm Cancel',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+          this.router.navigate(['groups']);
+      },
+      reject: () => {
+      }
+    }
+    )}
+
   createForm(group: Group) {
     this.groupForm = this.fb.group(
       {
@@ -110,6 +129,7 @@ export class GroupFormComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private titleService: Title,
+    private confirmationService: ConfirmationService,
     private messageService: MessageService) { }
 
   ngOnInit(): void {

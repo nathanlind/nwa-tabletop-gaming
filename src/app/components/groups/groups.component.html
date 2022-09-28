@@ -67,11 +67,11 @@
               *ngIf="!atMaxCapacity(group.Members.length, group.MaxGroupSize)"
               (click)="addGroupMember(group)"
             >
-              <fa-icon [icon]="faCirclePlus"></fa-icon>
+              <fa-icon class="greenIcon" [icon]="faCirclePlus"></fa-icon>
               <h4>Add Member</h4>
             </div>
             <div (click)="viewGroupMembers(group)">
-              <fa-icon [icon]="faUser"></fa-icon>
+              <fa-icon class="blueIcon" [icon]="faUser"></fa-icon>
               <h4>View Members</h4>
             </div>
           </div>

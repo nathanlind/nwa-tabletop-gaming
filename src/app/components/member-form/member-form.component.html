@@ -13,20 +13,22 @@
             pInputText
           />
           <label
+            class="required"
             *ngIf="
               memberForm.controls['MemberName'].valid ||
               !memberForm.controls['MemberName'].touched
             "
             for="MemberName"
-            >Member Name<span class="required">*</span></label
+            >Member Name</label
           >
           <label
+            class="required"
             *ngIf="
               !memberForm.controls['MemberName'].valid &&
               memberForm.controls['MemberName'].touched
             "
             for="MemberName"
-            >Enter valid Member Name<span class="required">*</span></label
+            >Enter valid Member Name</label
           >
         </span>
       </div>
@@ -43,20 +45,22 @@
             placeholder="999-999-9999"
           ></p-inputMask>
           <label
+            class="required"
             *ngIf="
               memberForm.controls['MemberPhone'].valid ||
               !memberForm.controls['MemberPhone'].touched
             "
             for="MemberPhone"
-            >Member Phone<span class="required">*</span></label
+            >Member Phone</label
           >
           <label
+            class="required"
             *ngIf="
               !memberForm.controls['MemberPhone'].valid &&
               memberForm.controls['MemberPhone'].touched
             "
             for="MemberPhone"
-            >Enter Valid Member Phone<span class="required">*</span></label
+            >Enter Valid Member Phone</label
           >
         </span>
       </div>
@@ -72,20 +76,22 @@
             pInputText
           />
           <label
+            class="required"
             *ngIf="
               memberForm.controls['MemberEmail'].valid ||
               !memberForm.controls['MemberEmail'].touched
             "
             for="MemberEmail"
-            >Member Email<span class="required">*</span></label
+            >Member Email</label
           >
           <label
+            class="required"
             *ngIf="
               !memberForm.controls['MemberEmail'].valid &&
               memberForm.controls['MemberEmail'].touched
             "
             for="MemberEmail"
-            >Enter valid Member Email<span class="required">*</span></label
+            >Enter valid Member Email</label
           >
         </span>
       </div>
