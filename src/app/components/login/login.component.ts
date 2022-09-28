@@ -44,19 +44,6 @@ export class LoginComponent implements OnInit {
     this.validationChecked = true;
   }
 
-  cancelForm() {
-    this.confirmationService.confirm({
-      message: 'Form has not been submitted. Do you wish to cancel?',
-      header: 'Confirm Cancel',
-      icon: 'pi pi-info-circle',
-      accept: () => {
-          this.router.navigate(['home']);
-      },
-      reject: () => {
-      }
-    })
-  }
-
   createForm(): void {
     this.loginForm = this.fb.group({
       username: ['', Validators.required],
@@ -64,6 +51,13 @@ export class LoginComponent implements OnInit {
     })
   }
 
+  cancelForm(): void {
+    this.router.navigate(['home']);
+  }
+
+  canDeactivate(): boolean {
+    return !this.loginForm.touched || this.submit
+  }
   constructor(private fb: FormBuilder,
     private router: Router,
     private userService: UserService,

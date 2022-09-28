@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
+import { RoutingGuard } from 'src/app/guards/routing.guard';
 
 import { UserService } from 'src/app/services/user.service';
 
@@ -59,19 +60,6 @@ export class RegisterComponent implements OnInit {
     this.validationChecked = true;
   }
 
-  cancelForm() {
-    this.confirmationService.confirm({
-      message: 'Form has not been submitted. Do you wish to cancel?',
-      header: 'Confirm Cancel',
-      icon: 'pi pi-info-circle',
-      accept: () => {
-          this.router.navigate(['home']);
-      },
-      reject: () => {
-      }
-    })
-  }
-
   createForm(): void {
     this.registerForm = this.fb.group({
       name: ['', Validators.required],
@@ -80,8 +68,17 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  cancelForm(): void {
+    this.router.navigate(['home']);
+  }
+
+  canDeactivate(): boolean {
+    return !this.registerForm.touched || this.submit
+  }
+
   constructor(private fb: FormBuilder,
     private router: Router,
+    private routingGuard: RoutingGuard,
     private userService: UserService,
     private titleService: Title,
     private confirmationService: ConfirmationService) { }

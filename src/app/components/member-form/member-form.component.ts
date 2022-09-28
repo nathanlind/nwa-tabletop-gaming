@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
+import { Subject } from 'rxjs';
+import { RoutingGuard } from 'src/app/guards/routing.guard';
 
 import { Group } from 'src/app/models/group.model';
 import { Member } from 'src/app/models/member.model';
@@ -18,7 +20,7 @@ import { MemberService } from 'src/app/services/member.service';
 export class MemberFormComponent implements OnInit {
 
   memberForm!: FormGroup;
-  submit!: boolean;
+  submit: boolean = false;
   currentMember!: Member;
   currentGroup!: Group;
   newMember!: boolean;
@@ -102,23 +104,20 @@ export class MemberFormComponent implements OnInit {
     this.validationChecked = true;
   }
 
-  cancelForm() {
-    this.confirmationService.confirm({
-      message: 'Form has not been submitted. Do you wish to cancel?',
-      header: 'Confirm Cancel',
-      icon: 'pi pi-info-circle',
-      accept: () => {
-          this.router.navigate(['members']);
-      },
-      reject: () => {
-      }
-    })
+  cancelForm(): void {
+    this.router.navigate(['members']);
   }
+
+  canDeactivate(): boolean {
+    return !this.memberForm.touched || this.submit
+  }
+
 
   constructor(private memberService: MemberService,
     private groupService: GroupService,
     private fb: FormBuilder,
     private router: Router,
+    private routingGuard: RoutingGuard,
     private titleService: Title,
     private confirmationService: ConfirmationService) { }
 
