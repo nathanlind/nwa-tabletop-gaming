@@ -1,4 +1,4 @@
-<section>
+<section class="formContainer">
   <h2 *ngIf="newMember">Register New Member</h2>
   <h2 *ngIf="!newMember">Edit Member</h2>
   <form [formGroup]="memberForm" (ngSubmit)="onSubmit(memberForm.value)">

@@ -12,10 +12,6 @@ fa-icon {
   cursor: pointer;
 }
 
-#groupCardHeader fa-icon {
-  font-size: 2em;
-}
-
 p {
   display: inline;
   font-size: 1.5em;
@@ -46,30 +42,6 @@ ul > li {
   padding-bottom: 0.3em;
 }
 
-#viewMemberWrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-content: center;
-  align-items: center;
-  margin-right: 10px;
-}
-#viewMemberWrapper > div > div {
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  align-content: center;
-  color: rgb(247, 30, 69);
-  cursor: pointer;
-  margin: 2px 0;
-}
-
-#viewMemberWrapper > h4 {
-  color: rgb(247, 30, 69);
-}
-
 #groupHeader {
   display: flex;
   width: 100%;
@@ -95,33 +67,59 @@ ul > li {
   justify-content: space-between;
 }
 
-#viewAllGroupsControl {
-  cursor: pointer;
-}
-
-#cityCard {
-  margin: 15px;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 1);
-  transition: 0.2s;
-  background-color: #fff;
-  width: 100%;
-  border-radius: 10px;
-}
-
-#cityCardHeaderSolo {
+#groupCardHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
   align-items: center;
   padding: 1.5em 16px;
-  background: rgb(138, 60, 184);
+  background: rgb(247, 30, 69);
   background: linear-gradient(
     90deg,
-    rgba(138, 60, 184, 1) 0%,
-    rgba(180, 96, 231, 1) 35%,
-    rgba(236, 183, 255, 1) 100%
+    rgba(247, 30, 69, 1) 0%,
+    rgba(252, 99, 86, 1) 35%,
+    rgba(252, 159, 99, 1) 100%
   );
   color: #fff;
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 0 0;
+}
+
+#groupCardHeader fa-icon {
+  font-size: 2em;
+}
+
+#groupCardContainer {
+  padding: 1.5em 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#viewMemberWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+#viewMemberWrapper > div > div {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  color: rgb(247, 30, 69);
+  cursor: pointer;
+  margin: 2px 0;
+}
+
+#viewMemberWrapper > h4 {
+  color: rgb(247, 30, 69);
+}
+
+#viewAllGroupsControl {
+  cursor: pointer;
 }

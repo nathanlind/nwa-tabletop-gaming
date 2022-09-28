@@ -110,6 +110,7 @@ ul > li {
   );
   color: #fff;
   border-radius: 10px 10px 10px 10px;
+  cursor: pointer;
 }
 
 #membersControls {
@@ -119,9 +120,5 @@ ul > li {
 }
 
 #viewAllMembersControl {
-  cursor: pointer;
-}
-
-#groupCard {
   cursor: pointer;
 }

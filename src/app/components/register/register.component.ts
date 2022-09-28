@@ -1,8 +1,8 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  checkUsernameAvailability(formValues: any) {
+  checkUsernameAvailability(formValues: any): void {
     this.userService.checkUsernameAvailability(formValues.username).subscribe({
       next: (res:string) => {
         if (res === 'NO') {
@@ -52,6 +52,14 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  createForm(): void {
+    this.registerForm = this.fb.group({
+      name: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    })
+  }
+
   constructor(private fb: FormBuilder,
     private router: Router,
     private userService: UserService,
@@ -59,11 +67,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
     this.titleService.setTitle('NWATG | Register')
-    this.registerForm = this.fb.group({
-      name: ['', Validators.required],
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    })
+    this.createForm();
   }
 
 }

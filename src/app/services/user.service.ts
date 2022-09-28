@@ -60,7 +60,7 @@ export class UserService {
       return results;
   }
 
-  storeUserLocal(user: User) {
+  storeUserLocal(user: User): void {
     localStorage.setItem('currentUser', JSON.stringify(user));
   }
 

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+
 import { Group } from 'src/app/models/group.model';
 import { GroupService } from 'src/app/services/group.service';
 
@@ -88,25 +89,7 @@ export class GroupFormComponent implements OnInit {
     });
   }
 
-
-  createRegisterForm() {
-    this.groupForm = this.fb.group(
-      {
-        GroupId: [''],
-        CityName: ['', Validators.required],
-        GroupName: ['', Validators.required],
-        OrganizerName: ['', Validators.required],
-        OrganizerPhone: ['', Validators.required],
-        OrganizerEmail: ['', Validators.required],
-        PrimaryGame: ['', Validators.required],
-        MeetingDay: ['', Validators.required],
-        MeetingTime:['', Validators.required],
-        MaxGroupSize:['', Validators.required]
-      }
-    )
-  }
-
-  createEditForm(group: Group) {
+  createForm(group: Group) {
     this.groupForm = this.fb.group(
       {
           GroupId: [group.GroupId],
@@ -135,10 +118,10 @@ export class GroupFormComponent implements OnInit {
     console.log(this.router.url);
     if (this.router.url === '/groups/register-group') {
       this.newGroup = true;
-      this.createRegisterForm();
+      this.createForm(new Group());
     } else if (this.router.url === '/groups/edit-group') {
       this.newGroup = false;
-      this.createEditForm(this.currentGroup);
+      this.createForm(this.currentGroup);
     }
     console.log(this.newGroup);
   }

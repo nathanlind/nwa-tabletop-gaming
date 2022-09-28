@@ -35,7 +35,7 @@ export class CityService {
     return results
   }
 
-  storeCityLocal(city: City) {
+  storeCityLocal(city: City): void {
     localStorage.setItem('currentCity', JSON.stringify(city));
   }
 

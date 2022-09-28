@@ -59,7 +59,7 @@ export class MemberService {
       return results;
   }
 
-  storeMemberLocal(member: Member) {
+  storeMemberLocal(member: Member): void {
     localStorage.setItem('currentMember', JSON.stringify(member));
   }
 

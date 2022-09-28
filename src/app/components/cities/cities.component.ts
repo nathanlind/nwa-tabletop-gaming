@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+
 import { Group } from 'src/app/models/group.model';
 import { CityService } from 'src/app/services/city.service';
 import { GroupService } from 'src/app/services/group.service';
@@ -12,8 +13,7 @@ import { GroupService } from 'src/app/services/group.service';
 })
 export class CitiesComponent implements OnInit {
 
-  image: string = "https://via.placeholder.com/300x200";
-  imageAltText: string = "Placeholder image for City Card";
+  image!: string;
   cities!: any;
   errorMessage!: string;
 

@@ -1,12 +1,5 @@
 section {
   margin: 20px 25vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: left;
-  align-content: left;
-  background-color: #fff;
-  border-radius: 10px;
 }
 
 h2 {
@@ -22,10 +15,10 @@ form > * {
   margin: 1.2em;
 }
 
-#username-unavailable {
+#usernameUnavailable {
   color: red;
 }
 
-#username-available {
+#usernameAvailable {
   color: green;
 }
