@@ -95,19 +95,6 @@ export class GroupFormComponent implements OnInit {
     this.validationChecked = true;
   }
 
-  cancelForm() {
-    this.confirmationService.confirm({
-      message: 'Form has not been submitted. Do you wish to cancel?',
-      header: 'Confirm Cancel',
-      icon: 'pi pi-info-circle',
-      accept: () => {
-          this.router.navigate(['groups']);
-      },
-      reject: () => {
-      }
-    })
-  }
-
   createForm(group: Group) {
     this.groupForm = this.fb.group(
       {
@@ -123,6 +110,14 @@ export class GroupFormComponent implements OnInit {
           MaxGroupSize:[group.MaxGroupSize, Validators.required]
       }
     )
+  }
+
+  cancelForm(): void {
+    this.router.navigate(['groups']);
+  }
+
+  canDeactivate(): boolean {
+    return !this.groupForm.touched || this.submit
   }
 
   constructor(private groupService: GroupService,
