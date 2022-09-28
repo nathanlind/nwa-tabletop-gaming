@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { ConfirmationService } from 'primeng/api';
 
 import { Group } from 'src/app/models/group.model';
 import { Member } from 'src/app/models/member.model';
@@ -11,7 +12,8 @@ import { MemberService } from 'src/app/services/member.service';
 @Component({
   selector: 'tg-member-form',
   templateUrl: './member-form.component.html',
-  styleUrls: ['./member-form.component.css']
+  styleUrls: ['./member-form.component.css'],
+  providers: [ConfirmationService]
 })
 export class MemberFormComponent implements OnInit {
 
@@ -20,6 +22,7 @@ export class MemberFormComponent implements OnInit {
   currentMember!: Member;
   currentGroup!: Group;
   newMember!: boolean;
+  validationChecked!: boolean;
 
   createForm(member: Member): void {
     this.memberForm = this.fb.group({
@@ -94,11 +97,30 @@ export class MemberFormComponent implements OnInit {
     });
   }
 
+  showFormErrors() {
+    this.memberForm.markAllAsTouched();
+    this.validationChecked = true;
+  }
+
+  cancelForm() {
+    this.confirmationService.confirm({
+      message: 'Form has not been submitted. Do you wish to cancel?',
+      header: 'Confirm Cancel',
+      icon: 'pi pi-info-circle',
+      accept: () => {
+          this.router.navigate(['members']);
+      },
+      reject: () => {
+      }
+    })
+  }
+
   constructor(private memberService: MemberService,
     private groupService: GroupService,
     private fb: FormBuilder,
     private router: Router,
-    private titleService: Title) { }
+    private titleService: Title,
+    private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('NWATG | Members')

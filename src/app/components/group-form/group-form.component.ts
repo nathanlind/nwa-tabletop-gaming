@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmationService } from 'primeng/api';
 
 import { Group } from 'src/app/models/group.model';
 import { GroupService } from 'src/app/services/group.service';
@@ -11,7 +11,7 @@ import { GroupService } from 'src/app/services/group.service';
   selector: 'tg-group-form',
   templateUrl: './group-form.component.html',
   styleUrls: ['./group-form.component.css'],
-  providers: [MessageService,ConfirmationService]
+  providers: [ConfirmationService]
 })
 export class GroupFormComponent implements OnInit {
 
@@ -105,8 +105,8 @@ export class GroupFormComponent implements OnInit {
       },
       reject: () => {
       }
-    }
-    )}
+    })
+  }
 
   createForm(group: Group) {
     this.groupForm = this.fb.group(
@@ -129,8 +129,7 @@ export class GroupFormComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private titleService: Title,
-    private confirmationService: ConfirmationService,
-    private messageService: MessageService) { }
+    private confirmationService: ConfirmationService) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('NWATG | Groups')
