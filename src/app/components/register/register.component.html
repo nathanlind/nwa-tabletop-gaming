@@ -17,7 +17,7 @@
               !registerForm.controls['name'].touched
             "
             for="name"
-            >Name</label
+            >Name<span class="required">*</span></label
           >
           <label
             *ngIf="
@@ -25,7 +25,7 @@
               registerForm.controls['name'].touched
             "
             for="name"
-            >Enter a valid name</label
+            >Enter a valid name<span class="required">*</span></label
           >
         </span>
       </div>
@@ -46,7 +46,7 @@
                 !registerForm.controls['username'].touched
               "
               for="username"
-              >Username</label
+              >Username<span class="required">*</span></label
             >
             <label
               *ngIf="
@@ -54,7 +54,7 @@
                 registerForm.controls['username'].touched
               "
               for="username"
-              >Enter a valid username</label
+              >Enter a valid username<span class="required">*</span></label
             >
           </span>
           <button
@@ -87,6 +87,7 @@
             id="password"
             class="p-inputtext-lg"
             formControlName="password"
+            (select)="registerForm.controls['password'].markAsTouched()"
           ></p-password>
           <label
             *ngIf="
@@ -94,7 +95,7 @@
               !registerForm.controls['password'].touched
             "
             for="password"
-            >Password</label
+            >Password<span class="required">*</span></label
           >
           <label
             *ngIf="
@@ -102,7 +103,7 @@
               registerForm.controls['password'].touched
             "
             for="password"
-            >Enter a valid password</label
+            >Enter a valid password<span class="required">*</span></label
           >
         </span>
       </div>

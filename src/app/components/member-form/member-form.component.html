@@ -18,7 +18,7 @@
               !memberForm.controls['MemberName'].touched
             "
             for="MemberName"
-            >Member Name</label
+            >Member Name<span class="required">*</span></label
           >
           <label
             *ngIf="
@@ -26,7 +26,7 @@
               memberForm.controls['MemberName'].touched
             "
             for="MemberName"
-            >Enter valid Member Name</label
+            >Enter valid Member Name<span class="required">*</span></label
           >
         </span>
       </div>
@@ -48,7 +48,7 @@
               !memberForm.controls['MemberPhone'].touched
             "
             for="MemberPhone"
-            >Member Phone</label
+            >Member Phone<span class="required">*</span></label
           >
           <label
             *ngIf="
@@ -56,7 +56,7 @@
               memberForm.controls['MemberPhone'].touched
             "
             for="MemberPhone"
-            >Enter Valid Member Phone</label
+            >Enter Valid Member Phone<span class="required">*</span></label
           >
         </span>
       </div>
@@ -77,7 +77,7 @@
               !memberForm.controls['MemberEmail'].touched
             "
             for="MemberEmail"
-            >Member Email</label
+            >Member Email<span class="required">*</span></label
           >
           <label
             *ngIf="
@@ -85,7 +85,7 @@
               memberForm.controls['MemberEmail'].touched
             "
             for="MemberEmail"
-            >Enter valid Member Email</label
+            >Enter valid Member Email<span class="required">*</span></label
           >
         </span>
       </div>

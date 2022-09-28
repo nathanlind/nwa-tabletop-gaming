@@ -32,7 +32,7 @@ export class CitiesComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.titleService.setTitle("NWA Tabletop Gaming")
+    this.titleService.setTitle("NWA Tabletop Gaming");
     this.cityService.getCities()
       .subscribe({
         next: (res:any) => {

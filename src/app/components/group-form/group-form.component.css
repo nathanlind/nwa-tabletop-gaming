@@ -15,6 +15,10 @@ form > * {
   margin: 1.2em;
 }
 
-#MeetingTime {
+input {
+  padding: 14px;
+}
+
+#meetingTime {
   padding: 10px;
 }

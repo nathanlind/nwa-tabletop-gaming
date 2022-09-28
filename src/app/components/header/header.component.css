@@ -1,5 +1,10 @@
 @import url(../../../assets/fonts/headerFont.css);
 
+a {
+  color: #000;
+  text-decoration: none;
+}
+
 header {
   display: flex;
   flex-direction: column;
