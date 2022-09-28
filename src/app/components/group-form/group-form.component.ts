@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { Group } from 'src/app/models/group.model';
 import { GroupService } from 'src/app/services/group.service';
 
 @Component({
   selector: 'tg-group-form',
   templateUrl: './group-form.component.html',
-  styleUrls: ['./group-form.component.css']
+  styleUrls: ['./group-form.component.css'],
+  providers: [MessageService]
 })
 export class GroupFormComponent implements OnInit {
 
@@ -124,7 +126,8 @@ export class GroupFormComponent implements OnInit {
   constructor(private groupService: GroupService,
     private fb: FormBuilder,
     private router: Router,
-    private titleService: Title) { }
+    private titleService: Title,
+    private messageService: MessageService) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('NWATG | Groups')

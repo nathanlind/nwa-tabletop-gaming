@@ -52,6 +52,12 @@ export class GroupsComponent implements OnInit {
             return object.GroupId === group.GroupId;
           })
           this.groups.splice(index, 1);
+          this.messageService.add({
+            key: 'tc',
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Group deleted'
+          })
         }
       })
   }

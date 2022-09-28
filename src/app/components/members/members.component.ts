@@ -49,6 +49,12 @@ export class MembersComponent implements OnInit {
             return object.MemberId === member.MemberId;
           })
           this.members.splice(index, 1);
+          this.messageService.add({
+            key: 'tc',
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Member deleted'
+          })
         }
       })
   }

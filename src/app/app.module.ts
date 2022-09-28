@@ -15,6 +15,7 @@ import { RippleModule } from 'primeng/ripple';
 import { PasswordModule } from 'primeng/password';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 
 import { AppRoutingModule } from './app.routing.module';
@@ -63,7 +64,8 @@ import { MemberFormComponent } from './components/member-form/member-form.compon
     RippleModule,
     PasswordModule,
     OrderModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    ToastModule
   ],
   providers: [Title, ConfirmationService, MessageService],
   bootstrap: [AppComponent]
