@@ -1,5 +1,5 @@
 <p-toast position="top-center" key="tc"></p-toast>
-<section>
+<section class="formContainer">
   <h2 *ngIf="newGroup">Register New Group</h2>
   <h2 *ngIf="!newGroup">Edit Group</h2>
   <form [formGroup]="groupForm" (ngSubmit)="onSubmit(groupForm.value)">

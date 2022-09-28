@@ -61,7 +61,7 @@ export class GroupService {
     return results;
   }
 
-  storeGroupLocal(group: Group) {
+  storeGroupLocal(group: Group): void {
     localStorage.setItem('currentGroup', JSON.stringify(group));
   }
 

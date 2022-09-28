@@ -3,6 +3,7 @@ import { GroupService } from 'src/app/services/group.service';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { OrderPipe } from 'ngx-order-pipe'
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
@@ -11,7 +12,6 @@ import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 import { Group } from 'src/app/models/group.model';
-import { ConfirmationService, MessageService } from 'primeng/api';
 import { CityService } from 'src/app/services/city.service';
 import { MemberService } from 'src/app/services/member.service';
 import { Member } from 'src/app/models/member.model';
@@ -62,7 +62,7 @@ export class GroupsComponent implements OnInit {
       })
   }
 
-  confirmDelete(group: Group) {
+  confirmDelete(group: Group): void {
     this.confirmationService.confirm({
         message: 'Do you want to delete this group?',
         header: 'Delete Confirmation',

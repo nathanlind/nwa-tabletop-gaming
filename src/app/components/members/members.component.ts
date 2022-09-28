@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { Group } from 'src/app/models/group.model';
-import { GroupService } from 'src/app/services/group.service';
-import { MemberService } from 'src/app/services/member.service';
 import { OrderPipe } from 'ngx-order-pipe'
 import { ConfirmationService, MessageService } from 'primeng/api';
 
@@ -11,6 +8,10 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
+
+import { Group } from 'src/app/models/group.model';
+import { GroupService } from 'src/app/services/group.service';
+import { MemberService } from 'src/app/services/member.service';
 import { Member } from 'src/app/models/member.model';
 
 @Component({
@@ -59,7 +60,7 @@ export class MembersComponent implements OnInit {
       })
   }
 
-  confirmDelete(member: Member, group: Group) {
+  confirmDelete(member: Member, group: Group): void {
     this.confirmationService.confirm({
         message: 'Do you want to delete this member?',
         header: 'Delete Confirmation',
@@ -70,11 +71,11 @@ export class MembersComponent implements OnInit {
         reject: () => {
         }
     });
-}
+  }
 
-atMaxCapacity(memberCount: string, maxMembers: string): boolean {
-  return parseInt(memberCount) < parseInt(maxMembers) ? false : true;
-}
+  atMaxCapacity(memberCount: string, maxMembers: string): boolean {
+    return parseInt(memberCount) < parseInt(maxMembers) ? false : true;
+  }
 
   constructor(private memberService: MemberService,
     private groupService: GroupService,

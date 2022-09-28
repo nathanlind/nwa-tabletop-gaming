@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
   title: string = "Northwest Arkansas Tabletop Gaming"
-  loggedIn: boolean = false;
   router!: Router;
 
   constructor(private _router: Router) {

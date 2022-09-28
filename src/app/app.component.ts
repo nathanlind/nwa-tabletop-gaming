@@ -9,11 +9,13 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
+  title = 'Loading...';
+
   constructor(private router: Router, private titleService: Title) {}
+
   ngOnInit() {
-    // this.router.navigate(['cities']);
     this.titleService.setTitle('NWA Tabletop Gaming')
   }
 
-  title = 'Loading...';
+
 }

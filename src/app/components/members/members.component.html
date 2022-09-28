@@ -1,7 +1,7 @@
 <p-toast position="top-center" key="tc"></p-toast>
-<section class="page-wrap">
-  <div class="width-container">
-    <div id="groupCard" routerLink="/groups" routerLinkActive="active">
+<section class="pageWrap">
+  <div class="widthContainer">
+    <div class="groupCard" routerLink="/groups" routerLinkActive="active">
       <div id="groupCardHeaderSolo">
         <div>
           <h2>{{ currentGroup.GroupName }}</h2>
@@ -17,10 +17,10 @@
     </div>
     <div id="memberHeader">
       <div>
-        <label for="member-search">Search group members</label>
+        <label for="memberSearch">Search group members</label>
         <input
-          class="search-bar"
-          id="member-search"
+          class="searchBar"
+          id="memberSearch"
           type="text"
           name="search"
           [(ngModel)]="searchText"

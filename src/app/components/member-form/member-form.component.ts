@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
+
 import { Group } from 'src/app/models/group.model';
 import { Member } from 'src/app/models/member.model';
 import { GroupService } from 'src/app/services/group.service';
@@ -20,24 +21,13 @@ export class MemberFormComponent implements OnInit {
   currentGroup!: Group;
   newMember!: boolean;
 
-  createRegisterForm() {
-    this.memberForm = this.fb.group({
-      MemberId: [''],
-      MemberName: ['', Validators.required],
-      MemberPhone: ['', Validators.required],
-      MemberEmail: ['', Validators.required]
-    }
-    )
-  }
-
-  createEditForm(member: Member) {
+  createForm(member: Member): void {
     this.memberForm = this.fb.group({
       MemberId: [member.MemberId],
       MemberName: [member.MemberName, Validators.required],
       MemberPhone: [member.MemberPhone, Validators.required],
       MemberEmail: [member.MemberEmail, Validators.required]
-    }
-    )
+    })
   }
 
   onSubmit(formValues: any): void {
@@ -52,7 +42,7 @@ export class MemberFormComponent implements OnInit {
     }
   }
 
-  addMember(formValues: any) {
+  addMember(formValues: any): void {
     this.memberService.addMemberToGroup(formValues, this.currentGroup.GroupId).subscribe({
       next: (res:any) => {
         console.log(res);
@@ -78,7 +68,7 @@ export class MemberFormComponent implements OnInit {
     });
   }
 
-  editMember(formValues: any) {
+  editMember(formValues: any): void {
     this.memberService.editMemberInGroup(formValues, this.currentGroup.GroupId).subscribe({
       next: (res:any) => {
         console.log(res);
@@ -117,10 +107,10 @@ export class MemberFormComponent implements OnInit {
     console.log(this.router.url);
     if (this.router.url === '/members/register-member') {
       this.newMember = true;
-      this.createRegisterForm();
+      this.createForm(new Member());
     } else if (this.router.url === '/members/edit-member') {
       this.newMember = false;
-      this.createEditForm(this.currentMember);
+      this.createForm(this.currentMember);
     }
   }
 

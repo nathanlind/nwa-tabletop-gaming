@@ -1,12 +1,12 @@
 <p-toast position="top-center" key="tc"></p-toast>
-<section class="page-wrap">
-  <div class="width-container">
+<section class="pageWrap">
+  <div class="widthContainer">
     <div id="groupHeader">
       <div>
-        <label for="group-search">Search groups</label>
+        <label for="groupSearch">Search groups</label>
         <input
-          class="search-bar"
-          id="group-search"
+          class="searchBar"
+          id="groupSearch"
           type="text"
           name="search"
           [(ngModel)]="searchText"
@@ -31,7 +31,7 @@
     </div>
     <div
       *ngFor="let group of groups | orderBy: 'group':false | filter: searchText"
-      id="groupCard"
+      class="groupCard"
     >
       <div id="groupCardHeader">
         <div>

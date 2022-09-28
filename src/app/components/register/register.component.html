@@ -1,4 +1,4 @@
-<section>
+<section class="formContainer">
   <h2>Register</h2>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
     <div class="grid p-fluid">
@@ -70,12 +70,12 @@
       </div>
     </div>
     <p
-      id="username-unavailable"
+      id="usernameUnavailable"
       *ngIf="!usernameAvailable && availabilityChecked"
     >
       Username is unavailable.
     </p>
-    <p id="username-available" *ngIf="usernameAvailable && availabilityChecked">
+    <p id="usernameAvailable" *ngIf="usernameAvailable && availabilityChecked">
       Username is available.
     </p>
 
