@@ -49,34 +49,36 @@
         </div>
       </div>
     </div>
-    <div
-      *ngFor="
-        let member of members | orderBy: 'member':false | filter: searchText
-      "
-      id="memberCard"
-    >
-      <div id="memberCardHeader">
-        <div>
-          <h2>{{ member.MemberName }}</h2>
+    <section id="memberCardSection">
+      <div
+        *ngFor="
+          let member of members | orderBy: 'member':true | filter: searchText
+        "
+        id="memberCard"
+      >
+        <div id="memberCardHeader">
+          <div>
+            <h2>{{ member.MemberName }}</h2>
+          </div>
+          <div>
+            <fa-icon
+              [icon]="faPenToSquare"
+              (click)="editMember(this.member)"
+            ></fa-icon>
+            <fa-icon
+              [icon]="faTrash"
+              (click)="confirmDelete(this.member, this.currentGroup)"
+            ></fa-icon>
+          </div>
         </div>
-        <div>
-          <fa-icon
-            [icon]="faPenToSquare"
-            (click)="editMember(this.member)"
-          ></fa-icon>
-          <fa-icon
-            [icon]="faTrash"
-            (click)="confirmDelete(this.member, this.currentGroup)"
-          ></fa-icon>
+        <div id="memberCardContainer">
+          <ul>
+            <li>Phone: {{ member.MemberPhone }}</li>
+            <li>Email: {{ member.MemberEmail }}</li>
+          </ul>
         </div>
       </div>
-      <div id="memberCardContainer">
-        <ul>
-          <li>Phone: {{ member.MemberPhone }}</li>
-          <li>Email: {{ member.MemberEmail }}</li>
-        </ul>
-      </div>
-    </div>
+    </section>
   </div>
   <p-confirmDialog
     [style]="{ width: '50vw' }"

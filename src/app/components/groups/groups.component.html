@@ -30,7 +30,7 @@
       </div>
     </div>
     <div
-      *ngFor="let group of groups | orderBy: 'group':false | filter: searchText"
+      *ngFor="let group of groups | orderBy: 'group':true | filter: searchText"
       class="groupCard"
     >
       <div id="groupCardHeader">
@@ -56,7 +56,6 @@
           <li>Organizer: {{ group.OrganizerName }}</li>
           <li>Organizer Phone: {{ group.OrganizerPhone }}</li>
           <li>Organizer Email: {{ group.OrganizerEmail }}</li>
-          <!-- <li>Max Group Size: {{ group.MaxGroupSize }}</li> -->
         </ul>
         <div id="viewMemberWrapper">
           <h4>
