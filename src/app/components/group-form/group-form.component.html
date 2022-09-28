@@ -16,9 +16,7 @@
             [autoDisplayFirst]="true"
             placeholder="Select a City"
           ></p-dropdown>
-          <label for="cityname"
-            >Select a City<span class="required">*</span></label
-          >
+          <label class="required" for="cityname">Select a City</label>
         </span>
       </div>
       <div class="col-12 md:col-8">
@@ -30,20 +28,22 @@
             pInputText
           />
           <label
+            class="required"
             *ngIf="
               groupForm.controls['GroupName'].valid ||
               !groupForm.controls['GroupName'].touched
             "
             for="GroupName"
-            >Group Name<span class="required">*</span></label
+            >Group Name</label
           >
           <label
+            class="required"
             *ngIf="
               !groupForm.controls['GroupName'].valid &&
               groupForm.controls['GroupName'].touched
             "
             for="GroupName"
-            >Enter a valid Group Name<span class="required">*</span></label
+            >Enter a valid Group Name</label
           >
         </span>
       </div>
@@ -58,20 +58,22 @@
             pInputText
           />
           <label
+            class="required"
             *ngIf="
               groupForm.controls['MaxGroupSize'].valid ||
               !groupForm.controls['MaxGroupSize'].touched
             "
             for="MaxGroupSize"
-            >Max group size<span class="required">*</span></label
+            >Max group size</label
           >
           <label
+            class="required"
             *ngIf="
               !groupForm.controls['MaxGroupSize'].valid &&
               groupForm.controls['MaxGroupSize'].touched
             "
             for="MaxGroupSize"
-            >Enter a Max Group Size<span class="required">*</span></label
+            >Enter a Max Group Size</label
           >
         </span>
       </div>
@@ -84,27 +86,27 @@
             pInputText
           />
           <label
+            class="required"
             *ngIf="
               groupForm.controls['PrimaryGame'].valid ||
               !groupForm.controls['PrimaryGame'].touched
             "
             for="PrimaryGame"
-            >Primary Game<span class="required">*</span></label
+            >Primary Game</label
           >
           <label
+            class="required"
             *ngIf="
               !groupForm.controls['PrimaryGame'].valid &&
               groupForm.controls['PrimaryGame'].touched
             "
             for="PrimaryGame"
-            >Enter a valid Primary Game<span class="required">*</span></label
+            >Enter a valid Primary Game</label
           >
         </span>
       </div>
     </div>
-    <h3>
-      What day and time will the group meet?<span class="required">*</span>
-    </h3>
+    <h3 class="required">What day and time will the group meet?</h3>
     <div class="grid p-fluid">
       <div class="col 12 md:col-4">
         <span class="p-float-label">
@@ -141,20 +143,22 @@
             pInputText
           />
           <label
+            class="required"
             *ngIf="
               groupForm.controls['OrganizerName'].valid ||
               !groupForm.controls['OrganizerName'].touched
             "
             for="OrganizerName"
-            >Organizer Name<span class="required">*</span></label
+            >Organizer Name</label
           >
           <label
+            class="required"
             *ngIf="
               !groupForm.controls['OrganizerName'].valid &&
               groupForm.controls['OrganizerName'].touched
             "
             for="OrganizerName"
-            >Enter a valid Organizer Name<span class="required">*</span></label
+            >Enter a valid Organizer Name</label
           >
         </span>
       </div>
@@ -169,20 +173,22 @@
             placeholder="999-999-9999"
           ></p-inputMask>
           <label
+            class="required"
             *ngIf="
               groupForm.controls['OrganizerPhone'].valid ||
               !groupForm.controls['OrganizerPhone'].touched
             "
             for="OrganizerPhone"
-            >Organizer Phone<span class="required">*</span>
-          </label>
+            >Organizer Phone</label
+          >
           <label
+            class="required"
             *ngIf="
               !groupForm.controls['OrganizerPhone'].valid &&
               groupForm.controls['OrganizerPhone'].touched
             "
             for="OrganizerPhone"
-            >Enter a valid Organizer Phone<span class="required">*</span></label
+            >Enter a valid Organizer Phone</label
           >
         </span>
       </div>
@@ -196,31 +202,55 @@
             pInputText
           />
           <label
+            class="required"
             *ngIf="
               groupForm.controls['OrganizerEmail'].valid ||
               !groupForm.controls['OrganizerEmail'].touched
             "
             for="OrganizerEmail"
-            >Organizer Email<span class="required">*</span></label
+            >Organizer Email</label
           >
           <label
+            class="required"
             *ngIf="
               !groupForm.controls['OrganizerEmail'].valid &&
               groupForm.controls['OrganizerEmail'].touched
             "
             for="OrganizerEmail"
-            >Enter a valid Organizer Email<span class="required">*</span></label
+            >Enter a valid Organizer Email</label
           >
         </span>
       </div>
     </div>
-    <button
-      pButton
-      pRipple
-      type="submit"
-      label="Submit"
-      class="p-button-raised p-button-secondary"
-      [disabled]="!groupForm.valid"
-    ></button>
+    <p
+      *ngIf="this.validationChecked && !groupForm.valid"
+      class="formErrorMessage"
+    >
+      Please correct form errors above.
+    </p>
+    <div class="formButtons">
+      <button
+        pButton
+        pRipple
+        tabindex="-1"
+        type="button"
+        label="Cancel"
+        (click)="cancelForm()"
+        class="p-button-raised p-button-danger p-button-text"
+      ></button>
+      <button
+        pButton
+        pRipple
+        type="submit"
+        label="Submit"
+        (click)="!groupForm.valid ? showFormErrors() : submit"
+        class="p-button-raised p-button-secondary"
+      ></button>
+    </div>
   </form>
+  <p-confirmDialog
+    [style]="{ width: '50vw' }"
+    [baseZIndex]="10000"
+    rejectButtonStyleClass="p-button-text"
+  ></p-confirmDialog>
 </section>
