@@ -9,22 +9,23 @@
         <span class="p-float-label">
           <p-dropdown
             inputId="cityname"
-            class="p-inputtext-lg"
             id="CityName"
+            class="p-inputtext-lg"
             [options]="cities"
             formControlName="CityName"
             [autoDisplayFirst]="true"
             placeholder="Select a City"
           ></p-dropdown>
-          <label for="cityname">Select a City</label>
+          <label for="cityname"
+            >Select a City<span class="required">*</span></label
+          >
         </span>
       </div>
       <div class="col-12 md:col-8">
         <span class="p-float-label">
           <input
             type="text"
-            id="GroupName"
-            class="p-inputtext-lg"
+            id="groupName"
             formControlName="GroupName"
             pInputText
           />
@@ -34,7 +35,7 @@
               !groupForm.controls['GroupName'].touched
             "
             for="GroupName"
-            >Group Name</label
+            >Group Name<span class="required">*</span></label
           >
           <label
             *ngIf="
@@ -42,7 +43,7 @@
               groupForm.controls['GroupName'].touched
             "
             for="GroupName"
-            >Enter a valid Group Name</label
+            >Enter a valid Group Name<span class="required">*</span></label
           >
         </span>
       </div>
@@ -53,7 +54,6 @@
           <input
             type="text"
             id="MaxGroupSize"
-            class="p-inputtext-lg"
             formControlName="MaxGroupSize"
             pInputText
           />
@@ -63,7 +63,7 @@
               !groupForm.controls['MaxGroupSize'].touched
             "
             for="MaxGroupSize"
-            >Max group size</label
+            >Max group size<span class="required">*</span></label
           >
           <label
             *ngIf="
@@ -71,7 +71,7 @@
               groupForm.controls['MaxGroupSize'].touched
             "
             for="MaxGroupSize"
-            >Enter a Max Group Size</label
+            >Enter a Max Group Size<span class="required">*</span></label
           >
         </span>
       </div>
@@ -80,7 +80,6 @@
           <input
             type="text"
             id="PrimaryGame"
-            class="p-inputtext-lg"
             formControlName="PrimaryGame"
             pInputText
           />
@@ -90,7 +89,7 @@
               !groupForm.controls['PrimaryGame'].touched
             "
             for="PrimaryGame"
-            >Primary Game</label
+            >Primary Game<span class="required">*</span></label
           >
           <label
             *ngIf="
@@ -98,20 +97,22 @@
               groupForm.controls['PrimaryGame'].touched
             "
             for="PrimaryGame"
-            >Enter a valid Primary Game</label
+            >Enter a valid Primary Game<span class="required">*</span></label
           >
         </span>
       </div>
     </div>
-    <h3>What day and time will the group meet?</h3>
+    <h3>
+      What day and time will the group meet?<span class="required">*</span>
+    </h3>
     <div class="grid p-fluid">
       <div class="col 12 md:col-4">
         <span class="p-float-label">
           <p-dropdown
             inputId="meetingday"
+            class="p-inputtext-lg"
             [options]="meetingDays"
             formControlName="MeetingDay"
-            class="p-inputtext-lg"
             [autoDisplayFirst]="true"
             placeholder="Select a Meeting Day"
           ></p-dropdown>
@@ -121,7 +122,7 @@
       <div class="col 12 md: col-4">
         <input
           type="time"
-          id="MeetingTime"
+          id="meetingTime"
           class="p-inputtext-lg"
           formControlName="MeetingTime"
           pInputText
@@ -145,7 +146,7 @@
               !groupForm.controls['OrganizerName'].touched
             "
             for="OrganizerName"
-            >Organizer Name</label
+            >Organizer Name<span class="required">*</span></label
           >
           <label
             *ngIf="
@@ -153,7 +154,7 @@
               groupForm.controls['OrganizerName'].touched
             "
             for="OrganizerName"
-            >Enter a valid Organizer Name</label
+            >Enter a valid Organizer Name<span class="required">*</span></label
           >
         </span>
       </div>
@@ -173,15 +174,15 @@
               !groupForm.controls['OrganizerPhone'].touched
             "
             for="OrganizerPhone"
-            >Organizer Phone</label
-          >
+            >Organizer Phone<span class="required">*</span>
+          </label>
           <label
             *ngIf="
               !groupForm.controls['OrganizerPhone'].valid &&
               groupForm.controls['OrganizerPhone'].touched
             "
             for="OrganizerPhone"
-            >Enter a valid Organizer Phone</label
+            >Enter a valid Organizer Phone<span class="required">*</span></label
           >
         </span>
       </div>
@@ -200,7 +201,7 @@
               !groupForm.controls['OrganizerEmail'].touched
             "
             for="OrganizerEmail"
-            >Organizer Email</label
+            >Organizer Email<span class="required">*</span></label
           >
           <label
             *ngIf="
@@ -208,7 +209,7 @@
               groupForm.controls['OrganizerEmail'].touched
             "
             for="OrganizerEmail"
-            >Enter a valid Organizer Email</label
+            >Enter a valid Organizer Email<span class="required">*</span></label
           >
         </span>
       </div>
