@@ -1,5 +1,9 @@
 # Northwest Arkansas Tabletop Gaming
-# NwaTabletopGaming
+
+This app was designed with the intention of letting users find, create, and manage Tabletop Gaming groups located in Northwest Arkansas.
+Create gaming groups that support the adding/removal of members, along with their pertinent information.
+
+## NwaTabletopGaming
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
 
