@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
-import { RoutingGuard } from 'src/app/guards/routing.guard';
 
 import { Group } from 'src/app/models/group.model';
 import { Member } from 'src/app/models/member.model';
