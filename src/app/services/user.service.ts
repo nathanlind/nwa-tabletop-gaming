@@ -29,6 +29,7 @@ export class UserService {
   updateCurrentUser(user: User): void {
     this.currentUser.next(user);
     this.storeUserLocal(user);
+    console.log(this.currentUser);
   }
 
   registerUser(user: User): Observable<User> {
