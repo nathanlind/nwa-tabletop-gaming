@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         },
         complete: () => {
           console.log("onSubmit() called");
-          this.router.navigate(['']);
+          this.router.navigate(['home']);
         }
       })
     }
