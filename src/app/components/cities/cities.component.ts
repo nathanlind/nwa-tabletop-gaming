@@ -3,8 +3,10 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 import { Group } from 'src/app/models/group.model';
+import { User } from 'src/app/models/user.model';
 import { CityService } from 'src/app/services/city.service';
 import { GroupService } from 'src/app/services/group.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'tg-cities',
@@ -15,6 +17,7 @@ export class CitiesComponent implements OnInit {
 
   image!: string;
   cities!: any;
+  currentUser!: User;
   errorMessage!: string;
 
   showGroups(city: any): void {
@@ -24,15 +27,21 @@ export class CitiesComponent implements OnInit {
     this.router.navigate(['groups']);
   }
 
+  navigateToLogin(): void {
+    this.router.navigate(['login']);
+  }
+
 
   constructor(private cityService: CityService,
     private router: Router,
     private titleService: Title,
-    private groupService: GroupService
+    private groupService: GroupService,
+    private userService: UserService
     ) { }
 
   ngOnInit(): void {
     this.titleService.setTitle("NWA Tabletop Gaming");
+    this.currentUser = this.userService.getCurrentUser();
     this.cityService.getCities()
       .subscribe({
         next: (res:any) => {

@@ -26,3 +26,7 @@ input {
 .formContainer {
   max-width: 1000px;
 }
+
+:host::ng-deep#MaxGroupSize > span > input {
+  height: 50px;
+}

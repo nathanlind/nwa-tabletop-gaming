@@ -63,8 +63,8 @@ export class MembersComponent implements OnInit {
 
   confirmDelete(member: Member, group: Group): void {
     this.confirmationService.confirm({
-        message: 'Do you want to delete this member?',
-        header: 'Delete Confirmation',
+        message: `Do you want to delete member ${member.MemberName}?`,
+        header: `Delete Confirmation - ${member.MemberName}` ,
         icon: 'pi pi-info-circle',
         accept: () => {
             this.deleteMember(member, group);

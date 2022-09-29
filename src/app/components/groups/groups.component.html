@@ -76,14 +76,14 @@
       </div>
       <div id="groupCardContainer">
         <ul>
-          <li>Primary Game: {{ group.PrimaryGame }}</li>
+          <li><strong>Primary Game:</strong> {{ group.PrimaryGame }}</li>
           <li>
-            Meets: {{ group.MeetingDay }} at
+            <strong>Meets:</strong> {{ group.MeetingDay }} at
             {{ group.MeetingTime | convertTime24To12 }}
           </li>
-          <li>Organizer: {{ group.OrganizerName }}</li>
-          <li>Organizer Phone: {{ group.OrganizerPhone }}</li>
-          <li>Organizer Email: {{ group.OrganizerEmail }}</li>
+          <li><strong>Organizer:</strong> {{ group.OrganizerName }}</li>
+          <li><strong>Organizer Phone:</strong> {{ group.OrganizerPhone }}</li>
+          <li><strong>Organizer Email:</strong> {{ group.OrganizerEmail }}</li>
         </ul>
         <div id="viewMemberWrapper">
           <h4>

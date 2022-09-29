@@ -1,3 +1,12 @@
+h1 {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0px;
+  text-align: center;
+  color: #fff;
+  margin-top: 1em;
+}
+
 h2 {
   display: flex;
   justify-content: center;
@@ -8,16 +17,12 @@ h2 {
   font-size: 18pt;
 }
 
-.centerColumnFlex {
-  margin-top: 15vh;
-  flex-wrap: nowrap;
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
+h3 {
+  font-size: 20px;
+  color: #000;
 }
 
-section {
+section > div {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -25,13 +30,17 @@ section {
   align-content: center;
 }
 
-h3 {
-  font-size: 20px;
-  color: #000;
-}
-
 img {
   border-radius: 10px 10px 0 0;
+}
+
+.centerColumnFlex {
+  margin-top: 15vh;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
 }
 
 .cityCard {
@@ -54,4 +63,28 @@ img {
   align-content: center;
   align-items: center;
   padding: 1.5em 16px;
+}
+
+#landingTitles {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  border-radius: 10px;
+  width: 100%;
+}
+
+p-button {
+  margin-top: 25px;
+}
+
+:host::ng-deep .p-button {
+  background: #fa4350;
+  border: #fa4350;
+}
+
+:host::ng-deep .p-button:hover {
+  background: rgba(247, 30, 69, 1) 0%;
+  border: #fa4350;
 }

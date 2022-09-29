@@ -117,6 +117,7 @@ body {
 input.ng-touched.ng-invalid,
 p-dropdown.ng-touched.ng-invalid > *,
 p-inputmask.ng-touched.ng-invalid > input,
+p-inputnumber.ng-touched.ng-invalid input,
 p-password.ng-touched.ng-invalid input,
 .ng-touched.ng-invalid + label {
   color: #e24c4c;
