@@ -68,9 +68,9 @@ body {
   justify-content: center;
   align-content: center;
   align-items: center;
-  max-width: 60vw;
-  width: 60vw;
-  min-width: 600px;
+  max-width: 900px;
+  width: 100%;
+  min-width: 400px;
 }
 
 .required:after {
@@ -104,8 +104,8 @@ body {
 }
 
 .pageWrap {
+  margin: 0 20px -40px 20px;
   min-height: 100%;
-  margin-bottom: -40px;
 }
 
 .pageWrap:after {

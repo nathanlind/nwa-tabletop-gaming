@@ -5,7 +5,9 @@ import { Router } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
 
 import { Group } from 'src/app/models/group.model';
+import { Member } from 'src/app/models/member.model';
 import { GroupService } from 'src/app/services/group.service';
+import { MemberService } from 'src/app/services/member.service';
 
 @Component({
   selector: 'tg-group-form',
@@ -54,15 +56,15 @@ export class GroupFormComponent implements OnInit {
 
   addGroup(formValues: any): void {
     this.groupService.addGroup(formValues).subscribe({
-      next: (res:any) => {
-        console.log(res);
+      next: (group: Group) => {
+        console.log(group);
+        this.addOrganizerAsMember(formValues, group.GroupId);
       },
       error: (err) => {
         console.log(err);
       },
       complete: () => {
         console.log("onSubmit() called");
-        this.router.navigate(['groups']);
       }
     });
   }
@@ -90,6 +92,25 @@ export class GroupFormComponent implements OnInit {
         })
       }
     });
+  }
+
+  addOrganizerAsMember(formValues: any, groupId: number): void {
+    const member = new Member();
+    member.MemberName = formValues.OrganizerName;
+    member.MemberPhone = formValues.OrganizerPhone;
+    member.MemberEmail = formValues.OrganizerEmail;
+    this.memberService.addMemberToGroup(member, groupId).subscribe({
+      next: (res: any) => {
+        console.log(res);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        console.log(`addMemberToGroup() called`);
+        this.router.navigate(['groups']);
+      }
+    })
   }
 
   showFormErrors() {
@@ -123,6 +144,7 @@ export class GroupFormComponent implements OnInit {
   }
 
   constructor(private groupService: GroupService,
+    private memberService: MemberService,
     private fb: FormBuilder,
     private router: Router,
     private titleService: Title) { }
