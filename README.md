@@ -7,11 +7,11 @@ Create gaming groups that support the adding/removal of members, along with thei
 
 This project was generated with:
 - [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0
-- FontAwesome version 6.2.0
-- PrimeNG version 14.1.1
-- PrimeIcons version 6.0.1
-- PrimeFlex version 3.2.1
-- RxJS version 7.5.0
+- [FontAwesome](https://github.com/FortAwesome/angular-fontawesome) version 6.2.0
+- [PrimeNG](https://www.primefaces.org/primeng/) version 14.1.1
+- [PrimeIcons](https://www.primefaces.org/primeng/icons) version 6.0.1
+- [PrimeFlex](https://www.primefaces.org/primeflex/) version 3.2.1
+- [RxJS](https://rxjs.dev/) version 7.5.0
 
 ## Development server
 
