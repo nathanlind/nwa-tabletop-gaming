@@ -14,14 +14,14 @@ const fallbackRoute: Route = { path: '**', component: CitiesComponent }
 const routes: Routes = [
   { path: '', component: CitiesComponent },
   { path: 'home', component: CitiesComponent },
-  { path: 'groups', component: GroupsComponent },
-  { path: 'members', component: MembersComponent },
-  { path: 'register', component: RegisterComponent, canDeactivate: [RoutingGuard]  },
-  { path: 'login', component: LoginComponent, canDeactivate: [RoutingGuard]  },
-  { path: 'groups/register-group', component: GroupFormComponent, canDeactivate: [RoutingGuard] },
-  { path: 'groups/edit-group', component: GroupFormComponent, canDeactivate: [RoutingGuard]  },
-  { path: 'members/register-member', component: MemberFormComponent, canDeactivate: [RoutingGuard]  },
-  { path: 'members/edit-member', component: MemberFormComponent, canDeactivate: [RoutingGuard]  },
+  { path: 'groups', component: GroupsComponent, canActivate: [RoutingGuard] },
+  { path: 'members', component: MembersComponent, canActivate: [RoutingGuard] },
+  { path: 'register', component: RegisterComponent, canDeactivate: [RoutingGuard] },
+  { path: 'login', component: LoginComponent, canDeactivate: [RoutingGuard] },
+  { path: 'groups/register-group', component: GroupFormComponent, canActivate: [RoutingGuard], canDeactivate: [RoutingGuard] },
+  { path: 'groups/edit-group', component: GroupFormComponent, canActivate: [RoutingGuard], canDeactivate: [RoutingGuard] },
+  { path: 'members/register-member', component: MemberFormComponent, canActivate: [RoutingGuard], canDeactivate: [RoutingGuard] },
+  { path: 'members/edit-member', component: MemberFormComponent, canActivate: [RoutingGuard], canDeactivate: [RoutingGuard] },
   fallbackRoute
 ];
 

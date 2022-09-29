@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 import { GroupFormComponent } from '../components/group-form/group-form.component';
+import { User } from '../models/user.model';
+import { UserService } from '../services/user.service';
 
 export interface CanComponentDeactivate {
   canDeactivate: () => boolean;
@@ -13,9 +15,17 @@ export interface CanComponentDeactivate {
 })
 export class RoutingGuard implements CanActivate, CanDeactivate<CanComponentDeactivate> {
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  currentUser!: User;
+
+  canActivate(): boolean {
+    this.currentUser = this.userService.getCurrentUser();
+    console.log(this.currentUser);
+    if (!this.currentUser) {
+      console.log('inside')
+      this.router.navigate(['login'])
+      alert(`You haven't logged in yet.  You will be redirected to the login page.`)
+      return false;
+    }
     return true;
   }
 
@@ -23,5 +33,7 @@ export class RoutingGuard implements CanActivate, CanDeactivate<CanComponentDeac
     component: CanComponentDeactivate): boolean {
       return component.canDeactivate() || window.confirm(`Are you sure you want to leave the form?`);
   }
+
+  constructor(private userService: UserService, private router: Router) { }
 
 }
