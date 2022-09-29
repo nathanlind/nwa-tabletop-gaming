@@ -1,108 +1,110 @@
-<section class="formContainer">
-  <div class="formLogoAndTitle">
-    <img
-      src="../../../assets/images/d20s/d20frame_black.svg"
-      alt="A wireframe image of a D20 die."
-      width="30px"
-      height="30px"
-    />
-    <h2>Login</h2>
+<section>
+  <div class="formContainer">
+    <div class="formLogoAndTitle">
+      <img
+        src="../../../assets/images/d20s/d20frame_black.svg"
+        alt="A wireframe image of a D20 die."
+        width="30px"
+        height="30px"
+      />
+      <h2>Login</h2>
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+      <p>
+        Need an account?
+        <a routerLink="/register" routerLinkActive="active">Register here.</a>
+      </p>
+      <div class="grid p-fluid">
+        <div class="col-12 md:col-12">
+          <span class="p-float-label">
+            <input
+              type="text"
+              id="username"
+              class="p-inputtext-lg"
+              formControlName="username"
+              pInputText
+            />
+            <label
+              class="required"
+              *ngIf="
+                loginForm.controls['username'].valid ||
+                !loginForm.controls['username'].touched
+              "
+              for="username"
+              >Username</label
+            >
+            <label
+              class="required"
+              *ngIf="
+                !loginForm.controls['username'].valid &&
+                loginForm.controls['username'].touched
+              "
+              for="username"
+              >Enter a valid username</label
+            >
+          </span>
+        </div>
+      </div>
+      <div class="grid p-fluid">
+        <div class="col-12 md:col-12">
+          <span class="p-float-label">
+            <p-password
+              type="text"
+              id="password"
+              [feedback]="false"
+              class="p-inputtext-lg"
+              formControlName="password"
+              (onFocus)="setPasswordTouched()"
+            ></p-password>
+            <label
+              class="required"
+              *ngIf="
+                loginForm.controls['password'].valid ||
+                !loginForm.controls['password'].touched
+              "
+              for="password"
+              >Password</label
+            >
+            <label
+              class="required"
+              *ngIf="
+                !loginForm.controls['password'].valid &&
+                loginForm.controls['password'].touched
+              "
+              for="password"
+              >Enter a valid password</label
+            >
+          </span>
+        </div>
+      </div>
+      <p class="formErrorMessage" *ngIf="errorStatus == '403'">
+        Invalid username and password.
+      </p>
+      <p
+        *ngIf="this.validationChecked && !loginForm.valid"
+        class="formErrorMessage"
+      >
+        Please correct form errors above.
+      </p>
+      <div class="formButtons">
+        <button
+          pButton
+          pRipple
+          tabindex="-1"
+          type="button"
+          label="Cancel"
+          (click)="cancelForm()"
+          class="p-button-raised p-button-danger p-button-text"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="submit"
+          label="Submit"
+          (click)="!loginForm.valid ? showFormErrors() : submit"
+          class="p-button-raised p-button-secondary"
+        ></button>
+      </div>
+    </form>
   </div>
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
-    <p>
-      Need an account?
-      <a routerLink="/register" routerLinkActive="active">Register here.</a>
-    </p>
-    <div class="grid p-fluid">
-      <div class="col-12 md:col-8">
-        <span class="p-float-label">
-          <input
-            type="text"
-            id="username"
-            class="p-inputtext-lg"
-            formControlName="username"
-            pInputText
-          />
-          <label
-            class="required"
-            *ngIf="
-              loginForm.controls['username'].valid ||
-              !loginForm.controls['username'].touched
-            "
-            for="username"
-            >Username</label
-          >
-          <label
-            class="required"
-            *ngIf="
-              !loginForm.controls['username'].valid &&
-              loginForm.controls['username'].touched
-            "
-            for="username"
-            >Enter a valid username</label
-          >
-        </span>
-      </div>
-    </div>
-    <div class="grid p-fluid">
-      <div class="col-12 md:col-8">
-        <span class="p-float-label">
-          <p-password
-            type="text"
-            id="password"
-            [feedback]="false"
-            class="p-inputtext-lg"
-            formControlName="password"
-            (onFocus)="setPasswordTouched()"
-          ></p-password>
-          <label
-            class="required"
-            *ngIf="
-              loginForm.controls['password'].valid ||
-              !loginForm.controls['password'].touched
-            "
-            for="password"
-            >Password</label
-          >
-          <label
-            class="required"
-            *ngIf="
-              !loginForm.controls['password'].valid &&
-              loginForm.controls['password'].touched
-            "
-            for="password"
-            >Enter a valid password</label
-          >
-        </span>
-      </div>
-    </div>
-    <p class="formErrorMessage" *ngIf="errorStatus == '403'">
-      Invalid username and password.
-    </p>
-    <p
-      *ngIf="this.validationChecked && !loginForm.valid"
-      class="formErrorMessage"
-    >
-      Please correct form errors above.
-    </p>
-    <div class="formButtons">
-      <button
-        pButton
-        pRipple
-        tabindex="-1"
-        type="button"
-        label="Cancel"
-        (click)="cancelForm()"
-        class="p-button-raised p-button-danger p-button-text"
-      ></button>
-      <button
-        pButton
-        pRipple
-        type="submit"
-        label="Submit"
-        (click)="!loginForm.valid ? showFormErrors() : submit"
-        class="p-button-raised p-button-secondary"
-      ></button>
-    </div>
-  </form>
 </section>

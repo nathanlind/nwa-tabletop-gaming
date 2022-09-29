@@ -30,6 +30,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { GroupFormComponent } from './components/group-form/group-form.component';
 import { MemberFormComponent } from './components/member-form/member-form.component';
+import { TimeFormatPipe } from './pipes/timeFormat.pipe';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { MemberFormComponent } from './components/member-form/member-form.compon
     RegisterComponent,
     LoginComponent,
     GroupFormComponent,
-    MemberFormComponent
+    MemberFormComponent,
+    TimeFormatPipe
   ],
   imports: [
     BrowserModule,

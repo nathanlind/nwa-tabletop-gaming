@@ -86,6 +86,7 @@ body {
   align-content: left;
   background-color: #fff;
   border-radius: 10px;
+  width: 100%;
 }
 
 .formButtons {

@@ -1,155 +1,163 @@
-<section class="formContainer">
-  <div class="formLogoAndTitle">
-    <img
-      src="../../../assets/images/d20s/d20frame_black.svg"
-      alt="A wireframe image of a D20 die."
-      width="30px"
-      height="30px"
-    />
-    <h2>Register</h2>
-  </div>
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
-    <div class="grid p-fluid">
-      <div class="col-12 md:col-8">
-        <span class="p-float-label">
-          <input
-            type="text"
-            id="name"
-            class="p-inputtext-lg"
-            formControlName="name"
-            pInputText
-          />
-          <label
-            class="required"
-            *ngIf="
-              registerForm.controls['name'].valid ||
-              !registerForm.controls['name'].touched
-            "
-            for="name"
-            >Name</label
-          >
-          <label
-            class="required"
-            *ngIf="
-              !registerForm.controls['name'].valid &&
-              registerForm.controls['name'].touched
-            "
-            for="name"
-            >Enter a valid name</label
-          >
-        </span>
-      </div>
+<section>
+  <div class="formContainer">
+    <div class="formLogoAndTitle">
+      <img
+        src="../../../assets/images/d20s/d20frame_black.svg"
+        alt="A wireframe image of a D20 die."
+        width="30px"
+        height="30px"
+      />
+      <h2>Register</h2>
     </div>
-    <div class="grid p-fluid">
-      <div class="col-12 md:col-8">
-        <div class="p-inputgroup">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
+      <div class="grid p-fluid">
+        <div class="col-12 md:col-12">
           <span class="p-float-label">
             <input
               type="text"
-              id="username"
-              formControlName="username"
+              id="name"
+              class="p-inputtext-lg"
+              formControlName="name"
               pInputText
             />
             <label
               class="required"
               *ngIf="
-                registerForm.controls['username'].valid ||
-                !registerForm.controls['username'].touched
+                registerForm.controls['name'].valid ||
+                !registerForm.controls['name'].touched
               "
-              for="username"
-              >Username</label
+              for="name"
+              >Name</label
             >
             <label
               class="required"
               *ngIf="
-                !registerForm.controls['username'].valid &&
-                registerForm.controls['username'].touched
+                !registerForm.controls['name'].valid &&
+                registerForm.controls['name'].touched
               "
-              for="username"
-              >Enter a valid username</label
+              for="name"
+              >Enter a valid name</label
             >
           </span>
-          <button
-            pButton
-            type="button"
-            class="p-button-secondary"
-            label="Check Availability"
-            id="checkAvailability"
-            value="Check Availabilty"
-            (click)="checkUsernameAvailability(this.registerForm.value)"
-          ></button>
         </div>
       </div>
-    </div>
-    <p
-      id="usernameUnavailable"
-      *ngIf="!usernameAvailable && availabilityChecked"
-    >
-      Username is unavailable.
-    </p>
-    <p id="usernameAvailable" *ngIf="usernameAvailable && availabilityChecked">
-      Username is available.
-    </p>
-
-    <div class="grid p-fluid">
-      <div class="col-12 md:col-8">
-        <span class="p-float-label">
-          <p-password
-            type="text"
-            id="password"
-            class="p-inputtext-lg"
-            [feedback]="false"
-            formControlName="password"
-            (select)="registerForm.controls['password'].markAsTouched()"
-          ></p-password>
-          <label
-            class="required"
-            *ngIf="
-              registerForm.controls['password'].valid ||
-              !registerForm.controls['password'].touched
-            "
-            for="password"
-            >Password</label
-          >
-          <label
-            class="required"
-            *ngIf="
-              !registerForm.controls['password'].valid &&
-              registerForm.controls['password'].touched
-            "
-            for="password"
-            >Enter a valid password</label
-          >
-        </span>
+      <div class="grid p-fluid">
+        <div class="col-12 md:col-12">
+          <div class="p-inputgroup">
+            <span class="p-float-label">
+              <input
+                type="text"
+                id="username"
+                formControlName="username"
+                pInputText
+              />
+              <label
+                class="required"
+                *ngIf="
+                  registerForm.controls['username'].valid ||
+                  !registerForm.controls['username'].touched
+                "
+                for="username"
+                >Username</label
+              >
+              <label
+                class="required"
+                *ngIf="
+                  !registerForm.controls['username'].valid &&
+                  registerForm.controls['username'].touched
+                "
+                for="username"
+                >Enter a valid username</label
+              >
+            </span>
+            <button
+              pButton
+              type="button"
+              class="p-button-secondary"
+              label="Check Availability"
+              id="checkAvailability"
+              value="Check Availabilty"
+              (click)="checkUsernameAvailability(this.registerForm.value)"
+            ></button>
+          </div>
+        </div>
       </div>
-    </div>
-    <p class="formErrorMessage" *ngIf="errorStatus == '403'">
-      Username is already in use. Please choose a different username.
-    </p>
-    <p
-      *ngIf="this.validationChecked && !registerForm.valid"
-      class="formErrorMessage"
-    >
-      Please correct form errors above.
-    </p>
-    <div class="formButtons">
-      <button
-        pButton
-        pRipple
-        tabindex="-1"
-        type="button"
-        label="Cancel"
-        (click)="cancelForm()"
-        class="p-button-raised p-button-danger p-button-text"
-      ></button>
-      <button
-        pButton
-        pRipple
-        type="submit"
-        label="Submit"
-        (click)="!registerForm.valid ? showFormErrors() : submit"
-        class="p-button-raised p-button-secondary"
-      ></button>
-    </div>
-  </form>
+      <p class="formErrorMessage" *ngIf="errorStatus == '404'">
+        Enter a username to check availability.
+      </p>
+      <p
+        id="usernameUnavailable"
+        *ngIf="!usernameAvailable && availabilityChecked"
+      >
+        Username is unavailable.
+      </p>
+      <p
+        id="usernameAvailable"
+        *ngIf="usernameAvailable && availabilityChecked"
+      >
+        Username is available.
+      </p>
+
+      <div class="grid p-fluid">
+        <div class="col-12 md:col-12">
+          <span class="p-float-label">
+            <p-password
+              type="text"
+              id="password"
+              class="p-inputtext-lg"
+              [feedback]="false"
+              formControlName="password"
+              (select)="registerForm.controls['password'].markAsTouched()"
+            ></p-password>
+            <label
+              class="required"
+              *ngIf="
+                registerForm.controls['password'].valid ||
+                !registerForm.controls['password'].touched
+              "
+              for="password"
+              >Password</label
+            >
+            <label
+              class="required"
+              *ngIf="
+                !registerForm.controls['password'].valid &&
+                registerForm.controls['password'].touched
+              "
+              for="password"
+              >Enter a valid password</label
+            >
+          </span>
+        </div>
+      </div>
+      <p class="formErrorMessage" *ngIf="errorStatus == '403'">
+        Username is already in use. Please choose a different username.
+      </p>
+      <p
+        *ngIf="this.validationChecked && !registerForm.valid"
+        class="formErrorMessage"
+      >
+        Please correct form errors above.
+      </p>
+      <div class="formButtons">
+        <button
+          pButton
+          pRipple
+          tabindex="-1"
+          type="button"
+          label="Cancel"
+          (click)="cancelForm()"
+          class="p-button-raised p-button-danger p-button-text"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="submit"
+          label="Submit"
+          (click)="!registerForm.valid ? showFormErrors() : submit"
+          class="p-button-raised p-button-secondary"
+        ></button>
+      </div>
+    </form>
+  </div>
 </section>

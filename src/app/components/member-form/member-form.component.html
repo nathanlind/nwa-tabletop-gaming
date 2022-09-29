@@ -1,138 +1,135 @@
-<section class="formContainer">
-  <div class="formLogoAndTitle">
-    <img
-      src="../../../assets/images/d20s/d20frame_black.svg"
-      alt="A wireframe image of a D20 die."
-      width="30px"
-      height="30px"
-    />
-    <h2 *ngIf="newMember">Register New Member</h2>
-    <h2 *ngIf="!newMember">Edit Member</h2>
+<section>
+  <div class="formContainer">
+    <div class="formLogoAndTitle">
+      <img
+        src="../../../assets/images/d20s/d20frame_black.svg"
+        alt="A wireframe image of a D20 die."
+        width="30px"
+        height="30px"
+      />
+      <h2 *ngIf="newMember">Register New Member</h2>
+      <h2 *ngIf="!newMember">Edit Member</h2>
+    </div>
+    <form [formGroup]="memberForm" (ngSubmit)="onSubmit(memberForm.value)">
+      <div class="grid p-fluid">
+        <div class="col-12 md:col-8">
+          <span class="p-float-label">
+            <input
+              type="text"
+              id="MemberName"
+              class="p-inputtext-lg"
+              formControlName="MemberName"
+              pInputText
+            />
+            <label
+              class="required"
+              *ngIf="
+                memberForm.controls['MemberName'].valid ||
+                !memberForm.controls['MemberName'].touched
+              "
+              for="MemberName"
+              >Member Name</label
+            >
+            <label
+              class="required"
+              *ngIf="
+                !memberForm.controls['MemberName'].valid &&
+                memberForm.controls['MemberName'].touched
+              "
+              for="MemberName"
+              >Enter valid Member Name</label
+            >
+          </span>
+        </div>
+      </div>
+      <div class="grid p-fluid">
+        <div class="col-12 md:col-8">
+          <span class="p-float-label">
+            <p-inputMask
+              mask="(999) 999-9999"
+              type="tel"
+              id="MemberPhone"
+              class="p-inputtext-lg"
+              formControlName="MemberPhone"
+              placeholder="999-999-9999"
+            ></p-inputMask>
+            <label
+              class="required"
+              *ngIf="
+                memberForm.controls['MemberPhone'].valid ||
+                !memberForm.controls['MemberPhone'].touched
+              "
+              for="MemberPhone"
+              >Member Phone</label
+            >
+            <label
+              class="required"
+              *ngIf="
+                !memberForm.controls['MemberPhone'].valid &&
+                memberForm.controls['MemberPhone'].touched
+              "
+              for="MemberPhone"
+              >Enter Valid Member Phone</label
+            >
+          </span>
+        </div>
+      </div>
+      <div class="grid p-fluid">
+        <div class="col-12 md:col-8">
+          <span class="p-float-label">
+            <input
+              type="email"
+              id="MemberEmail"
+              class="p-inputtext-lg"
+              formControlName="MemberEmail"
+              pInputText
+            />
+            <label
+              class="required"
+              *ngIf="
+                memberForm.controls['MemberEmail'].valid ||
+                !memberForm.controls['MemberEmail'].touched
+              "
+              for="MemberEmail"
+              >Member Email</label
+            >
+            <label
+              class="required"
+              *ngIf="
+                !memberForm.controls['MemberEmail'].valid &&
+                memberForm.controls['MemberEmail'].touched
+              "
+              for="MemberEmail"
+              >Enter valid Member Email</label
+            >
+          </span>
+        </div>
+      </div>
+      <p
+        *ngIf="this.validationChecked && !memberForm.valid"
+        class="formErrorMessage"
+      >
+        Please correct form errors above.
+      </p>
+      <div class="formButtons">
+        <button
+          pButton
+          pRipple
+          tabindex="-1"
+          type="button"
+          label="Cancel"
+          (click)="cancelForm()"
+          class="p-button-raised p-button-danger p-button-text"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="submit"
+          label="Submit"
+          (click)="!memberForm.valid ? showFormErrors() : submit"
+          class="p-button-raised p-button-secondary"
+        ></button>
+      </div>
+    </form>
   </div>
-  <form [formGroup]="memberForm" (ngSubmit)="onSubmit(memberForm.value)">
-    <div class="grid p-fluid">
-      <div class="col-12 md:col-8">
-        <span class="p-float-label">
-          <input
-            type="text"
-            id="MemberName"
-            class="p-inputtext-lg"
-            formControlName="MemberName"
-            pInputText
-          />
-          <label
-            class="required"
-            *ngIf="
-              memberForm.controls['MemberName'].valid ||
-              !memberForm.controls['MemberName'].touched
-            "
-            for="MemberName"
-            >Member Name</label
-          >
-          <label
-            class="required"
-            *ngIf="
-              !memberForm.controls['MemberName'].valid &&
-              memberForm.controls['MemberName'].touched
-            "
-            for="MemberName"
-            >Enter valid Member Name</label
-          >
-        </span>
-      </div>
-    </div>
-    <div class="grid p-fluid">
-      <div class="col-12 md:col-8">
-        <span class="p-float-label">
-          <p-inputMask
-            mask="(999) 999-9999"
-            type="tel"
-            id="MemberPhone"
-            class="p-inputtext-lg"
-            formControlName="MemberPhone"
-            placeholder="999-999-9999"
-          ></p-inputMask>
-          <label
-            class="required"
-            *ngIf="
-              memberForm.controls['MemberPhone'].valid ||
-              !memberForm.controls['MemberPhone'].touched
-            "
-            for="MemberPhone"
-            >Member Phone</label
-          >
-          <label
-            class="required"
-            *ngIf="
-              !memberForm.controls['MemberPhone'].valid &&
-              memberForm.controls['MemberPhone'].touched
-            "
-            for="MemberPhone"
-            >Enter Valid Member Phone</label
-          >
-        </span>
-      </div>
-    </div>
-    <div class="grid p-fluid">
-      <div class="col-12 md:col-8">
-        <span class="p-float-label">
-          <input
-            type="email"
-            id="MemberEmail"
-            class="p-inputtext-lg"
-            formControlName="MemberEmail"
-            pInputText
-          />
-          <label
-            class="required"
-            *ngIf="
-              memberForm.controls['MemberEmail'].valid ||
-              !memberForm.controls['MemberEmail'].touched
-            "
-            for="MemberEmail"
-            >Member Email</label
-          >
-          <label
-            class="required"
-            *ngIf="
-              !memberForm.controls['MemberEmail'].valid &&
-              memberForm.controls['MemberEmail'].touched
-            "
-            for="MemberEmail"
-            >Enter valid Member Email</label
-          >
-        </span>
-      </div>
-    </div>
-    <p
-      *ngIf="this.validationChecked && !memberForm.valid"
-      class="formErrorMessage"
-    >
-      Please correct form errors above.
-    </p>
-    <div class="formButtons">
-      <button
-        pButton
-        pRipple
-        tabindex="-1"
-        type="button"
-        label="Cancel"
-        (click)="cancelForm()"
-        class="p-button-raised p-button-danger p-button-text"
-      ></button>
-      <button
-        pButton
-        pRipple
-        type="submit"
-        label="Submit"
-        (click)="!memberForm.valid ? showFormErrors() : submit"
-        class="p-button-raised p-button-secondary"
-      ></button>
-    </div>
-  </form>
-  <p-confirmDialog
-    [style]="{ width: '50vw' }"
-    [baseZIndex]="10000"
-    rejectButtonStyleClass="p-button-text"
-  ></p-confirmDialog>
 </section>

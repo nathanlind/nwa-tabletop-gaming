@@ -51,7 +51,11 @@ export class RegisterComponent implements OnInit {
           this.usernameAvailable = true;
           this.availabilityChecked = true;
         }
-      }
+      },
+      error: (err) => {
+        console.log(err);
+        this.errorStatus = err.status;
+      },
     })
   }
 

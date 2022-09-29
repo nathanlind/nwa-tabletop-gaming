@@ -1,264 +1,260 @@
-<p-toast position="top-center" key="tc"></p-toast>
-<section class="formContainer">
-  <div class="formLogoAndTitle">
-    <img
-      src="../../../assets/images/d20s/d20frame_black.svg"
-      alt="A wireframe image of a D20 die."
-      width="30px"
-      height="30px"
-    />
-    <h2 *ngIf="newGroup">Register New Group</h2>
-    <h2 *ngIf="!newGroup">Edit Group</h2>
+<section>
+  <div class="formContainer">
+    <div class="formLogoAndTitle">
+      <img
+        src="../../../assets/images/d20s/d20frame_black.svg"
+        alt="A wireframe image of a D20 die."
+        width="30px"
+        height="30px"
+      />
+      <h2 *ngIf="newGroup">Register New Group</h2>
+      <h2 *ngIf="!newGroup">Edit Group</h2>
+    </div>
+    <form [formGroup]="groupForm" (ngSubmit)="onSubmit(groupForm.value)">
+      <h3>Group Details</h3>
+      <div class="grid p-fluid">
+        <div class="col-12 md:col-4">
+          <span class="p-float-label">
+            <p-dropdown
+              inputId="cityname"
+              id="CityName"
+              class="p-inputtext-lg"
+              [options]="cities"
+              formControlName="CityName"
+              [autoDisplayFirst]="true"
+              placeholder="Select a City"
+            ></p-dropdown>
+            <label class="required" for="cityname">Select a City</label>
+          </span>
+        </div>
+        <div class="col-12 md:col-8">
+          <span class="p-float-label">
+            <input
+              type="text"
+              id="groupName"
+              formControlName="GroupName"
+              pInputText
+            />
+            <label
+              class="required"
+              *ngIf="
+                groupForm.controls['GroupName'].valid ||
+                !groupForm.controls['GroupName'].touched
+              "
+              for="GroupName"
+              >Group Name</label
+            >
+            <label
+              class="required"
+              *ngIf="
+                !groupForm.controls['GroupName'].valid &&
+                groupForm.controls['GroupName'].touched
+              "
+              for="GroupName"
+              >Enter a valid Group Name</label
+            >
+          </span>
+        </div>
+      </div>
+      <div class="grid p-fluid">
+        <div class="col-12 md:col-4">
+          <span class="p-float-label">
+            <input
+              type="text"
+              id="MaxGroupSize"
+              formControlName="MaxGroupSize"
+              pInputText
+            />
+            <label
+              class="required"
+              *ngIf="
+                groupForm.controls['MaxGroupSize'].valid ||
+                !groupForm.controls['MaxGroupSize'].touched
+              "
+              for="MaxGroupSize"
+              >Max group size</label
+            >
+            <label
+              class="required"
+              *ngIf="
+                !groupForm.controls['MaxGroupSize'].valid &&
+                groupForm.controls['MaxGroupSize'].touched
+              "
+              for="MaxGroupSize"
+              >Enter a Max Group Size</label
+            >
+          </span>
+        </div>
+        <div class="col-12 md:col-8">
+          <span class="p-float-label">
+            <input
+              type="text"
+              id="PrimaryGame"
+              formControlName="PrimaryGame"
+              pInputText
+            />
+            <label
+              class="required"
+              *ngIf="
+                groupForm.controls['PrimaryGame'].valid ||
+                !groupForm.controls['PrimaryGame'].touched
+              "
+              for="PrimaryGame"
+              >Primary Game</label
+            >
+            <label
+              class="required"
+              *ngIf="
+                !groupForm.controls['PrimaryGame'].valid &&
+                groupForm.controls['PrimaryGame'].touched
+              "
+              for="PrimaryGame"
+              >Enter a valid Primary Game</label
+            >
+          </span>
+        </div>
+      </div>
+      <h3 class="required">What day and time will the group meet?</h3>
+      <div class="grid p-fluid">
+        <div class="col 12 md:col-4">
+          <span class="p-float-label">
+            <p-dropdown
+              inputId="meetingday"
+              class="p-inputtext-lg"
+              [options]="meetingDays"
+              formControlName="MeetingDay"
+              [autoDisplayFirst]="true"
+              placeholder="Select a Meeting Day"
+            ></p-dropdown>
+            <label for="meetingday">Select a Meeting Day</label>
+          </span>
+        </div>
+        <div class="col 12 md: col-4">
+          <input
+            type="time"
+            id="meetingTime"
+            class="p-inputtext-lg"
+            formControlName="MeetingTime"
+            pInputText
+          />
+        </div>
+      </div>
+      <h3>Organizer Details</h3>
+      <div class="grid p-fluid">
+        <div class="col-12 md:col-4">
+          <span class="p-float-label">
+            <input
+              type="text"
+              id="OrganizerName"
+              class="p-inputtext-lg"
+              formControlName="OrganizerName"
+              pInputText
+            />
+            <label
+              class="required"
+              *ngIf="
+                groupForm.controls['OrganizerName'].valid ||
+                !groupForm.controls['OrganizerName'].touched
+              "
+              for="OrganizerName"
+              >Organizer Name</label
+            >
+            <label
+              class="required"
+              *ngIf="
+                !groupForm.controls['OrganizerName'].valid &&
+                groupForm.controls['OrganizerName'].touched
+              "
+              for="OrganizerName"
+              >Enter a valid Organizer Name</label
+            >
+          </span>
+        </div>
+        <div class="col-12 md:col-4">
+          <span class="p-float-label">
+            <p-inputMask
+              mask="(999) 999-9999"
+              type="tel"
+              id="OrganizerPhone"
+              class="p-inputtext-lg"
+              formControlName="OrganizerPhone"
+              placeholder="999-999-9999"
+            ></p-inputMask>
+            <label
+              class="required"
+              *ngIf="
+                groupForm.controls['OrganizerPhone'].valid ||
+                !groupForm.controls['OrganizerPhone'].touched
+              "
+              for="OrganizerPhone"
+              >Organizer Phone</label
+            >
+            <label
+              class="required"
+              *ngIf="
+                !groupForm.controls['OrganizerPhone'].valid &&
+                groupForm.controls['OrganizerPhone'].touched
+              "
+              for="OrganizerPhone"
+              >Enter a valid Organizer Phone</label
+            >
+          </span>
+        </div>
+        <div class="col-12 md:col-4">
+          <span class="p-float-label">
+            <input
+              type="email"
+              id="OrganizerEmail"
+              class="p-inputtext-lg"
+              formControlName="OrganizerEmail"
+              pInputText
+            />
+            <label
+              class="required"
+              *ngIf="
+                groupForm.controls['OrganizerEmail'].valid ||
+                !groupForm.controls['OrganizerEmail'].touched
+              "
+              for="OrganizerEmail"
+              >Organizer Email</label
+            >
+            <label
+              class="required"
+              *ngIf="
+                !groupForm.controls['OrganizerEmail'].valid &&
+                groupForm.controls['OrganizerEmail'].touched
+              "
+              for="OrganizerEmail"
+              >Enter a valid Organizer Email</label
+            >
+          </span>
+        </div>
+      </div>
+      <p
+        *ngIf="this.validationChecked && !groupForm.valid"
+        class="formErrorMessage"
+      >
+        Please correct form errors above.
+      </p>
+      <div class="formButtons">
+        <button
+          pButton
+          pRipple
+          tabindex="-1"
+          type="button"
+          label="Cancel"
+          (click)="cancelForm()"
+          class="p-button-raised p-button-danger p-button-text"
+        ></button>
+        <button
+          pButton
+          pRipple
+          type="submit"
+          label="Submit"
+          (click)="!groupForm.valid ? showFormErrors() : submit"
+          class="p-button-raised p-button-secondary"
+        ></button>
+      </div>
+    </form>
   </div>
-  <form [formGroup]="groupForm" (ngSubmit)="onSubmit(groupForm.value)">
-    <h3>Group Details</h3>
-    <div class="grid p-fluid">
-      <div class="col-12 md:col-4">
-        <span class="p-float-label">
-          <p-dropdown
-            inputId="cityname"
-            id="CityName"
-            class="p-inputtext-lg"
-            [options]="cities"
-            formControlName="CityName"
-            [autoDisplayFirst]="true"
-            placeholder="Select a City"
-          ></p-dropdown>
-          <label class="required" for="cityname">Select a City</label>
-        </span>
-      </div>
-      <div class="col-12 md:col-8">
-        <span class="p-float-label">
-          <input
-            type="text"
-            id="groupName"
-            formControlName="GroupName"
-            pInputText
-          />
-          <label
-            class="required"
-            *ngIf="
-              groupForm.controls['GroupName'].valid ||
-              !groupForm.controls['GroupName'].touched
-            "
-            for="GroupName"
-            >Group Name</label
-          >
-          <label
-            class="required"
-            *ngIf="
-              !groupForm.controls['GroupName'].valid &&
-              groupForm.controls['GroupName'].touched
-            "
-            for="GroupName"
-            >Enter a valid Group Name</label
-          >
-        </span>
-      </div>
-    </div>
-    <div class="grid p-fluid">
-      <div class="col-12 md:col-4">
-        <span class="p-float-label">
-          <input
-            type="text"
-            id="MaxGroupSize"
-            formControlName="MaxGroupSize"
-            pInputText
-          />
-          <label
-            class="required"
-            *ngIf="
-              groupForm.controls['MaxGroupSize'].valid ||
-              !groupForm.controls['MaxGroupSize'].touched
-            "
-            for="MaxGroupSize"
-            >Max group size</label
-          >
-          <label
-            class="required"
-            *ngIf="
-              !groupForm.controls['MaxGroupSize'].valid &&
-              groupForm.controls['MaxGroupSize'].touched
-            "
-            for="MaxGroupSize"
-            >Enter a Max Group Size</label
-          >
-        </span>
-      </div>
-      <div class="col-12 md:col-8">
-        <span class="p-float-label">
-          <input
-            type="text"
-            id="PrimaryGame"
-            formControlName="PrimaryGame"
-            pInputText
-          />
-          <label
-            class="required"
-            *ngIf="
-              groupForm.controls['PrimaryGame'].valid ||
-              !groupForm.controls['PrimaryGame'].touched
-            "
-            for="PrimaryGame"
-            >Primary Game</label
-          >
-          <label
-            class="required"
-            *ngIf="
-              !groupForm.controls['PrimaryGame'].valid &&
-              groupForm.controls['PrimaryGame'].touched
-            "
-            for="PrimaryGame"
-            >Enter a valid Primary Game</label
-          >
-        </span>
-      </div>
-    </div>
-    <h3 class="required">What day and time will the group meet?</h3>
-    <div class="grid p-fluid">
-      <div class="col 12 md:col-4">
-        <span class="p-float-label">
-          <p-dropdown
-            inputId="meetingday"
-            class="p-inputtext-lg"
-            [options]="meetingDays"
-            formControlName="MeetingDay"
-            [autoDisplayFirst]="true"
-            placeholder="Select a Meeting Day"
-          ></p-dropdown>
-          <label for="meetingday">Select a Meeting Day</label>
-        </span>
-      </div>
-      <div class="col 12 md: col-4">
-        <input
-          type="time"
-          id="meetingTime"
-          class="p-inputtext-lg"
-          formControlName="MeetingTime"
-          pInputText
-        />
-      </div>
-    </div>
-    <h3>Organizer Details</h3>
-    <div class="grid p-fluid">
-      <div class="col-12 md:col-4">
-        <span class="p-float-label">
-          <input
-            type="text"
-            id="OrganizerName"
-            class="p-inputtext-lg"
-            formControlName="OrganizerName"
-            pInputText
-          />
-          <label
-            class="required"
-            *ngIf="
-              groupForm.controls['OrganizerName'].valid ||
-              !groupForm.controls['OrganizerName'].touched
-            "
-            for="OrganizerName"
-            >Organizer Name</label
-          >
-          <label
-            class="required"
-            *ngIf="
-              !groupForm.controls['OrganizerName'].valid &&
-              groupForm.controls['OrganizerName'].touched
-            "
-            for="OrganizerName"
-            >Enter a valid Organizer Name</label
-          >
-        </span>
-      </div>
-      <div class="col-12 md:col-4">
-        <span class="p-float-label">
-          <p-inputMask
-            mask="(999) 999-9999"
-            type="tel"
-            id="OrganizerPhone"
-            class="p-inputtext-lg"
-            formControlName="OrganizerPhone"
-            placeholder="999-999-9999"
-          ></p-inputMask>
-          <label
-            class="required"
-            *ngIf="
-              groupForm.controls['OrganizerPhone'].valid ||
-              !groupForm.controls['OrganizerPhone'].touched
-            "
-            for="OrganizerPhone"
-            >Organizer Phone</label
-          >
-          <label
-            class="required"
-            *ngIf="
-              !groupForm.controls['OrganizerPhone'].valid &&
-              groupForm.controls['OrganizerPhone'].touched
-            "
-            for="OrganizerPhone"
-            >Enter a valid Organizer Phone</label
-          >
-        </span>
-      </div>
-      <div class="col-12 md:col-4">
-        <span class="p-float-label">
-          <input
-            type="email"
-            id="OrganizerEmail"
-            class="p-inputtext-lg"
-            formControlName="OrganizerEmail"
-            pInputText
-          />
-          <label
-            class="required"
-            *ngIf="
-              groupForm.controls['OrganizerEmail'].valid ||
-              !groupForm.controls['OrganizerEmail'].touched
-            "
-            for="OrganizerEmail"
-            >Organizer Email</label
-          >
-          <label
-            class="required"
-            *ngIf="
-              !groupForm.controls['OrganizerEmail'].valid &&
-              groupForm.controls['OrganizerEmail'].touched
-            "
-            for="OrganizerEmail"
-            >Enter a valid Organizer Email</label
-          >
-        </span>
-      </div>
-    </div>
-    <p
-      *ngIf="this.validationChecked && !groupForm.valid"
-      class="formErrorMessage"
-    >
-      Please correct form errors above.
-    </p>
-    <div class="formButtons">
-      <button
-        pButton
-        pRipple
-        tabindex="-1"
-        type="button"
-        label="Cancel"
-        (click)="cancelForm()"
-        class="p-button-raised p-button-danger p-button-text"
-      ></button>
-      <button
-        pButton
-        pRipple
-        type="submit"
-        label="Submit"
-        (click)="!groupForm.valid ? showFormErrors() : submit"
-        class="p-button-raised p-button-secondary"
-      ></button>
-    </div>
-  </form>
-  <p-confirmDialog
-    [style]="{ width: '50vw' }"
-    [baseZIndex]="10000"
-    rejectButtonStyleClass="p-button-text"
-  ></p-confirmDialog>
 </section>
