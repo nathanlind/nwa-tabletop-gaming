@@ -9,7 +9,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 ## Running the backend server
 
-Navigate to \src\assets\server and run 'npm start'.
+Navigate to `\src\assets\server` and run `npm start`.
 
 ## Code scaffolding
 
