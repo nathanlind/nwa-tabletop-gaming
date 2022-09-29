@@ -1,6 +1,14 @@
 <section class="formContainer">
-  <h2 *ngIf="newMember">Register New Member</h2>
-  <h2 *ngIf="!newMember">Edit Member</h2>
+  <div class="formLogoAndTitle">
+    <img
+      src="../../../assets/images/d20s/d20frame_black.svg"
+      alt="A wireframe image of a D20 die."
+      width="30px"
+      height="30px"
+    />
+    <h2 *ngIf="newMember">Register New Member</h2>
+    <h2 *ngIf="!newMember">Edit Member</h2>
+  </div>
   <form [formGroup]="memberForm" (ngSubmit)="onSubmit(memberForm.value)">
     <div class="grid p-fluid">
       <div class="col-12 md:col-8">
