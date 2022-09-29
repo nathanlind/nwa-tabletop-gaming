@@ -64,8 +64,8 @@ export class GroupsComponent implements OnInit {
 
   confirmDelete(group: Group): void {
     this.confirmationService.confirm({
-        message: 'Do you want to delete this group?',
-        header: 'Delete Confirmation',
+        message: `Do you want to delete group ${group.GroupName}?`,
+        header: `Delete Confirmation - ${group.GroupName}`,
         icon: 'pi pi-info-circle',
         accept: () => {
             this.deleteGroup(group);
