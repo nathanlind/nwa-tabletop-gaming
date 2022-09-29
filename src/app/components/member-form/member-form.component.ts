@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ConfirmationService } from 'primeng/api';
-import { Subject } from 'rxjs';
 import { RoutingGuard } from 'src/app/guards/routing.guard';
 
 import { Group } from 'src/app/models/group.model';
@@ -117,9 +116,7 @@ export class MemberFormComponent implements OnInit {
     private groupService: GroupService,
     private fb: FormBuilder,
     private router: Router,
-    private routingGuard: RoutingGuard,
-    private titleService: Title,
-    private confirmationService: ConfirmationService) { }
+    private titleService: Title) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('NWATG | Members')

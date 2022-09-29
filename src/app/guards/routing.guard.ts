@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, CanDeactivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
-import { GroupFormComponent } from '../components/group-form/group-form.component';
+import { CanActivate, CanDeactivate, Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
 
