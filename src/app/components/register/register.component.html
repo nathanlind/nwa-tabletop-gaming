@@ -98,6 +98,7 @@
             type="text"
             id="password"
             class="p-inputtext-lg"
+            [feedback]="false"
             formControlName="password"
             (select)="registerForm.controls['password'].markAsTouched()"
           ></p-password>
@@ -122,6 +123,9 @@
         </span>
       </div>
     </div>
+    <p class="formErrorMessage" *ngIf="errorStatus == '403'">
+      Username is already in use. Please choose a different username.
+    </p>
     <p
       *ngIf="this.validationChecked && !registerForm.valid"
       class="formErrorMessage"
@@ -148,9 +152,4 @@
       ></button>
     </div>
   </form>
-  <p-confirmDialog
-    [style]="{ width: '50vw' }"
-    [baseZIndex]="10000"
-    rejectButtonStyleClass="p-button-text"
-  ></p-confirmDialog>
 </section>

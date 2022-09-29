@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { ConfirmationService } from 'primeng/api';
-import { RoutingGuard } from 'src/app/guards/routing.guard';
 
 import { UserService } from 'src/app/services/user.service';
 
@@ -16,6 +14,7 @@ export class RegisterComponent implements OnInit {
 
   registerForm!: FormGroup;
   username!: string;
+  errorStatus!: string;
   availabilityChecked!: boolean;
   usernameAvailable!: boolean;
   submit!: boolean;
@@ -31,6 +30,7 @@ export class RegisterComponent implements OnInit {
         },
         error: (err) => {
           console.log(err);
+          this.errorStatus = err.status;
         },
         complete: () => {
           console.log("onSubmit() called");
@@ -78,10 +78,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
     private router: Router,
-    private routingGuard: RoutingGuard,
     private userService: UserService,
-    private titleService: Title,
-    private confirmationService: ConfirmationService) { }
+    private titleService: Title) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('NWATG | Register')

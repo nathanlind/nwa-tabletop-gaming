@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { ConfirmationService } from 'primeng/api';
 
 import { UserService } from 'src/app/services/user.service';
 
@@ -55,14 +54,17 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
+  setPasswordTouched() {
+    this.loginForm.controls['password'].markAsTouched()
+  }
+
   canDeactivate(): boolean {
     return !this.loginForm.touched || this.submit
   }
   constructor(private fb: FormBuilder,
     private router: Router,
     private userService: UserService,
-    private titleService: Title,
-    private confirmationService: ConfirmationService) { }
+    private titleService: Title) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('NWATG | Login')
