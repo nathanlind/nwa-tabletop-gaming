@@ -14,3 +14,10 @@ form {
 form > * {
   margin: 1.2em;
 }
+
+a {
+  color: #fa4350;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
