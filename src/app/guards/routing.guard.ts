@@ -21,7 +21,6 @@ export class RoutingGuard implements CanActivate, CanDeactivate<CanComponentDeac
     this.currentUser = this.userService.getCurrentUser();
     console.log(this.currentUser);
     if (!this.currentUser) {
-      console.log('inside')
       this.router.navigate(['login'])
       alert(`You haven't logged in yet.  You will be redirected to the login page.`)
       return false;
