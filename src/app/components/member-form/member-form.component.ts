@@ -20,7 +20,7 @@ import { MemberService } from 'src/app/services/member.service';
 export class MemberFormComponent implements OnInit {
 
   memberForm!: FormGroup;
-  submit: boolean = false;
+  submit!: boolean;
   currentMember!: Member;
   currentGroup!: Group;
   newMember!: boolean;
