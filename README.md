@@ -6,12 +6,12 @@ Create gaming groups that support the adding/removal of members, along with thei
 ## NwaTabletopGaming
 
 This project was generated with:
-[Angular CLI](https://github.com/angular/angular-cli) version 14.1.0
-FontAwesome version 6.2.0
-PrimeNG version 14.1.1
-PrimeIcons version 6.0.1
-PrimeFlex version 3.2.1
-RxJS version 7.5.0
+- [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0
+- FontAwesome version 6.2.0
+- PrimeNG version 14.1.1
+- PrimeIcons version 6.0.1
+- PrimeFlex version 3.2.1
+- RxJS version 7.5.0
 
 ## Development server
 
@@ -20,8 +20,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 ## Authentication
 
 App requires a user to login to access most features.  User can register a new account, or make use of test credentials:
-username: testusername
-password: testpassword
+- username: testusername
+- password: testpassword
 
 ## Running the backend server
 
@@ -29,20 +29,20 @@ Navigate to `\src\assets\server` and run `npm start`.
 
 ## API Endpoint Details
 
-GET features are provided for organizations at /api/cities
+- GET features are provided for organizations at /api/cities
 
-GET/POST/PUT/DELETE features are provided for a group at /api/groups
-GET /api/groups
-GET /api/groups/group-id
-POST /api/groups
-PUT /api/groups
-DELETE /api/groups/group-id
+- GET/POST/PUT/DELETE features are provided for a group at /api/groups
+- GET /api/groups
+- GET /api/groups/group-id
+- POST /api/groups
+- PUT /api/groups
+- DELETE /api/groups/group-id
 
-GET/POST/PUT/DELETE features are provided for members in a group at 
-GET /api/groups/group-id/members/member-id
-POST /api/groups/group-id/members
-PUT /api/groups/group-id/members
-DELETE /api/groups/group-id/members/member-id
+- GET/POST/PUT/DELETE features are provided for members in a group at 
+- GET /api/groups/group-id/members/member-id
+- POST /api/groups/group-id/members
+- PUT /api/groups/group-id/members
+- DELETE /api/groups/group-id/members/member-id
 
 ## Code scaffolding
 
