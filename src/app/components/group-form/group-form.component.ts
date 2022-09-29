@@ -125,8 +125,7 @@ export class GroupFormComponent implements OnInit {
   constructor(private groupService: GroupService,
     private fb: FormBuilder,
     private router: Router,
-    private titleService: Title,
-    private confirmationService: ConfirmationService) { }
+    private titleService: Title) { }
 
   ngOnInit(): void {
     this.titleService.setTitle('NWATG | Groups')
