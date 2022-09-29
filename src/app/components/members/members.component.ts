@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { OrderPipe } from 'ngx-order-pipe'
 import { ConfirmationService, MessageService } from 'primeng/api';
 
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlus, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faEye } from '@fortawesome/free-solid-svg-icons';
@@ -26,6 +26,7 @@ export class MembersComponent implements OnInit {
   faPenToSquare = faPenToSquare;
   faTrash = faTrash;
   faEye = faEye;
+  faUser = faUser;
 
   currentGroup!: Group;
   currentMember!: Member;

@@ -1,7 +1,15 @@
 <p-toast position="top-center" key="tc"></p-toast>
 <section class="formContainer">
-  <h2 *ngIf="newGroup">Register New Group</h2>
-  <h2 *ngIf="!newGroup">Edit Group</h2>
+  <div class="formLogoAndTitle">
+    <img
+      src="../../../assets/images/d20s/d20frame_black.svg"
+      alt="A wireframe image of a D20 die."
+      width="30px"
+      height="30px"
+    />
+    <h2 *ngIf="newGroup">Register New Group</h2>
+    <h2 *ngIf="!newGroup">Edit Group</h2>
+  </div>
   <form [formGroup]="groupForm" (ngSubmit)="onSubmit(groupForm.value)">
     <h3>Group Details</h3>
     <div class="grid p-fluid">

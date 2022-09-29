@@ -129,3 +129,15 @@ ul > li {
 #viewAllMembersControl {
   cursor: pointer;
 }
+
+#memberCount {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-content: center;
+  align-items: center;
+}
+
+#memberCount > * {
+  margin-left: 5px;
+}

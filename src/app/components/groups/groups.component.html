@@ -34,9 +34,34 @@
       class="groupCard"
     >
       <div id="groupCardHeader">
-        <div>
-          <h2>{{ group.GroupName }}</h2>
-          <h3>{{ group.CityName }}</h3>
+        <div class="cardLogoAndInfo">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            xmlns:svgjs="http://svgjs.com/svgjs"
+            version="1.1"
+            width="50"
+            height="50"
+            x="0"
+            y="0"
+            viewBox="0 0 511.996 511.996"
+            style="enable-background: new 0 0 512 512"
+            xml:space="preserve"
+            class=""
+          >
+            <g>
+              <path
+                d="m255.998 0-221.701 127.999v255.998l221.701 127.999 221.701-127.999v-255.998zm-106.089 194.748h212.178l-106.089 183.75zm5.549-30 100.54-123.651 100.541 123.651zm71.785 223.945-157.355-25.244 56.815-148.896zm158.05-174.141 56.815 148.896-157.355 25.244zm6.347-54.187-72.66-89.362 113.719 65.656zm-271.283 0-41.061-23.706 113.72-65.656zm-15 25.981-41.06 107.606v-131.312zm135.641 234.937v47.412l-113.719-65.656zm30 0 113.719-18.244-113.719 65.656zm135.642-234.937 41.06-23.706v131.311z"
+                fill="#ffffff"
+                data-original="#000000"
+                class=""
+              />
+            </g>
+          </svg>
+          <div>
+            <h2>{{ group.GroupName }}</h2>
+            <h3>{{ group.CityName }}</h3>
+          </div>
         </div>
         <div>
           <fa-icon

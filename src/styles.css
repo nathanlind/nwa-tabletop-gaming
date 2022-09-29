@@ -8,14 +8,36 @@ body {
   height: 100vh;
 }
 
-span.required {
-  color: #e24c4c;
-}
-
 .headerFooter {
   background-color: #fff;
   color: #000;
   width: 100%;
+}
+
+.cardLogoAndInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+.cardLogoAndInfo > * {
+  margin-right: 10px;
+}
+
+.formLogoAndTitle {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  margin: 20px 0 0 20px;
+}
+
+.formLogoAndTitle > h2 {
+  font-size: 30px;
+  margin-left: 5px;
 }
 
 .groupCard {

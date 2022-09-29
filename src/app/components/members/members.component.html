@@ -3,11 +3,20 @@
   <div class="widthContainer">
     <div class="groupCard" routerLink="/groups" routerLinkActive="active">
       <div id="groupCardHeaderSolo">
-        <div>
-          <h2>{{ currentGroup.GroupName }}</h2>
-          <h3>{{ currentGroup.CityName }}</h3>
+        <div class="cardLogoAndInfo">
+          <img
+            src="../../../assets/images/d20s/d20frame_white.svg"
+            height="50px"
+            width="50px"
+            alt="A wireframe of a D20 die."
+          />
+          <div>
+            <h2>{{ currentGroup.GroupName }}</h2>
+            <h3>{{ currentGroup.CityName }}</h3>
+          </div>
         </div>
-        <div>
+        <div id="memberCount">
+          <fa-icon [icon]="faUser"></fa-icon>
           <h2>
             Members: {{ currentGroup.Members.length }} /
             {{ currentGroup.MaxGroupSize }}
@@ -57,9 +66,7 @@
         id="memberCard"
       >
         <div id="memberCardHeader">
-          <div>
-            <h2>{{ member.MemberName }}</h2>
-          </div>
+          <h2>{{ member.MemberName }}</h2>
           <div>
             <fa-icon
               [icon]="faPenToSquare"
