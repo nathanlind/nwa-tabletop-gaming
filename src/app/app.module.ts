@@ -18,6 +18,8 @@ import { PasswordModule } from 'primeng/password';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { InputNumberModule } from 'primeng/inputnumber';
+
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -66,7 +68,8 @@ import { TimeFormatPipe } from './pipes/timeFormat.pipe';
     PasswordModule,
     OrderModule,
     ConfirmDialogModule,
-    ToastModule
+    ToastModule,
+    InputNumberModule
   ],
   providers: [Title, ConfirmationService, MessageService],
   bootstrap: [AppComponent]
