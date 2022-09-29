@@ -1,5 +1,10 @@
 section {
-  margin: 20px 25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  margin: 20px;
 }
 
 form {
@@ -16,4 +21,8 @@ form > * {
 
 #usernameAvailable {
   color: #008000;
+}
+
+.formContainer {
+  max-width: 600px;
 }

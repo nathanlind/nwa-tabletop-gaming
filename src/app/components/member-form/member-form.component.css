@@ -1,5 +1,10 @@
 section {
-  margin: 20px 25vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  margin: 20px;
 }
 
 form {
@@ -8,4 +13,8 @@ form {
 
 form > * {
   margin: 1.2em;
+}
+
+.formContainer {
+  max-width: 700px;
 }

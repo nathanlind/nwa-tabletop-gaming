@@ -1,5 +1,10 @@
 section {
-  margin: 20px 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  margin: 20px;
 }
 
 form {
@@ -16,4 +21,8 @@ input {
 
 #meetingTime {
   padding: 10px;
+}
+
+.formContainer {
+  max-width: 1000px;
 }
