@@ -16,10 +16,12 @@ import { GroupService } from 'src/app/services/group.service';
 export class GroupFormComponent implements OnInit {
 
   groupForm!: FormGroup;
-  submit!: boolean;
   currentGroup!: Group;
   newGroup!: boolean;
   validationChecked!: boolean
+  submit!: boolean;
+  emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+
 
   cities = [
     'Springdale',
@@ -103,7 +105,7 @@ export class GroupFormComponent implements OnInit {
           GroupName: [group.GroupName, Validators.required],
           OrganizerName: [group.OrganizerName, Validators.required],
           OrganizerPhone: [group.OrganizerPhone, Validators.required],
-          OrganizerEmail: [group.OrganizerEmail, Validators.required],
+          OrganizerEmail: [group.OrganizerEmail, [Validators.required, Validators.pattern(this.emailPattern)]],
           PrimaryGame: [group.PrimaryGame, Validators.required],
           MeetingDay: [group.MeetingDay, Validators.required],
           MeetingTime:[group.MeetingTime, Validators.required],

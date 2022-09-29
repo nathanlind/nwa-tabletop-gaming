@@ -18,18 +18,19 @@ import { MemberService } from 'src/app/services/member.service';
 export class MemberFormComponent implements OnInit {
 
   memberForm!: FormGroup;
-  submit!: boolean;
   currentMember!: Member;
   currentGroup!: Group;
   newMember!: boolean;
   validationChecked!: boolean;
+  submit!: boolean;
+  emailPattern: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
   createForm(member: Member): void {
     this.memberForm = this.fb.group({
       MemberId: [member.MemberId],
       MemberName: [member.MemberName, Validators.required],
       MemberPhone: [member.MemberPhone, Validators.required],
-      MemberEmail: [member.MemberEmail, Validators.required]
+      MemberEmail: [member.MemberEmail, [Validators.required, Validators.pattern(this.emailPattern)]]
     })
   }
 
