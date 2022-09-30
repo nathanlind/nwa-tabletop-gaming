@@ -23,15 +23,15 @@ export class RegisterComponent implements OnInit {
   onSubmit(formValues: any): void {
     console.log(formValues);
     if(this.registerForm.valid) {
-      this.submit = true;
+
       this.userService.registerUser(formValues).subscribe({
         next: (res:any) => {
           console.log(res);
+          this.submit = true;
         },
         error: (err) => {
           console.log(err);
           this.errorStatus = err.status;
-          this.submit = false;
         },
         complete: () => {
           console.log("onSubmit() called");
@@ -79,7 +79,7 @@ export class RegisterComponent implements OnInit {
   }
 
   canDeactivate(): boolean {
-    return !this.registerForm.touched || this.submit
+    return !this.registerForm.touched || this.submit;
   }
 
   constructor(private fb: FormBuilder,

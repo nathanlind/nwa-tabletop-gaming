@@ -37,7 +37,6 @@ export class MemberFormComponent implements OnInit {
   onSubmit(formValues: any): void {
     console.log(formValues);
     if (this.memberForm.valid) {
-      this.submit = true;
       if (this.newMember) {
         this.addMember(formValues);
       } else if (!this.newMember) {
@@ -50,11 +49,11 @@ export class MemberFormComponent implements OnInit {
     this.memberService.addMemberToGroup(formValues, this.currentGroup.GroupId).subscribe({
       next: (res:any) => {
         console.log(res);
+        this.submit = true;
         this.memberService.updateCurrentMember(formValues);
       },
       error: (err) => {
         console.log(err);
-        this.submit = false;
       },
       complete: () => {
         console.log("onSubmit() called");
@@ -77,11 +76,11 @@ export class MemberFormComponent implements OnInit {
     this.memberService.editMemberInGroup(formValues, this.currentGroup.GroupId).subscribe({
       next: (res:any) => {
         console.log(res);
+        this.submit = true;
         this.memberService.updateCurrentMember(formValues);
       },
       error: (err) => {
         console.log(err);
-        this.submit = false;
       },
       complete: () => {
         console.log("onSubmit() called");

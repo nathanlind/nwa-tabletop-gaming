@@ -45,7 +45,6 @@ export class GroupFormComponent implements OnInit {
   onSubmit(formValues: any): void {
     console.log(formValues);
     if (this.groupForm.valid) {
-      this.submit = true;
       if (this.newGroup) {
         this.addGroup(formValues);
       } else if (!this.newGroup) {
@@ -58,11 +57,11 @@ export class GroupFormComponent implements OnInit {
     this.groupService.addGroup(formValues).subscribe({
       next: (group: Group) => {
         console.log(group);
+        this.submit = true;
         this.addOrganizerAsMember(formValues, group.GroupId);
       },
       error: (err) => {
         console.log(err);
-        this.submit = false;
       },
       complete: () => {
         console.log("onSubmit() called");
@@ -73,11 +72,11 @@ export class GroupFormComponent implements OnInit {
   editGroup(formValues: any) {
     this.groupService.editGroup(formValues).subscribe({
       next: (res:any) => {
+        this.submit = true;
         console.log(res);
       },
       error: (err) => {
         console.log(err);
-        this.submit = false;
       },
       complete: () => {
         console.log("onSubmit() called");
