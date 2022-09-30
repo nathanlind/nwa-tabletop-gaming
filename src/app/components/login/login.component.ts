@@ -20,16 +20,15 @@ export class LoginComponent implements OnInit {
   onSubmit(formValues: any): void {
     console.log(formValues);
     if(this.loginForm.valid) {
-    this.submit = true;
       this.userService.login(formValues).subscribe({
         next: (res:any) => {
           console.log(res);
+          this.submit = true;
           this.userService.updateCurrentUser(res);
         },
         error: (err) => {
           console.log(err);
           this.errorStatus = err.status;
-          this.submit = false;
         },
         complete: () => {
           console.log("onSubmit() called");
