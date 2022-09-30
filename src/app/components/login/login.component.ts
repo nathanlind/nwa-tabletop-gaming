@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
         error: (err) => {
           console.log(err);
           this.errorStatus = err.status;
+          this.submit = false;
         },
         complete: () => {
           console.log("onSubmit() called");

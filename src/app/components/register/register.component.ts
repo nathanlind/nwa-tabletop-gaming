@@ -31,6 +31,7 @@ export class RegisterComponent implements OnInit {
         error: (err) => {
           console.log(err);
           this.errorStatus = err.status;
+          this.submit = false;
         },
         complete: () => {
           console.log("onSubmit() called");
@@ -62,6 +63,7 @@ export class RegisterComponent implements OnInit {
   showFormErrors() {
     this.registerForm.markAllAsTouched();
     this.validationChecked = true;
+    this.submit = false;
   }
 
   createForm(): void {

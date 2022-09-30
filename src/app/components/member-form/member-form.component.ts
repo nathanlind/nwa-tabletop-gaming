@@ -54,6 +54,7 @@ export class MemberFormComponent implements OnInit {
       },
       error: (err) => {
         console.log(err);
+        this.submit = false;
       },
       complete: () => {
         console.log("onSubmit() called");
@@ -80,6 +81,7 @@ export class MemberFormComponent implements OnInit {
       },
       error: (err) => {
         console.log(err);
+        this.submit = false;
       },
       complete: () => {
         console.log("onSubmit() called");
